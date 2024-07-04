@@ -1,0 +1,174 @@
+{
+  "id": "b540ea57eb1f489eaca9ccbda28b56d9",
+  "playerData": {
+    "position": {
+      "x": -1.99547052,
+      "y": -29.0,
+      "z": 3.88815641
+    },
+    "rotation": {
+      "x": -135.899918,
+      "y": -17.0000286
+    },
+    "localData": {
+      "health": 52,
+      "playerItems": {
+        "playerItem_0": {
+          "recordingTime": 0,
+          "batteryEnergy": 0.0,
+          "nightVision": false
+        },
+        "playerItem_1": {},
+        "playerItem_2": {},
+        "playerItem_3": {
+          "flashlightAttached": false
+        },
+        "playerItem_4": {
+          "batteryEnergy": 0.0
+        },
+        "playerItem_5": {
+          "currentFuel": 60.0
+        },
+        "playerItem_6": {},
+        "playerItem_7": {}
+      }
+    },
+    "globalData": {
+      "inventory": {
+        "expanded": 0,
+        "items": {
+          "item_0": {
+            "item": "1a62d00e739445248211bcfbc6189138",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "customData": {}
+          },
+          "item_1": {
+            "item": "21cc6375d5614192aac1fedce6147cfa",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 2,
+              "y": 0
+            },
+            "customData": {
+              "level": "red"
+            }
+          },
+          "item_2": {
+            "item": "9c45e9931ae9492dba1cf41854f95de0",
+            "quantity": 6,
+            "orientation": 0,
+            "position": {
+              "x": 1,
+              "y": 0
+            },
+            "customData": {}
+          },
+          "item_3": {
+            "item": "96cdd54e574046aeb73adf165af2a6f5",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 3,
+              "y": 0
+            },
+            "customData": {
+              "level": "green"
+            }
+          }
+        },
+        "shortcuts": {
+          "shortcut_0": "{}",
+          "shortcut_1": "{}",
+          "shortcut_2": "{}",
+          "shortcut_3": "{}"
+        }
+      },
+      "objectives": {
+        "TryPuzzles": {
+          "isCompleted": false,
+          "subObjectives": {
+            "TryElectricCircuit": {
+              "completeCount": 0,
+              "isCompleted": false
+            },
+            "TryLevers": {
+              "completeCount": 0,
+              "isCompleted": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "worldState": {
+    "worldSaveables": {
+      "DraggableItem.b5b3779d12e0f1d4a9098b1963586ab3": {
+        "position": {
+          "x": -4.617,
+          "y": -57.1664963,
+          "z": -0.15700008
+        },
+        "rotation": {
+          "x": 270.0,
+          "y": 9.486491E-05,
+          "z": 0.0
+        }
+      },
+      "TimedInteractEvent.e22929b9c6f2f464a949d9a3354e0f29": {
+        "interactOnce": false,
+        "isInteractTimed": false
+      },
+      "DraggableItem.3e2b9368e3700744f8664dff8ac109bf": {
+        "position": {
+          "x": -16.6331253,
+          "y": -58.9675026,
+          "z": 0.172575653
+        },
+        "rotation": {
+          "x": 270.0,
+          "y": 351.4401,
+          "z": 0.0
+        }
+      },
+      "SaveableObject.ca143818ddf91124da107fa8c09ade69": {
+        "position": {
+          "x": 0.128909722,
+          "y": -29.0,
+          "z": 3.502521
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 353.799652,
+          "z": 0.0
+        }
+      },
+      "NPCHealth.34224b1e11d66db4e833e32b097cb749": {
+        "position": {
+          "x": -18.6134033,
+          "y": -58.9676666,
+          "z": 4.86804152
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 208.481689,
+          "z": 0.0
+        },
+        "health": 0
+      },
+      "TimedInteractEvent.32d7c672cd292fe4b8169e09e4e878d9": {
+        "interactOnce": false,
+        "isInteractTimed": false
+      },
+      "ElevatorSystem.cf215f591ae2bf740a0356ec18268f9b": {
+        "floor": 1
+      }
+    },
+    "runtimeSaveables": {}
+  }
+}

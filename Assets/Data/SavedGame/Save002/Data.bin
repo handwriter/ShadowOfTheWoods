@@ -1,0 +1,121 @@
+{
+  "id": "411a73a8e77d45009e21d6b239bfde60",
+  "playerData": {
+    "position": {
+      "x": 25.0,
+      "y": 0.0,
+      "z": 3.0
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "localData": {
+      "health": 52,
+      "playerItems": {
+        "playerItem_0": {
+          "recordingTime": 0,
+          "batteryEnergy": 0.0,
+          "nightVision": false
+        },
+        "playerItem_1": {},
+        "playerItem_2": {},
+        "playerItem_3": {
+          "flashlightAttached": false
+        },
+        "playerItem_4": {
+          "batteryEnergy": 0.0
+        },
+        "playerItem_5": {
+          "currentFuel": 60.0
+        },
+        "playerItem_6": {},
+        "playerItem_7": {}
+      }
+    },
+    "globalData": {
+      "inventory": {
+        "expanded": 0,
+        "items": {
+          "item_0": {
+            "item": "1a62d00e739445248211bcfbc6189138",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "customData": {}
+          },
+          "item_1": {
+            "item": "21cc6375d5614192aac1fedce6147cfa",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 2,
+              "y": 0
+            },
+            "customData": {
+              "level": "red"
+            }
+          },
+          "item_2": {
+            "item": "9c45e9931ae9492dba1cf41854f95de0",
+            "quantity": 6,
+            "orientation": 0,
+            "position": {
+              "x": 1,
+              "y": 0
+            },
+            "customData": {}
+          },
+          "item_3": {
+            "item": "96cdd54e574046aeb73adf165af2a6f5",
+            "quantity": 1,
+            "orientation": 0,
+            "position": {
+              "x": 3,
+              "y": 0
+            },
+            "customData": {
+              "level": "green"
+            }
+          }
+        },
+        "shortcuts": {
+          "shortcut_0": "{}",
+          "shortcut_1": "{}",
+          "shortcut_2": "{}",
+          "shortcut_3": "{}"
+        }
+      },
+      "objectives": {
+        "TryPuzzles": {
+          "isCompleted": false,
+          "subObjectives": {
+            "TryElectricCircuit": {
+              "completeCount": 0,
+              "isCompleted": false
+            },
+            "TryLevers": {
+              "completeCount": 0,
+              "isCompleted": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "worldState": {
+    "worldSaveables": {
+      "RainingSet.a4773fa883b8bff4d972e51b60de8a86": {
+        "raining": true
+      },
+      "TimedInteractEvent.9850e9eaf96cddc44b0d0bd46fa944ab": {
+        "interactOnce": false,
+        "isInteractTimed": false
+      }
+    },
+    "runtimeSaveables": {}
+  }
+}

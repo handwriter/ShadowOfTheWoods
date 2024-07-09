@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocalizationAsset: {fileID: 11400000, guid: eb428cfc60b31bc43ad7ff159b1157e4, type: 2}
+  ShowWarnings: 1
 --- !u!114 &739956880366519295
 MonoBehaviour:
   m_ObjectHideFlags: 0

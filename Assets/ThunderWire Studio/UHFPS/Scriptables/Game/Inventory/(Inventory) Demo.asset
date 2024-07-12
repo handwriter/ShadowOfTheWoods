@@ -291,12 +291,12 @@ MonoBehaviour:
       Settings:
         isUsable: 1
         isStackable: 0
-        isExaminable: 0
+        isExaminable: 1
         isCombinable: 0
         isDroppable: 0
         isDiscardable: 0
         canBindShortcut: 1
-        alwaysShowQuantity: 1
+        alwaysShowQuantity: 0
       UsableSettings:
         usableType: 0
         playerItemIndex: 3

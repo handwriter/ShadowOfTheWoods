@@ -249,7 +249,7 @@ namespace UHFPS.Editors
                         }
                     }
 
-                    if (Properties["Quantity"].intValue < 1) Properties["Quantity"].intValue = 1;
+                    if (Properties["Quantity"].intValue < 1) Properties["Quantity"].intValue = 0;
                 }
             }
             serializedObject.ApplyModifiedProperties();

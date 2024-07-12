@@ -45,7 +45,7 @@ namespace UHFPS.Runtime
 
         public float MessageTime = 3f;
 
-        public ushort Quantity = 1;
+        public ushort Quantity = 0;
         public ushort SlotsToExpand = 1;
         public bool ExpandRows;
 
@@ -107,7 +107,7 @@ namespace UHFPS.Runtime
 
         private void Awake()
         {
-            if(IsCustomExamine)
+            if (IsCustomExamine)
             {
                 foreach (var col in CollidersEnable)
                 {
@@ -123,18 +123,23 @@ namespace UHFPS.Runtime
 
         private void Start()
         {
+            Debug.Log($"Initial Quantity: {Quantity}");
+
             if (InteractableType != InteractableTypeEnum.InventoryItem || !UseInventoryTitle)
                 InteractTitle.SubscribeGloc();
 
-            if(ExamineType != ExamineTypeEnum.None)
+            if (ExamineType != ExamineTypeEnum.None)
                 ExamineTitle.SubscribeGloc();
 
-            if(ExamineType != ExamineTypeEnum.None && IsPaper)
+            if (ExamineType != ExamineTypeEnum.None && IsPaper)
                 PaperText.SubscribeGloc();
 
-            if(MessageType == MessageTypeEnum.Hint)
+            if (MessageType == MessageTypeEnum.Hint)
                 HintMessage.SubscribeGloc();
+
+            Debug.Log($"Quantity after initialization: {Quantity}");
         }
+
 
         public void OnInteract()
         {
@@ -161,12 +166,12 @@ namespace UHFPS.Runtime
 
         public void EnabledState(bool enabled)
         {
-            if (!enabled && SaveGameManager.HasReference) 
+            if (!enabled && SaveGameManager.HasReference)
                 SaveGameManager.RemoveSaveable(gameObject);
 
-            if(DisableType == DisableTypeEnum.Deactivate)
+            if (DisableType == DisableTypeEnum.Deactivate)
                 gameObject.SetActive(enabled);
-            else if(DisableType == DisableTypeEnum.Destroy && !enabled)
+            else if (DisableType == DisableTypeEnum.Destroy && !enabled)
                 Destroy(gameObject);
         }
 

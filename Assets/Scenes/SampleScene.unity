@@ -75055,7 +75055,7 @@ MonoBehaviour:
     CrouchSpeed: 1
     JumpHeight: 1
   PlayerFeatures:
-    EnableStamina: 0
+    EnableStamina: 1
     RunToggle: 0
     CrouchToggle: 1
     NormalizeMovement: 0
@@ -75067,9 +75067,9 @@ MonoBehaviour:
     SlopeLimit: 40
   PlayerStamina:
     JumpExhaustion: 7.5
-    RunExhaustionSpeed: 0.05
-    StaminaRegenSpeed: 0.6
-    RegenerateAfter: 2
+    RunExhaustionSpeed: 0.1
+    StaminaRegenSpeed: 0.05
+    RegenerateAfter: 0
   PlayerControllerSettings:
     BaseGravity: -9.81
     PlayerWeight: 70

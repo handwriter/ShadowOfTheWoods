@@ -21,10 +21,25 @@ namespace UHFPS.Runtime.States
             {
             }
 
+            public override void OnStateUpdate()
+            {
+                base.OnStateUpdate();
+                bool runSpeed = machine.Input.y > 0 || machine.Input.y > 0 && machine.Input.x > 0;
+                if (StaminaEnabled)
+                {
+                    float stamina = machine.Stamina.Value;
+                    float exhaustionSpeed = runSpeed ? machine.PlayerStamina.RunExhaustionSpeed : machine.PlayerStamina.RunExhaustionSpeed * 0.5f;
+                    stamina = Mathf.MoveTowards(stamina, 0f, Time.deltaTime * exhaustionSpeed);
+                    machine.Stamina.OnNext(stamina);
+                }
+            }
+
             public override void OnStateEnter()
             {
                 movementSpeed = machine.PlayerBasicSettings.RunSpeed;
                 controllerState = machine.StandingState;
+                
+
                 InputManager.ResetToggledButton("Crouch", Controls.CROUCH);
             }
 

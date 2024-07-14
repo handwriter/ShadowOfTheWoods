@@ -1,6 +1,7 @@
 using UHFPS.Scriptable;
 using UHFPS.Input;
 using UnityEngine;
+using System.Drawing.Printing;
 
 namespace UHFPS.Runtime.States
 {
@@ -23,6 +24,7 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateEnter()
             {
+                Debug.Log("Run State Enter");
                 movementSpeed = machine.PlayerBasicSettings.RunSpeed;
                 controllerState = machine.StandingState;
             }
@@ -35,7 +37,6 @@ namespace UHFPS.Runtime.States
                 bool runSpeed = machine.Input.y > 0 || machine.Input.y > 0 && machine.Input.x > 0;
                 movementSpeed = runSpeed ? machine.PlayerBasicSettings.RunSpeed
                     : machine.PlayerBasicSettings.RunSpeed * 0.5f;
-
                 if (StaminaEnabled)
                 {
                     float stamina = machine.Stamina.Value;

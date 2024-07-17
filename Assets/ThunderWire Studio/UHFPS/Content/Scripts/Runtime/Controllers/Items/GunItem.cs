@@ -348,6 +348,11 @@ namespace UHFPS.Runtime
                     MotionBlender.Weight = 1f;
                 }   
             }
+
+            if (carryingBullets == 0)
+            {
+                ammoPanel.alpha = 0;
+            }
         }
 
         private void FireOneBullet()
@@ -500,10 +505,9 @@ namespace UHFPS.Runtime
 
         public override void OnItemSelect()
         {
-            CanvasGroupFader.StartFadeInstance(ammoPanel, true, 5f);
-
             bulletsInMag = inventory.GetItemQuantity(GunInventoryItem);
             carryingBullets = inventory.GetAllItemsQuantity(AmmoInventoryItem);
+            if (carryingBullets != 0) CanvasGroupFader.StartFadeInstance(ammoPanel, true, 5f);
             UpdateAmmoText();
 
             ItemObject.SetActive(true);
@@ -519,8 +523,15 @@ namespace UHFPS.Runtime
 
         public override void OnItemDeselect()
         {
-            CanvasGroupFader.StartFadeInstance(ammoPanel, false, 5f,
+            if (ammoPanel.alpha != 0)
+            {
+                CanvasGroupFader.StartFadeInstance(ammoPanel, false, 5f,
                 () => ammoPanel.gameObject.SetActive(false));
+            }
+            else
+            {
+                ammoPanel.gameObject.SetActive(false);
+            }
 
             StopAllCoroutines();
             StartCoroutine(HideGun());
@@ -546,8 +557,7 @@ namespace UHFPS.Runtime
 
         public override void OnItemActivate()
         {
-            ammoPanel.alpha = 1f;
-            ammoPanel.gameObject.SetActive(true);
+            
 
             StopAllCoroutines();
             ItemObject.SetActive(true);
@@ -555,6 +565,8 @@ namespace UHFPS.Runtime
 
             bulletsInMag = inventory.GetItemQuantity(GunInventoryItem);
             carryingBullets = inventory.GetAllItemsQuantity(AmmoInventoryItem);
+            ammoPanel.alpha = carryingBullets == 0 ? 0 : 1;
+            ammoPanel.gameObject.SetActive(true);
 
             isBusy = false;
             isEquipped = true;

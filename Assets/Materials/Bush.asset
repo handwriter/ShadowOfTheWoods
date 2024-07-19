@@ -30,11 +30,11 @@ Material:
   - _ALPHATEST_ON
   - _BUILTIN_ALPHATEST_ON
   - _BUILTIN_AlphaClip
+  m_InvalidKeywords:
   - _DISABLE_DECALS
   - _DISABLE_SSR
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
@@ -70,19 +70,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_8713F080:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 66da9a4bf33668a43966cad22b4c8881, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9DCAAA49:
-        m_Texture: {fileID: 2800000, guid: e1ef57925b58e624bb0ddcc506f28e94, type: 3}
+        m_Texture: {fileID: 2800000, guid: cdbce8ce9d872a742aad92e6a0e6b0eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_A5E0646:
-        m_Texture: {fileID: 2800000, guid: 0e1771a5cd057014db71494d5a458d40, type: 3}
+        m_Texture: {fileID: 2800000, guid: aeecb801affab284aae9a7a0042827a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E1B0D043:
-        m_Texture: {fileID: 2800000, guid: eb04da16cbc16c9488332336fb11b965, type: 3}
+        m_Texture: {fileID: 2800000, guid: 296f1274aa92d75408c221dd26d2ec68, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Thickness_Map:

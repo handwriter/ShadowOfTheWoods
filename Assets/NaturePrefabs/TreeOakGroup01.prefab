@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -5311869032115646154}
+  - component: {fileID: -5990612981376765842}
   m_Layer: 0
   m_Name: TreeOakGroup01
   m_TagString: Untagged
@@ -114,6 +115,27 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2300000}
   m_Enabled: 1
+--- !u!65 &-5990612981376765842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.9077587, y: 49.857918, z: 15.54491}
+  m_Center: {x: 1.2129947, y: 21.74896, z: -0.40232685}
 --- !u!21 &2100000
 Material:
   serializedVersion: 8

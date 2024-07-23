@@ -73,10 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10150eac725ec0e43ac5b8e14da2cfdd, type: 3}
   m_Name: Chase
   m_EditorClassIdentifier: 
-  RunSpeed: 3
+  RunSpeed: 6
   ChaseStoppingDistance: 1
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 0.5
   VeryClosePlayerDetection: 2
   AttackFOV: 30
-  AttackDistance: 2
+  AttackDistance: 20

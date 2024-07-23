@@ -7,5 +7,10 @@ namespace UHFPS.Runtime
     public class AIWaypoint : MonoBehaviour
     {
         public GameObject ReservedBy;
+
+        private void Start()
+        {
+            Debug.Log(gameObject.name);
+        }
     }
 }

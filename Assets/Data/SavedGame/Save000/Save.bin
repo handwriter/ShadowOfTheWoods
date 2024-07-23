@@ -1,9 +1,9 @@
 {
-  "id": "a39e7dab4058484d81c90d8be9501858",
-  "scene": "Elevator",
-  "dateTime": "2024-07-03 01:45:47",
-  "timePlayed": 109.153786,
-  "saveType": 2,
+  "id": "ae284f6e8ba14036950ca35abdd28bec",
+  "scene": "SampleScene",
+  "dateTime": "2024-07-22 19:44:59",
+  "timePlayed": 1542.57446,
+  "saveType": 0,
   "data": "Data.bin",
   "thumbnail": "Thumbnail.png"
 }

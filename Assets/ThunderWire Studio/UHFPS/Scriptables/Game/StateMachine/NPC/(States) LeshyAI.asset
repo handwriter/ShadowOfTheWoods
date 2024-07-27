@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477928472f4e28244b9c7556828f5bf5, type: 3}
   m_Name: Patrol
   m_EditorClassIdentifier: 
-  Patrol: 1
+  Patrol: 0
   PatrolType: 1
   PatrolTime: 3
   WalkSpeed: 4

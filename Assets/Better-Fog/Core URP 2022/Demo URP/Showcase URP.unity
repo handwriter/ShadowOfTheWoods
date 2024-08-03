@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 630048}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.9, y: 4.453, z: 7.2}
+  m_LocalPosition: {x: 2223.39, y: 54.68, z: 380}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11641,7 +11641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &218196218
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -13860,7 +13860,7 @@ Transform:
   m_GameObject: {fileID: 269873718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -70.75, y: -12.545, z: 22.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44150,16 +44150,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2621
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.5199995
+      value: -6.56
       objectReference: {fileID: 0}
     - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: -14.33
       objectReference: {fileID: 0}
     - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.55
+      value: 18.01
       objectReference: {fileID: 0}
     - target: {fileID: 4701337305738002, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44190,12 +44198,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 4.16
       objectReference: {fileID: 0}
     - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72417,7 +72453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1422192313
 Transform:
   m_ObjectHideFlags: 0
@@ -78728,7 +78764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1560930548
 Transform:
   m_ObjectHideFlags: 0
@@ -91897,7 +91933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1849474395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103756,7 +103792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2094052548
 MonoBehaviour:
   m_ObjectHideFlags: 0

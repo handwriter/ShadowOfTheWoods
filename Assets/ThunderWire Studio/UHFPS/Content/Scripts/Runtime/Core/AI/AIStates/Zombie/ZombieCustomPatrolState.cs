@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace UHFPS.Runtime.States
 {
-    public class ZombiePatrolState : AIStateAsset
+    public class ZombieCustomPatrolState : AIStateAsset
     {
         public enum WaypointPatrolEnum { InOrder, Random }
         public enum PatrolTypeEnum { None, WaitTime }
@@ -22,19 +22,21 @@ namespace UHFPS.Runtime.States
         public float PatrolStoppingDistance = 1f;
         public float VeryClosePlayerDetection = 1f;
 
+        
+
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
-            return new PatrolState(machine, group, this);
+            return new CustomPatrolState(machine, group, this);
         }
 
         public override string GetStateKey() => ToString();
 
-        public override string ToString() => "Patrol";
+        public override string ToString() => "CustomPatrol";
 
-        public class PatrolState : FSMAIState
+        public class CustomPatrolState : FSMAIState
         {
             private readonly ZombieStateGroup Group;
-            private readonly ZombiePatrolState State;
+            private readonly ZombieCustomPatrolState State;
 
             private AIWaypointsGroup waypointsGroup;
             private AIWaypoint currWaypoint;
@@ -44,17 +46,25 @@ namespace UHFPS.Runtime.States
             private bool isWaypointSet;
             private bool isPatrolPending;
 
-            public PatrolState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine) 
+            public CustomPatrolState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine) 
             {
                 Group = (ZombieStateGroup)group;
-                State = (ZombiePatrolState)state;
+                State = (ZombieCustomPatrolState)state;
             }
 
             public override Transition[] OnGetTransitions()
             {
-                return new Transition[] { Transition.To<ZombieChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)
-                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition)) && !IsPlayerDead)
+                return new Transition[] { Transition.To<ZombieCustomChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)
+                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition)) && !IsPlayerDead && CheckPlayerDistance())
                         };
+            }
+
+            private bool CheckPlayerDistance()
+            {
+                BookHeadController controller = agent.GetComponent<BookHeadController>();
+                Vector2 sphereCenter = new Vector2(controller.EnemyAttackSphereCenter.transform.position.x, controller.EnemyAttackSphereCenter.transform.position.z);
+                Vector2 playerPos2D = new Vector2(PlayerPosition.x, PlayerPosition.z);
+                return Vector2.Distance(sphereCenter, playerPos2D) <= controller.AttackSphereRadius;
             }
 
             public override void OnStateEnter()
@@ -82,6 +92,7 @@ namespace UHFPS.Runtime.States
             {
                 if (waypointsGroup == null)
                     return;
+
 
                 if (!isWaypointSet)
                 {

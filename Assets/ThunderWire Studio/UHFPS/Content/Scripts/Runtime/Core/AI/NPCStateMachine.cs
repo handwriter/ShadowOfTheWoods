@@ -245,7 +245,7 @@ namespace UHFPS.Runtime
                 return;
             }
 
-            throw new MissingReferenceException($"Could not find a state with type '{nextState.Name}'");
+            //throw new MissingReferenceException($"Could not find a state with type '{nextState.Name}'");
         }
 
         /// <summary>

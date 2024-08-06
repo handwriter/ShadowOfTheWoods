@@ -163,7 +163,7 @@ namespace UHFPS.Runtime
 
             if (playerHealth.IsDead || isInvisible)
                 return false;
-
+            
             bool seesPlayer = SeesObject(machine.SightsDistance, PlayerHead);
             bool isPlayerInSights = IsObjectInSights(machine.SightsFOV, PlayerPosition);
             return seesPlayer && isPlayerInSights;
@@ -210,15 +210,14 @@ namespace UHFPS.Runtime
 
                     Vector3 pointPos = waypoint.transform.position;
                     float waypointDistance = DistanceOf(pointPos);
-
                     if(waypointDistance < distance)
                     {
                         closestGroup = group;
                         closestWaypoint = waypoint;
+                        distance = waypointDistance;
                     }
                 }
             }
-
             return new(closestGroup, closestWaypoint);
         }
 

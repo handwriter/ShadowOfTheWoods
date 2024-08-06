@@ -271,11 +271,12 @@ MonoBehaviour:
   AllowCursorExamine: 0
   IsPaper: 0
   AutoShortcut: 0
+  AutoEquip: 0
   UseExamineZooming: 1
   ExamineZoomLimits:
     min: 0.3
     max: 0.4
-  ExamineDistance: 0.5
+  ExamineDistance: 0.4
   UseFaceRotation: 0
   FaceRotation: {x: 0, y: 0, z: 0}
   UseControlPoint: 1

@@ -128,8 +128,9 @@ namespace UHFPS.Runtime
 
         public override void OnUpdate()
         {
+            
             if (!isEquipped) return;
-
+            ModelController.IsUsingNightVision = isNVEnabled;
             UpdateRecordingTime();
 
             if (isBusy) return;
@@ -332,6 +333,7 @@ namespace UHFPS.Runtime
 
         public override void OnItemDeselect()
         {
+            ModelController.IsUsingNightVision = false;
             CameraAudio.SetSoundClip(CameraUnequip, play: true);
             StartCoroutine(HideCamera());
             isBusy = true;

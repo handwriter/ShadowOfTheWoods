@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4824162209256752504
+--- !u!114 &-4524331792595712071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 477928472f4e28244b9c7556828f5bf5, type: 3}
-  m_Name: Patrol
+  m_Script: {fileID: 11500000, guid: a543c979050fc33499a5707f850a000e, type: 3}
+  m_Name: CustomPatrol
   m_EditorClassIdentifier: 
   Patrol: 0
-  PatrolType: 1
+  PatrolType: 0
   PatrolTime: 3
-  WalkSpeed: 4
+  WalkSpeed: 0.5
   PatrolStoppingDistance: 1
-  VeryClosePlayerDetection: 3
-  ChaseType: 0
+  VeryClosePlayerDetection: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,12 +28,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d0431efc0b995646896f9ad148de9b5, type: 3}
-  m_Name: (States) LeshyAI
+  m_Name: (States) BookHeadAI
   m_EditorClassIdentifier: 
   AIStates:
-  - StateAsset: {fileID: -4824162209256752504}
+  - StateAsset: {fileID: -4524331792595712071}
     IsEnabled: 1
-  - StateAsset: {fileID: 8407762149507097960}
+  - StateAsset: {fileID: 7199362809682857010}
     IsEnabled: 1
   - StateAsset: {fileID: 939958431482384129}
     IsEnabled: 1
@@ -45,8 +44,8 @@ MonoBehaviour:
   AttackTrigger: Attack
   AttackState: Attack 01
   DamageRange:
-    min: 50
-    max: 70
+    min: 100
+    max: 100
 --- !u!114 &939958431482384129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ MonoBehaviour:
   SeePlayerDamage: 10
   HidingCloseDistance: 2
   PatrolTime: 5
---- !u!114 &8407762149507097960
+--- !u!114 &7199362809682857010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,13 +70,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10150eac725ec0e43ac5b8e14da2cfdd, type: 3}
-  m_Name: Chase
+  m_Script: {fileID: 11500000, guid: a02daf02295431941b9cf64f749d2705, type: 3}
+  m_Name: CustomChase
   m_EditorClassIdentifier: 
-  RunSpeed: 6
-  ChaseStoppingDistance: 1
+  RunSpeed: 3
+  ChaseStoppingDistance: 1.5
   LostPlayerPatrolTime: 5
-  LostPlayerPredictTime: 0.5
-  VeryClosePlayerDetection: 2
+  LostPlayerPredictTime: 1
+  VeryClosePlayerDetection: 1.5
   AttackFOV: 30
-  AttackDistance: 30
+  AttackDistance: 2

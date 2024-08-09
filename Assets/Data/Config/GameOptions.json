@@ -4,7 +4,7 @@
   "sensitivity": 1.0,
   "smoothing": false,
   "smoothing_speed": 1.0,
-  "show_fps": true,
+  "show_fps": false,
   "display": 0,
   "screen_fullscreen": false,
   "screen_width": 1920,
@@ -22,5 +22,6 @@
   "pp_grain": true,
   "pp_chromatic_aberration": false,
   "volume_general": 1.0,
-  "volume_music": 1.0
+  "volume_music": 1.0,
+  "show_ui": false
 }

@@ -901,7 +901,7 @@ namespace UHFPS.Runtime
         {
             yield return BackgroundFade.StartBackgroundFade(false);
             yield return new WaitForEndOfFrame();
-            SceneManager.LoadScene(SaveGameManager.MM);
+            SceneManager.LoadScene("Scenes/MainMenu");
         }
 
         private void OnPause(InputAction.CallbackContext obj)

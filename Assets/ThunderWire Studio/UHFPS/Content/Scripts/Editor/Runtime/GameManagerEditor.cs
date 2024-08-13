@@ -20,7 +20,8 @@ namespace UHFPS.Editors
                 Properties.Draw("GlobalPPVolume");
                 Properties.Draw("HealthPPVolume");
                 Properties.Draw("BackgroundFade");
-
+                Properties.Draw("DeathPanelTitles");
+                Properties.Draw("DeathTitle");
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
                 EditorGUILayout.Space(2f);

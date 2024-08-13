@@ -48,12 +48,15 @@ namespace UHFPS.Runtime
         public Volume GlobalPPVolume;
         public Volume HealthPPVolume;
         public BackgroundFader BackgroundFade;
+        public string[] DeathPanelTitles;
+        public TMPro.TMP_Text DeathTitle;
 
         #region Panels
         // Main Panels
         public CanvasGroup GamePanel;
         public CanvasGroup PausePanel;
         public CanvasGroup DeadPanel;
+        
 
         // Sub Panels
         public CanvasGroup HUDPanel;
@@ -123,6 +126,8 @@ namespace UHFPS.Runtime
 
         public GraphicReference[] GraphicReferencesRaw;
         public CompositeDisposable Disposables = new();
+
+        
 
         private bool isInputLocked;
         private bool showStaminaSlider;
@@ -685,6 +690,7 @@ namespace UHFPS.Runtime
                     GamePanel.alpha = 0;
                     PausePanel.alpha = 0;
                     DeadPanel.alpha = 1;
+                    DeathTitle.text = DeathPanelTitles[UnityEngine.Random.Range(0, DeathPanelTitles.Length)];
                     break;
                 case PanelType.MainPanel:
                     SetPanelInteractable(PanelType.GamePanel);

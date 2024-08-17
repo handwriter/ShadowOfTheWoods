@@ -108,7 +108,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.002
+  - screenRelativeHeight: 0.013651995
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2300000}
@@ -176,7 +176,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses: []
@@ -204,11 +204,18 @@ Material:
     m_Floats:
     - Animation_Cutoff: 100
     - Distance_Fade_End: 150
+    - Vector1_8651797e3e304e108dbd25f9d5a426ba: 0
+    - Vector1_a5b8b09028ce49a39f4d090894c89e22: 0.208
+    - _AlphaClip: 1
+    - _AlphaToMask: 1
     - _BUILTIN_CullMode: 2
     - _BUILTIN_QueueControl: -1
+    - _CastShadows: 1
+    - _Cull: 0
     - _QueueControl: 0
+    - _ReceiveShadows: 1
     m_Colors:
-    - _Subsurface_Scattering_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Subsurface_Scattering_Color: {r: 3.482202, g: 3.482202, b: 3.482202, a: 0}
   m_BuildTextureStacks: []
 --- !u!43 &4300000
 Mesh:
@@ -388,7 +395,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 7370
-  materialHash: 55c70efcc9d58d99350e6e6c6c39f687-772014080
+  materialHash: 342bf920adde7e49af4dae488683e839-772014080
   root:
     _uniqueID: 1
     seed: 1234

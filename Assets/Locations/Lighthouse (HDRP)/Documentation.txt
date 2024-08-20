@@ -1,0 +1,71 @@
+Lighthouse (HDRP)
+This package works only in HDRP.
+
+Lighthouse environment with high quality props, textures, and realtime lighting.
+
+10 Prefabs
+2 LODs on avg.
+Most assets have LOD's where appropriate.
+
+1 VFX graph for fog effects.
+
+1 Animation for the lighthouse light.
+
+Textures
+Flashlight (Albedo, Mask, Normal, Emissive) - 2048x2048 px.
+Lamp (Albedo, Mask, Normal, Emissive) - 2048x2048 px.
+Barrel (Albedo, Mask, Normal) - 2048x2048 px.
+Stone_lighthouse (Albedo, Mask, Normal) - 2048x2048 px.
+Details (Albedo, Mask, Normal, Emissive) - 2048x2048 px.
+Stone_ground_bricks (Albedo, Mask, Normal, Height) - 2048x2048 px.
+Stone_trim (Albedo, Mask, Normal) - 2048x2048 px.
+Tetrapod (Albedo, Mask, Normal) - 2048x2048 px.
+Fog_particle (Albedo) - 1024x1024 px.
+
+Barrel
+LOD0 1473 tris
+LOD1 692 tris
+LOD2 332 tris
+
+Flashlight
+Flashlight_glass 32 tris
+LOD0 3786 tris
+LOD1 1878 tris
+LOD2 923 tris
+LOD3 425 tris
+
+Ladder
+LOD0 1856 tris
+LOD1 927 tris
+LOD2 383 tris
+
+Lamp
+Lamp_glass 247 tris
+LOD0 4023 tris
+LOD1 1734 tris
+LOD2 866 tris
+LOD3 292 tris
+
+Lighthouse
+Lighthouse_base
+LOD0 1420 tris
+LOD1 646 tris
+Lighthouse_details
+LOD0 18191 tris
+LOD1 6318 tris
+Lighthouse_glass
+LOD0 256 tris
+LOD1 128 tris
+
+Pillar 70 tris
+
+Road_tile_01 888 tris
+
+Road_tile_02 984 tris
+
+Road_tile_03 4466 tris
+
+Tetrapod 
+LOD0 1732 tris
+LOD1 868 tris
+LOD2 222 tris

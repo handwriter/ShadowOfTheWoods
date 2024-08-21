@@ -23,5 +23,5 @@
   "pp_chromatic_aberration": false,
   "volume_general": 1.0,
   "volume_music": 1.0,
-  "show_ui": false
+  "show_ui": true
 }

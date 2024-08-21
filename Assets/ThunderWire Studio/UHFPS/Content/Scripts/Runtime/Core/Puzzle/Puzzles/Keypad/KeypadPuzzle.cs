@@ -29,6 +29,10 @@ namespace UHFPS.Runtime
         public Color GrantedColor = Color.green;
         public Color DeniedColor = Color.red;
 
+        public bool IsElectricityCollected;
+        public Color UnelectricityColor;
+        public Color DefaultElectricColor;
+
         public bool UseLights = true;
         public Light KeypadLight;
         public Color GrantedLightColor = Color.green;
@@ -128,8 +132,16 @@ namespace UHFPS.Runtime
                 base.InteractStart();
         }
 
+        public void SetElectricityState(bool newState)
+        {
+            IsElectricityCollected = newState;
+        }
+
         public override void Update()
         {
+            KeypadRenderer.material.color = IsElectricityCollected ? DefaultElectricColor : UnelectricityColor;
+            gameObject.layer = IsElectricityCollected ? 6 : 0;
+
             if (!UseInteract) base.Update();
             else if (!isActive && confirmPressed)
             {

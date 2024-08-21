@@ -60,6 +60,16 @@ namespace UHFPS.Editors
                         Properties.Draw("DeniedColor");
                         EditorDrawing.EndBorderHeaderLayout();
                     }
+
+                    if (EditorDrawing.BeginFoldoutBorderLayout(Properties["IsElectricityCollected"], new GUIContent("Electric Settings")))
+                    {
+                        Properties.Draw("IsElectricityCollected");
+                        Properties.Draw("UnelectricityColor");
+                        Properties.Draw("DefaultElectricColor");
+                        EditorDrawing.EndBorderHeaderLayout();
+                    }
+
+
                 }
 
                 EditorGUILayout.Space(2f);

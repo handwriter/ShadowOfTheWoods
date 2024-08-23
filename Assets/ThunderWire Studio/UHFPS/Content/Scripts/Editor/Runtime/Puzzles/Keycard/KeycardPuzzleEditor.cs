@@ -33,6 +33,8 @@ namespace UHFPS.Editors
                     Properties.Draw("SingleKeycard");
                     Properties.Draw("RemoveKeycardAfterUse");
                     Properties.Draw("AccessUpdateTime");
+                    Properties.Draw("CheckCustomData");
+                    Properties.Draw("CustomKey");
                 }
 
                 EditorGUILayout.Space(2f);

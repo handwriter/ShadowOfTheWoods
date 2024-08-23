@@ -10,6 +10,7 @@ public class SwampController : MonoBehaviour, IPowerConsumer
     public float ConsumeWattage { get; set; }
     public float targetYPosition;
     private bool powerState;
+    private bool valveState;
     private float _yVelocity;
     public BehaviorSubject<bool> IsTurnedOn { get; set; } = new(false);
 
@@ -18,9 +19,14 @@ public class SwampController : MonoBehaviour, IPowerConsumer
         powerState = state;
     }
 
+    public void SetupValve()
+    {
+        valveState = true;
+    }
+
     void Update()
     {
-        if (powerState)
+        if (powerState && valveState)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, Mathf.SmoothDamp(transform.localPosition.y, targetYPosition, ref _yVelocity, 5f), transform.localPosition.z);
         }

@@ -8,7 +8,7 @@ namespace UHFPS.Runtime
     [RequireComponent(typeof(AudioSource))]
     public class GeneratorFuelTank : MonoBehaviour, IInteractStart, IInteractStop, IInteractTimed
     {
-        public PowerGenerator Generator;
+        public GameObject Generator;
         public ItemGuid FuelItem;
         public string FuelProperty = "fuelLiters";
 
@@ -63,8 +63,9 @@ namespace UHFPS.Runtime
                 return;
 
             requiredCanisters.Clear();
-            float maxLiters = Generator.MaxFuelLiters;
-            float currentLiters = Generator.CurrentFuelLiters;
+            
+            float maxLiters = Generator.GetComponent<IFuelConsumer>().MaxFuelLiters;
+            float currentLiters = Generator.GetComponent<IFuelConsumer>().CurrentFuelLiters;
             float toFullLiters = maxLiters - currentLiters;
             float remainingLiters = toFullLiters;
 
@@ -121,7 +122,7 @@ namespace UHFPS.Runtime
 
         public void InteractTimed()
         {
-            Generator.RefuelGenerator(refuelLiters);
+            Generator.GetComponent<IFuelConsumer>().Refuel(refuelLiters);
             StartCoroutine(crossfader.FadeOut(FadeTime));
             refuelLiters = 0f;
 

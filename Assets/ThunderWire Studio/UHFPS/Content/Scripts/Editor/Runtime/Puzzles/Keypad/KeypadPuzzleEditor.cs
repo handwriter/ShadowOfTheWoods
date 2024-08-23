@@ -61,9 +61,9 @@ namespace UHFPS.Editors
                         EditorDrawing.EndBorderHeaderLayout();
                     }
 
-                    if (EditorDrawing.BeginFoldoutBorderLayout(Properties["IsElectricityCollected"], new GUIContent("Electric Settings")))
+                    if (EditorDrawing.BeginFoldoutBorderLayout(Properties["NeedElectricityCount"], new GUIContent("Electric Settings")))
                     {
-                        Properties.Draw("IsElectricityCollected");
+                        Properties.Draw("NeedElectricityCount");
                         Properties.Draw("UnelectricityColor");
                         Properties.Draw("DefaultElectricColor");
                         EditorDrawing.EndBorderHeaderLayout();

@@ -11,10 +11,8 @@ using UHFPS.Tools;
 
 namespace UHFPS.Runtime
 {
-    public class PowerGenerator : MonoBehaviour, ISaveable
+    public class PowerGenerator : MonoBehaviour, ISaveable, IFuelConsumer
     {
-        public float MaxFuelLiters = 10f;
-        public float CurrentFuelLiters = 10f;
 
         public SimpleSwitcher Switcher;
         public ParticleSystem ExhaustParticles;
@@ -48,6 +46,11 @@ namespace UHFPS.Runtime
         private bool generatorRunning;
 
         public int RuntimeConsumers => runtimeConsumers.Count;
+
+        public float MaxFuel;
+        public float MaxFuelLiters { get => MaxFuel; set => MaxFuel = value; }
+        public float CurrentFuel;
+        public float CurrentFuelLiters { get => CurrentFuel; set => CurrentFuel = value; }
 
         private void OnDestroy()
         {
@@ -142,7 +145,7 @@ namespace UHFPS.Runtime
             }
         }
 
-        public void RefuelGenerator(float liters)
+        public void Refuel(float liters)
         {
             CurrentFuelLiters += liters;
             if (CurrentFuelLiters > MaxFuelLiters)

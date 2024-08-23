@@ -19,6 +19,8 @@ namespace UHFPS.Runtime
         public bool UseInteract = false;
         public bool RemoveKeycardAfterUse = false;
         public float AccessUpdateTime = 0.1f;
+        public bool CheckCustomData;
+        public string CustomKey;
 
         public bool CheckKeycardLevel = true;
         public string RequiredLevel = "yellow";
@@ -70,7 +72,12 @@ namespace UHFPS.Runtime
 
         public void OnInventoryItemSelect(Inventory inventory, InventoryItem selectedItem)
         {
-            if (SingleKeycard)
+            if (CheckCustomData)
+            {
+                if (selectedItem.CustomData.GetValue<string>("key") != CustomKey)
+                    return;
+            }
+            else if (SingleKeycard)
             {
                 if (selectedItem.ItemGuid != KeycardItem)
                     return;

@@ -29,7 +29,8 @@ namespace UHFPS.Runtime
         public Color GrantedColor = Color.green;
         public Color DeniedColor = Color.red;
 
-        public bool IsElectricityCollected;
+        public int NeedElectricityCount;
+        private int _currentElectricCount;
         public Color UnelectricityColor;
         public Color DefaultElectricColor;
 
@@ -132,15 +133,15 @@ namespace UHFPS.Runtime
                 base.InteractStart();
         }
 
-        public void SetElectricityState(bool newState)
+        public void IncrementElectricity()
         {
-            IsElectricityCollected = newState;
+            _currentElectricCount += 1;
         }
 
         public override void Update()
         {
-            KeypadRenderer.material.color = IsElectricityCollected ? DefaultElectricColor : UnelectricityColor;
-            gameObject.layer = IsElectricityCollected ? 6 : 0;
+            KeypadRenderer.material.color = _currentElectricCount == NeedElectricityCount ? DefaultElectricColor : UnelectricityColor;
+            gameObject.layer = _currentElectricCount == NeedElectricityCount ? 6 : 0;
 
             if (!UseInteract) base.Update();
             else if (!isActive && confirmPressed)

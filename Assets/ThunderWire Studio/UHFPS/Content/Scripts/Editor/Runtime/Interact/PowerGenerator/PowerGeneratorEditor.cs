@@ -29,8 +29,8 @@ namespace UHFPS.Editors
                 EditorGUILayout.Space();
                 EditorGUILayout.BeginVertical(GUI.skin.box);
                 {
-                    Properties.Draw("MaxFuelLiters");
-                    Properties.Draw("CurrentFuelLiters");
+                    Properties.Draw("MaxFuel");
+                    Properties.Draw("CurrentFuel");
                 }
                 EditorGUILayout.EndVertical();
 

@@ -14,7 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -225,7 +225,7 @@ Material:
     - _BaseColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
     - _CardColor: {r: 1, g: 0.04794614, b: 0, a: 1}
     - _CloseColor: {r: 7.129739, g: 0.2052207, b: 0, a: 0}
-    - _Color: {r: 0.3207547, g: 0.13163048, b: 0.13163048, a: 1}
+    - _Color: {r: 0.2735849, g: 0, b: 0, a: 1}
     - _Diffusion_Profile_Asset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

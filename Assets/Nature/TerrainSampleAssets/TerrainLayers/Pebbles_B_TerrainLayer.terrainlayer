@@ -7,9 +7,9 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pebbles_B_TerrainLayer
-  m_DiffuseTexture: {fileID: 2800000, guid: 2dd80f1b9b10057439e2db179b557ebc, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: abaa3d4f433df074389559003412235d, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: 5c4a8c65594fb714388c177bbed315bc, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 5d37d5bde9315564ebe781715698880c, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: a5f643b0c929cfa429af186e49f2c563, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: bfb4317a8b222b2478cb3bb4cd555186, type: 3}
   m_TileSize: {x: 10, y: 10}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}

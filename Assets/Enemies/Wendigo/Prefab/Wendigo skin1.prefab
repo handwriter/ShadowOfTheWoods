@@ -461,13 +461,13 @@ MonoBehaviour:
   DisableCorpse: 1
   CorpseRemoveTime: 10
   DamageSounds:
-  - {fileID: 8300000, guid: 395a20a5940f9074fa6ffe62af919b39, type: 3}
-  - {fileID: 8300000, guid: a9ce26b5189a6a245b449f91b3ef5bd4, type: 3}
-  - {fileID: 8300000, guid: 49b69091c36a8b74597c38f5da65c28b, type: 3}
-  - {fileID: 8300000, guid: 9ee871d6c15bbbf45a73ae73675a0da9, type: 3}
+  - {fileID: 8300000, guid: 10d4e22bb5d79463a940c7a3b8c13c89, type: 3}
+  - {fileID: 8300000, guid: 579a85b888c2b489a906a2721694262d, type: 3}
+  - {fileID: 8300000, guid: aa2fb21a989be4e0dbdcca4f63ca8806, type: 3}
+  - {fileID: 8300000, guid: aa2fb21a989be4e0dbdcca4f63ca8806, type: 3}
   DamageVolume: 1
   DeathSound:
-    audioClip: {fileID: 8300000, guid: d5fa50f4447ace44d9dc3e7106eedfce, type: 3}
+    audioClip: {fileID: 8300000, guid: aa2fb21a989be4e0dbdcca4f63ca8806, type: 3}
     volume: 1
   OnTakeDamage:
     m_PersistentCalls:

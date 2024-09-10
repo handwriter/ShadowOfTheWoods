@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   shadows:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: -0.025359252}
@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.03702656}
+    m_Value: {x: 0.7622021, y: 1, z: 0.8760924, w: 0.03702656}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   color:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
@@ -542,7 +542,7 @@ MonoBehaviour:
     m_Value: 0
   _FogColor:
     m_OverrideState: 1
-    m_Value: {r: 0.24136703, g: 0.3425016, b: 0.4528302, a: 1}
+    m_Value: {r: 0.24313726, g: 0.34117648, b: 0.4509804, a: 1}
   _GradientStart:
     m_OverrideState: 1
     m_Value: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
     m_Value: 3
   _DistanceFogOffset:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 14
   _SceneStart:
     m_OverrideState: 1
     m_Value: 10
@@ -596,7 +596,7 @@ MonoBehaviour:
     m_Value: 0.0224
   _SkyboxFogHardness:
     m_OverrideState: 1
-    m_Value: 0.761
+    m_Value: 0.367
   _SkyboxFogIntensity:
     m_OverrideState: 1
     m_Value: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
     m_Value: 1
   _Threshold:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.12
   _SoftKnee:
     m_OverrideState: 1
     m_Value: 0.5
@@ -656,7 +656,7 @@ MonoBehaviour:
     m_Value: 7
   _BlurWeight:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.1
   _Intensity:
     m_OverrideState: 1
     m_Value: 1

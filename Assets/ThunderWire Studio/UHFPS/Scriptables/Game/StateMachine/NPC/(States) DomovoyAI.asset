@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3873920984957837499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3755aa62a22251f4c907846ea5975d11, type: 3}
+  m_Name: DomovoyRunAway
+  m_EditorClassIdentifier: 
+  RestTime: 30
+--- !u!114 &-1364037977710805689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8941e7b7d0fe140419108124f38e8f58, type: 3}
+  m_Name: DomovoyChase
+  m_EditorClassIdentifier: 
+  RunSpeed: 8.14
+  ChaseStoppingDistance: 1.24
+  LostPlayerPatrolTime: 5
+  LostPlayerPredictTime: 0.5
+  VeryClosePlayerDetection: 2
+  AttackFOV: 78.63
+  AttackDistance: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0431efc0b995646896f9ad148de9b5, type: 3}
+  m_Name: (States) DomovoyAI
+  m_EditorClassIdentifier: 
+  AIStates:
+  - StateAsset: {fileID: 5845612871715615979}
+    IsEnabled: 1
+  - StateAsset: {fileID: -1364037977710805689}
+    IsEnabled: 1
+  - StateAsset: {fileID: 939958431482384129}
+    IsEnabled: 1
+  - StateAsset: {fileID: -3873920984957837499}
+    IsEnabled: 1
+  IdleParameter: Idle
+  WalkParameter: Walk
+  RunParameter: Run
+  PatrolParameter: Patrol
+  AttackTrigger: Attack
+  AttackState: Attack 01
+  DamageRange:
+    min: 50
+    max: 70
+--- !u!114 &939958431482384129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a29b764a967434d8716e578793a178, type: 3}
+  m_Name: Player Hide
+  m_EditorClassIdentifier: 
+  SeePlayerDamage: 10
+  HidingCloseDistance: 2
+  PatrolTime: 5
+--- !u!114 &5845612871715615979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd998550015185408591fb727a8f022, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  Patrol: 0
+  PatrolType: 1
+  PatrolTime: 3
+  WalkSpeed: 4
+  PatrolStoppingDistance: 1
+  VeryClosePlayerDetection: 3

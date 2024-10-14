@@ -179,6 +179,21 @@ namespace UHFPS.Runtime
             behaviour.SetOptionValue(texQuality);
         }
 
+        private void LoadTreeDrawDistanceOption(string name, bool fromFile, OptionBehaviour behaviour)
+        {
+            if (fromFile && CheckOption(name, JTokenType.Float, out float value))
+            {
+                value = Mathf.Clamp(value, 0, 100);
+                QualitySettings.terrainTreeDistance = value;
+                behaviour.SetOptionValue(value);
+                return;
+            }
+
+            behaviour.SetOptionValue(70f);
+        }
+
+
+
         // 0 - 0m (Disabled), 1 - 25m (Very Low), 2 - 40m (Low), 3 - 55m (Medium), 4 - 70m (High), 5 - 85m (Very High), 6 - 100m (Max)
         private void LoadShadowDistanceOption(string name, bool fromFile, OptionBehaviour behaviour)
         {

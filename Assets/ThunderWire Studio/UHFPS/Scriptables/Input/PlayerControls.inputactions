@@ -157,6 +157,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "input.action.changeSpeed",
+                    "type": "Button",
+                    "id": "667a2daf-f409-44f9-9ed2-b17ab2e12540",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -410,6 +419,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "input.action.flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c40913f-0f89-4883-bcf9-e8c9e84d1de0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "input.action.changeSpeed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc7e1cf6-3ffb-4c64-a5f3-2beaa35000a6",
+                    "path": "<Keyboard>/rightBracket",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "input.action.changeSpeed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

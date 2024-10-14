@@ -12,6 +12,7 @@ public class ReplaceObjWithPrefabs : MonoBehaviour
     public Transform RootObj;
     void Update()
     {
+#if UNITY_EDITOR
         if (IsNeedUpdate)
         {
             foreach (Transform t in ObjectsToReplace)
@@ -27,5 +28,6 @@ public class ReplaceObjWithPrefabs : MonoBehaviour
             ObjectsToReplace = new Transform[0];
             IsNeedUpdate = false;
         }
+#endif
     }
 }

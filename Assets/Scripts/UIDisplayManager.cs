@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UHFPS.Runtime;
 using UnityEngine;
+using UnityEngine.Device;
 
 public class UIDisplayManager : MonoBehaviour
 {

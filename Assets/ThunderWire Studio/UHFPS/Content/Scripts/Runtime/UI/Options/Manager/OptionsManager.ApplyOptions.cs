@@ -80,6 +80,12 @@ namespace UHFPS.Runtime
             if (isChanged) QualitySettings.globalTextureMipmapLimit = quality;
             serializableData[optionName] = new(value);
         }
+        private void ApplyTreeDrawDistanceOption(string optionName, float value, bool isChanged)
+        {
+            
+            if (isChanged) QualitySettings.terrainTreeDistance = value;
+            serializableData[optionName] = new(value);
+        }
 
         // 0 - 0m (Disabled), 1 - 25m (Very Low), 2 - 40m (Low), 3 - 55m (Medium), 4 - 70m (High), 5 - 85m (Very High), 6 - 100m (Max)
         private void ApplyShadowDistanceOption(string optionName, int value, bool isChanged)

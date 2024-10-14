@@ -23,7 +23,7 @@ namespace UHFPS.Runtime
         public const char NAME_SEPARATOR = '.';
         public const string EXTENSION = ".json";
 
-        public enum OptionTypeEnum { Custom, Monitor, Resolution, Fullscreen, FrameRate, VSync, RenderScale, FSRSharpness, Antialiasing, Anisotropic, TextureQuality, ShadowDistance, GlobalVolume }
+        public enum OptionTypeEnum { Custom, Monitor, Resolution, Fullscreen, FrameRate, VSync, RenderScale, FSRSharpness, Antialiasing, Anisotropic, TextureQuality, ShadowDistance, GlobalVolume, TreeDrawDistance }
         public enum OptionValueEnum { Boolean, Integer, Float, String }
 
         private static readonly int[] Framerates = { 30, 60, 120, -1 };
@@ -272,6 +272,7 @@ namespace UHFPS.Runtime
                 { OptionTypeEnum.Antialiasing, () => ApplyAntialiasingOption(name, (int)obj, isChanged) },
                 { OptionTypeEnum.Anisotropic, () => ApplyAnisotropicOption(name, (int)obj, isChanged) },
                 { OptionTypeEnum.TextureQuality, () => ApplyTextureQualityOption(name, (int)obj, isChanged) },
+                { OptionTypeEnum.TreeDrawDistance, () => ApplyTreeDrawDistanceOption(name, (float)obj, isChanged) },
                 { OptionTypeEnum.ShadowDistance, () => ApplyShadowDistanceOption(name, (int)obj, isChanged) },
                 { OptionTypeEnum.GlobalVolume, () => ApplyGlobalVolumeOption(name, (float)obj, isChanged) }
             };
@@ -316,6 +317,7 @@ namespace UHFPS.Runtime
                 { OptionTypeEnum.Antialiasing, () => LoadAntialiasingOption(name, fromFile, behaviour) },
                 { OptionTypeEnum.Anisotropic, () => LoadAnisotropicOption(name, fromFile, behaviour) },
                 { OptionTypeEnum.TextureQuality, () => LoadTextureQualityOption(name, fromFile, behaviour) },
+                { OptionTypeEnum.TreeDrawDistance, () => LoadTreeDrawDistanceOption(name, fromFile, behaviour) },
                 { OptionTypeEnum.ShadowDistance, () => LoadShadowDistanceOption(name, fromFile, behaviour) },
                 { OptionTypeEnum.GlobalVolume, () => LoadGlobalVolumeOption(name, fromFile, behaviour) }
             };

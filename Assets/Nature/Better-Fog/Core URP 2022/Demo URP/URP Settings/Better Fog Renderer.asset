@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     Event: 550
-    _UseCustomDepthTexture: 0
+    _UseCustomDepthTexture: 1
     _UseFogOffsetTexture: 1
 --- !u!114 &8030591149060198333
 MonoBehaviour:

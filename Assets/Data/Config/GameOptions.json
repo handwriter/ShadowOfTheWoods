@@ -15,7 +15,7 @@
   "fsr_sharpness": 0.900000036,
   "antialiasing": 0,
   "anisotropic": 1,
-  "texture_quality": 1,
+  "texture_quality": 0,
   "shadow_distance": 4,
   "pp_bloom": false,
   "pp_vignette": true,
@@ -25,5 +25,5 @@
   "volume_music": 1.0,
   "show_ui": true,
   "draw_distance": 1.0,
-  "tree_draw_distance": 70.1
+  "tree_draw_distance": 46.95
 }

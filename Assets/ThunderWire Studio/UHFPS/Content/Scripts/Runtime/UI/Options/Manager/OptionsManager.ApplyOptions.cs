@@ -83,7 +83,7 @@ namespace UHFPS.Runtime
         private void ApplyTreeDrawDistanceOption(string optionName, float value, bool isChanged)
         {
             
-            if (isChanged) QualitySettings.terrainTreeDistance = value;
+            if (isChanged) QualitySettings.terrainBillboardStart = value;
             serializableData[optionName] = new(value);
         }
 

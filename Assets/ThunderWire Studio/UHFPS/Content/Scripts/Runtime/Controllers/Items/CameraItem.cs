@@ -82,7 +82,8 @@ namespace UHFPS.Runtime
         private int currentFrameCount;
 
         public override string Name => "Camera";
-
+        private const float _changeFlashlightTimeout = 1;
+        private float _lastFlashlightChange = 0;
         private void Awake()
         {
             gameManager = GameManager.Instance;
@@ -135,49 +136,49 @@ namespace UHFPS.Runtime
 
             if (isBusy) return;
 
-            //// camera zoom
-            //float zoomT = Mathf.InverseLerp(defaultZoom, CameraZoomFOV, currentZoom);
-            //if (InputManager.ReadButton(Controls.ADS))
-            //{
-            //    currentZoom = Mathf.MoveTowards(currentZoom, CameraZoomFOV, Time.deltaTime * CameraZoomSpeed * 10);
-            //    if (!isBusy)
-            //    {
-            //        if (zoomT > 0 && zoomT < 1)
-            //        {
-            //            CameraAudio.SetSoundClip(CameraZoomIn, play: true);
-            //            isZoomed = true;
-            //        }
-            //        else if (zoomT == 1 && isZoomed)
-            //        {
-            //            CameraAudio.Stop();
-            //            isZoomed = false;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    currentZoom = Mathf.MoveTowards(currentZoom, defaultZoom, Time.deltaTime * CameraZoomSpeed * 10);
-            //    if (!isBusy)
-            //    {
-            //        if (zoomT > 0 && zoomT < 1)
-            //        {
-            //            CameraAudio.SetSoundClip(CameraZoomOut, play: true);
-            //            isZoomed = true;
-            //        }
-            //        else if (zoomT == 0 && isZoomed)
-            //        {
-            //            CameraAudio.Stop();
-            //            isZoomed = false;
-            //        }
-            //    }
-            //}
+            // camera zoom
+            float zoomT = Mathf.InverseLerp(defaultZoom, CameraZoomFOV, currentZoom);
+            if (InputManager.ReadButton(Controls.ADS))
+            {
+                currentZoom = Mathf.MoveTowards(currentZoom, CameraZoomFOV, Time.deltaTime * CameraZoomSpeed * 10);
+                if (!isBusy)
+                {
+                    if (zoomT > 0 && zoomT < 1)
+                    {
+                        CameraAudio.SetSoundClip(CameraZoomIn, play: true);
+                        isZoomed = true;
+                    }
+                    else if (zoomT == 1 && isZoomed)
+                    {
+                        CameraAudio.Stop();
+                        isZoomed = false;
+                    }
+                }
+            }
+            else
+            {
+                currentZoom = Mathf.MoveTowards(currentZoom, defaultZoom, Time.deltaTime * CameraZoomSpeed * 10);
+                if (!isBusy)
+                {
+                    if (zoomT > 0 && zoomT < 1)
+                    {
+                        CameraAudio.SetSoundClip(CameraZoomOut, play: true);
+                        isZoomed = true;
+                    }
+                    else if (zoomT == 0 && isZoomed)
+                    {
+                        CameraAudio.Stop();
+                        isZoomed = false;
+                    }
+                }
+            }
 
-            //PlayerManager.MainVirtualCamera.m_Lens.FieldOfView = currentZoom;
-            //CameraLight.range = Mathf.Lerp(defaultLightRange, LightZoomRange, zoomT);
-            //cameraZoom.value = zoomT;
+            PlayerManager.MainVirtualCamera.m_Lens.FieldOfView = currentZoom;
+            CameraLight.range = Mathf.Lerp(defaultLightRange, LightZoomRange, zoomT);
+            cameraZoom.value = zoomT;
 
             // night vision
-            if (InputManager.ReadButtonOnce(this, Controls.FLASHLIGHT))
+            if (InputManager.ReadButtonOnce(this, Controls.FLASHLIGHT) && batteryEnergy > 0)
             {
                 if (isNVEnabled = !isNVEnabled)
                 {
@@ -217,6 +218,10 @@ namespace UHFPS.Runtime
             batteryEnergy = Mathf.InverseLerp(0, BatteryPercentage, currentBattery);
             batteryFill.fillAmount = batteryEnergy;
             CameraLight.intensity = Mathf.Lerp(0, LightIntensity, batteryEnergy);
+            if (batteryEnergy == 0)
+            {
+                SetNVState(false);
+            }
         }
 
         private void UpdateChannels()

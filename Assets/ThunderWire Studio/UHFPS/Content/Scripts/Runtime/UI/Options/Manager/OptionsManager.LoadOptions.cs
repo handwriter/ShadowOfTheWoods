@@ -184,7 +184,7 @@ namespace UHFPS.Runtime
             if (fromFile && CheckOption(name, JTokenType.Float, out float value))
             {
                 value = Mathf.Clamp(value, 0, 100);
-                QualitySettings.terrainTreeDistance = value;
+                QualitySettings.terrainBillboardStart = value;
                 behaviour.SetOptionValue(value);
                 return;
             }

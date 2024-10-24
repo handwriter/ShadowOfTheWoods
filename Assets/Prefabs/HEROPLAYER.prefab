@@ -23846,7 +23846,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 18.27
   m_Range: 8
   m_SpotAngle: 140
   m_InnerSpotAngle: 70
@@ -24191,7 +24191,7 @@ MonoBehaviour:
   InitialNVState: 0
   HighBatteryDrainSpeed: 1
   LowBatteryDrainSpeed: 0.5
-  LightIntensity: 1
+  LightIntensity: 6.5
   BatteryFullColor: {r: 1, g: 1, b: 1, a: 1}
   BatteryLowColor: {r: 1, g: 0, b: 0, a: 1}
   LightZoomRange: 24

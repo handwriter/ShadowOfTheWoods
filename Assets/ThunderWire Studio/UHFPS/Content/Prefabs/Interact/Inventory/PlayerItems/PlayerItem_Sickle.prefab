@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5197867031315965539}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,12 +100,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0028336504, y: 0.0055647204, z: 0.00042147376}
-  m_Center: {x: -0.00014854416, y: 0.002702828, z: 0.0000028901547}
+  m_Size: {x: 0.0028336504, y: 0.0055647204, z: 0.017687397}
+  m_Center: {x: -0.00014854416, y: 0.00270283, z: 0.00058181136}
 --- !u!114 &8155665904113339158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   TakeFromExamine: 0
   AllowCursorExamine: 0
   IsPaper: 0
-  AutoShortcut: 1
+  AutoShortcut: 0
   AutoEquip: 0
   UseExamineZooming: 1
   ExamineZoomLimits:

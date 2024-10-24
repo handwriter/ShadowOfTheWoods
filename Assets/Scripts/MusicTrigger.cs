@@ -45,8 +45,11 @@ public class MusicTrigger : MonoBehaviour
     // Корутин для плавного увеличения громкости
     private IEnumerator FadeIn()
     {
-        float startVolume = audioSource.volume;
+        // Устанавливаем громкость в 0 перед воспроизведением музыки
+        audioSource.volume = 0f;
         audioSource.Play();
+
+        float startVolume = 0f;
 
         for (float t = 0.0f; t < fadeDuration; t += Time.deltaTime)
         {

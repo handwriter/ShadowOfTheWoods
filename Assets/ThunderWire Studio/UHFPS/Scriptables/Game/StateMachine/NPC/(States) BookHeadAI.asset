@@ -15,7 +15,7 @@ MonoBehaviour:
   Patrol: 0
   PatrolType: 0
   PatrolTime: 3
-  WalkSpeed: 0.5
+  WalkSpeed: 1.5
   PatrolStoppingDistance: 1
   VeryClosePlayerDetection: 1
 --- !u!114 &11400000
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a29b764a967434d8716e578793a178, type: 3}
   m_Name: Player Hide
   m_EditorClassIdentifier: 
-  SeePlayerDamage: 10
+  SeePlayerDamage: 0
   HidingCloseDistance: 2
   PatrolTime: 5
 --- !u!114 &7199362809682857010

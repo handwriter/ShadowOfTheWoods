@@ -316,7 +316,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.8863636
   m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 1
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-62673398244341931
@@ -353,7 +353,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeshyTest
+  m_Name: BookHeadNPC
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Idle
@@ -408,7 +408,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Attack Layer
     m_StateMachine: {fileID: 4814464047390803264}
-    m_Mask: {fileID: 31900000, guid: d1cf37cf3e7fbb54f93f047c67dfbfcc, type: 2}
+    m_Mask: {fileID: 31900000, guid: 5921ace010344dc47a8ea1b269bec444, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0

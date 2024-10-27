@@ -162,7 +162,6 @@ namespace UHFPS.Runtime
         public override void OnApplyDamage(int damage, Transform sender = null)
         {
             if (IsDead) return;
-
             base.OnApplyDamage(damage, sender);
 
             if (UseDamageSounds && DamageSounds.Length > 0)

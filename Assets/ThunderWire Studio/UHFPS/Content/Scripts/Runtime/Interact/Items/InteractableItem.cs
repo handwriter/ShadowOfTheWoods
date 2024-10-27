@@ -123,8 +123,6 @@ namespace UHFPS.Runtime
 
         private void Start()
         {
-            Debug.Log($"Initial Quantity: {Quantity}");
-
             if (InteractableType != InteractableTypeEnum.InventoryItem || !UseInventoryTitle)
                 InteractTitle.SubscribeGloc();
 
@@ -136,8 +134,6 @@ namespace UHFPS.Runtime
 
             if (MessageType == MessageTypeEnum.Hint)
                 HintMessage.SubscribeGloc();
-
-            Debug.Log($"Quantity after initialization: {Quantity}");
         }
 
 

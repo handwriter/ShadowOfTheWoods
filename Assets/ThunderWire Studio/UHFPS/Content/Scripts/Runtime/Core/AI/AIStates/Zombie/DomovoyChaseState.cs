@@ -17,6 +17,7 @@ namespace UHFPS.Runtime.States
         [Header("Attack")]
         public float AttackFOV = 30f;
         public float AttackDistance = 2f;
+        public float AttackRestTime;
 
         
 
@@ -42,7 +43,7 @@ namespace UHFPS.Runtime.States
             private float predictTime;
             private bool playerDied;
             private bool _HideFromPlayer;
-
+            private float _timeFromAttack;
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
                 Group = (ZombieStateGroup)group;
@@ -56,7 +57,7 @@ namespace UHFPS.Runtime.States
                 return new Transition[]
                 {
                     Transition.To<DomovoyPatrolState>(() => waitTime > State.LostPlayerPatrolTime || playerDied),
-                    Transition.To<DomovoyRunAwayState>(() => _HideFromPlayer),
+                    Transition.To<DomovoyRunAwayState>(() => PlayerManager.Instance.CheckObjectInViewField(machine.gameObject)),
                     Transition.To<ZombiePlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
                 };
             }
@@ -68,6 +69,7 @@ namespace UHFPS.Runtime.States
                 agent.stoppingDistance = State.ChaseStoppingDistance;
                 machine.RotateAgentManually = true;
                 isChaseStarted = true;
+                _timeFromAttack = State.AttackRestTime;
             }
 
             public override void OnStateExit()
@@ -89,6 +91,7 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
+                _timeFromAttack += Time.deltaTime;
                 if (PlayerInSights())
                 {
                     if (!resetParameters)
@@ -157,7 +160,6 @@ namespace UHFPS.Runtime.States
                 bool isAttacking = IsAnimation(1, Group.AttackState);
                 if(InPlayerDistance(State.AttackDistance) && IsObjectInSights(State.AttackFOV, PlayerPosition) && !isAttacking && !playerHealth.IsDead)
                 {
-                    Debug.Log("Attack PL");
                     animator.SetTrigger(Group.AttackTrigger);
                 }
             }
@@ -175,14 +177,13 @@ namespace UHFPS.Runtime.States
 
             private void AttackPlayer()
             {
-                Debug.Log("Attack player");
-                if (!InPlayerDistance(State.AttackDistance))
+                if (!InPlayerDistance(State.AttackDistance) || _timeFromAttack < State.AttackRestTime)
                 {
-                    Debug.Log("Player not in Distance");
                     return;
                 }
-                    
-                _HideFromPlayer = true;
+                int damage = Group.DamageRange.Random();
+                playerHealth.OnApplyDamage(damage, machine.transform);
+                _timeFromAttack = 0;
             }
         }
     }

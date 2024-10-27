@@ -89,7 +89,7 @@ namespace UHFPS.Runtime.States
                     }
                     else if(!PlayerFullyHidden && PathDistanceCompleted())
                     {
-                        if (!attackBeforeHide && playerHealth.EntityHealth > Group.DamageRange.RealMax)
+                        if (!attackBeforeHide && playerHealth.EntityHealth > Group.DamageRange.RealMax && State.SeePlayerDamage > 0)
                         {
                             animator.SetTrigger(Group.AttackTrigger);
                             attackBeforeHide = true;
@@ -134,6 +134,7 @@ namespace UHFPS.Runtime.States
 
             private void AttackPlayer()
             {
+                if (State.SeePlayerDamage == 0) return;
                 playerHealth.OnApplyDamage(State.SeePlayerDamage, machine.transform);
             }
         }

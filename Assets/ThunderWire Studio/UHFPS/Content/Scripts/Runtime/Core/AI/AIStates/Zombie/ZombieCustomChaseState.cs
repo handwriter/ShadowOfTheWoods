@@ -156,7 +156,6 @@ namespace UHFPS.Runtime.States
                 bool isAttacking = IsAnimation(1, Group.AttackState);
                 if(InPlayerDistance(State.AttackDistance) && IsObjectInSights(State.AttackFOV, PlayerPosition) && !isAttacking && !playerHealth.IsDead)
                 {
-                    Debug.Log("Attack PL");
                     animator.SetTrigger(Group.AttackTrigger);
                 }
             }
@@ -176,11 +175,11 @@ namespace UHFPS.Runtime.States
             {
                 Debug.Log("Attack player");
                 if (!InPlayerDistance(State.AttackDistance))
-                    Debug.Log("Player not in Distance");
                     return;
-
-                int damage = Group.DamageRange.Random();
-                playerHealth.OnApplyDamage(damage, machine.transform);
+                agent.GetComponent<BookHeadController>().AttackCount += 1;
+                int attackCount = Mathf.Clamp(agent.GetComponent<BookHeadController>().AttackCount, 0, 12);
+                float damage = -0.1f*Mathf.Pow(attackCount, 3) + 1.8f*Mathf.Pow(attackCount, 2) - 3.6f * attackCount + 2.5f;
+                playerHealth.OnApplyDamage((int)damage, machine.transform);
             }
 
             public void PushAttackPlayer()

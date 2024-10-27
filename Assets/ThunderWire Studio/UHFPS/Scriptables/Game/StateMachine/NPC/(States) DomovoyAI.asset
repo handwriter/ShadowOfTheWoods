@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3755aa62a22251f4c907846ea5975d11, type: 3}
   m_Name: DomovoyRunAway
   m_EditorClassIdentifier: 
-  RestTime: 30
+  RestTime:
+  - 60
+  - 300
 --- !u!114 &-1364037977710805689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +34,7 @@ MonoBehaviour:
   VeryClosePlayerDetection: 2
   AttackFOV: 78.63
   AttackDistance: 2
+  AttackRestTime: 15
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +63,8 @@ MonoBehaviour:
   AttackTrigger: Attack
   AttackState: Attack 01
   DamageRange:
-    min: 50
-    max: 70
+    min: 5
+    max: 10
 --- !u!114 &939958431482384129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a29b764a967434d8716e578793a178, type: 3}
   m_Name: Player Hide
   m_EditorClassIdentifier: 
-  SeePlayerDamage: 10
+  SeePlayerDamage: 0
   HidingCloseDistance: 2
   PatrolTime: 5
 --- !u!114 &5845612871715615979

@@ -13,6 +13,22 @@ namespace UHFPS.Runtime
         public Camera MainCamera;
         public CinemachineVirtualCamera MainVirtualCamera;
 
+        private static PlayerManager _instance;
+
+        public static PlayerManager Instance
+        {
+            get
+            {
+                if (_instance == null ) _instance = GameObject.Find("HEROPLAYER").GetComponent<PlayerManager>();
+                return _instance;
+            }
+        }
+
+        private void Awake()
+        {
+            _instance = this;
+        }
+
         private PlayerHealth m_PlayerHealth;
         public PlayerHealth PlayerHealth
         {
@@ -95,6 +111,22 @@ namespace UHFPS.Runtime
                 var itemData = data["playerItems"]["playerItem_" + i];
                 (playerItem as ISaveableCustom).OnCustomLoad(itemData);
             }
+        }
+
+        public bool CheckObjectInViewField(GameObject obj)
+        {
+            Vector3 viewPos = GetObjectPositionInViewField(obj);
+            return viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0;
+        }
+
+        public Vector3 GetObjectPositionInViewField(GameObject obj)
+        {
+            return MainCamera.WorldToViewportPoint(obj.transform.position);
+        }
+
+        private void OnDestroy()
+        {
+            _instance = null;
         }
     }
 }

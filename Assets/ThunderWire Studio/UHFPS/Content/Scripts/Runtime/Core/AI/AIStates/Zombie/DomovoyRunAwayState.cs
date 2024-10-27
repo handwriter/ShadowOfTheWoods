@@ -6,8 +6,7 @@ namespace UHFPS.Runtime.States
 {
     public class DomovoyRunAwayState : AIStateAsset
     {
-        public float RestTime;
-
+        public float[] RestTime;
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
             return new ChaseState(machine, group, this);
@@ -21,20 +20,23 @@ namespace UHFPS.Runtime.States
         {
             private readonly ZombieStateGroup Group;
             private readonly DomovoyRunAwayState State;
-
-            private float _RunAwayTime;
+            private float _restTimeout;
+            private float _targetRestTime;
 
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
                 Group = (ZombieStateGroup)group;
                 State = (DomovoyRunAwayState)state;
+                _targetRestTime = State.RestTime[machine.GetComponent<DomovoyController>().RestIndex];
+                machine.GetComponent<DomovoyController>().RestIndex += 1;
+                if (machine.GetComponent<DomovoyController>().RestIndex == State.RestTime.Length) machine.GetComponent<DomovoyController>().RestIndex = 0;
             }
 
             public override Transition[] OnGetTransitions()
             {
                 return new Transition[]
                 {
-                    Transition.To<DomovoyPatrolState>(() => _RunAwayTime > State.RestTime)
+                    Transition.To<DomovoyPatrolState>(() => !PlayerManager.Instance.CheckObjectInViewField(machine.gameObject) && _restTimeout >= _targetRestTime)
                 };
             }
 
@@ -42,7 +44,6 @@ namespace UHFPS.Runtime.States
             {
                 animator.ResetTrigger(Group.AttackTrigger);
                 Group.ResetAnimatorPrameters(animator);
-                _RunAwayTime = 0;
             }
 
             public override void OnStateExit()
@@ -57,17 +58,21 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
-                _RunAwayTime += Time.deltaTime;
-                if (_RunAwayTime <= 5)
+                if (PlayerManager.Instance.CheckObjectInViewField(machine.gameObject))
                 {
+                    _restTimeout = 0;
                     animator.SetBool(Group.RunParameter, true);
-                    agent.SetDestination(agent.transform.position + agent.transform.forward * 30);
+                    Vector3 direction = playerMachine.MainCamera.transform.right;
+                    if (PlayerManager.Instance.GetObjectPositionInViewField(machine.gameObject).x >= 0.5)
+                    {
+                        direction = Quaternion.AngleAxis(-90, playerMachine.MainCamera.transform.up) * playerMachine.MainCamera.transform.forward;
+                    }
+                    agent.SetDestination(agent.transform.position - direction * 30);
                     agent.isStopped = false;
-                    GameObject newObj = new GameObject();
-                    newObj.transform.position = agent.transform.position + agent.transform.forward * 10;
                 }
                 else
                 {
+                    _restTimeout += Time.deltaTime;
                     animator.SetBool(Group.RunParameter, false);
                     animator.SetBool(Group.IdleParameter, true);
                     agent.isStopped = true;

@@ -36,7 +36,7 @@ public class LODStatusManager : MonoBehaviour
             newLodInfo.Clear();
             foreach (LOD lod in _lodStartParameters[group])
             {
-                newLodInfo.Add(new LOD(Mathf.Clamp01(lod.screenRelativeTransitionHeight / _lodMultiplyer), lod.renderers));
+                newLodInfo.Add(new LOD(Mathf.Clamp(lod.screenRelativeTransitionHeight / _lodMultiplyer, 0, 0.999999999f), lod.renderers));
             }
             group.SetLODs(newLodInfo.ToArray());
         }

@@ -36,8 +36,7 @@ namespace UHFPS.Runtime
 
             // subscribe listening to localization changes
             objective.Objective.ObjectiveTitle
-                .ObserveText(text => ObjectiveTitle.text = text)
-                .AddTo(disposables);
+                .ObserveText(text => ObjectiveTitle.text = text);
 
             // event when all objectives will be completed
             objective.IsCompleted.Subscribe(completed =>
@@ -82,8 +81,7 @@ namespace UHFPS.Runtime
 
             // subscribe listening to localization changes
             data.SubObjective.ObjectiveText
-                .ObserveText(text => objectiveTitle.text = FormatObjectiveText(text, data.CompleteCount.Value))
-                .AddTo(_disposables);
+                .ObserveText(text => objectiveTitle.text = FormatObjectiveText(text, data.CompleteCount.Value));
 
             // event when sub objective will be completed
             data.IsCompleted.Subscribe(completed =>

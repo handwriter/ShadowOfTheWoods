@@ -53,6 +53,8 @@ namespace UHFPS.Runtime
         public void SetOption(int index)
         {
             Current = (uint)index;
+            Debug.Log(Options[Current].GlocText);
+            Debug.Log(Options[Current].NormalText);
             RadioText.text = Options[Current];
             OnChange?.Invoke((int)Current);
             IsChanged = true;

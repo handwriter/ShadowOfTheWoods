@@ -11,11 +11,13 @@ namespace UHFPS.Runtime
 
         private void Start()
         {
-            if (!GameLocalization.HasReference)
-                return;
+            LocalizationManager.OnLanguageUpdated += OnLanguageUpdated;
+            OnLanguageUpdated();
+        }
 
-            if (!ObserveMany) GlocKey.SubscribeGloc(text => OnUpdateText?.Invoke(text));
-            else GlocKey.SubscribeGlocMany(text => OnUpdateText?.Invoke(text));
+        private void OnLanguageUpdated()
+        {
+            OnUpdateText?.Invoke(LocalizationManager.GetLocaleText(GlocKey.GlocText));
         }
     }
 }

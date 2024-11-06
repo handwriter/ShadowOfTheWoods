@@ -338,7 +338,7 @@ namespace UHFPS.Runtime
 
         public override void OnItemDeselect()
         {
-            ModelController.IsUsingNightVision = false;
+            isNVEnabled = false;
             CameraAudio.SetSoundClip(CameraUnequip, play: true);
             StartCoroutine(HideCamera());
             isBusy = true;
@@ -347,7 +347,7 @@ namespace UHFPS.Runtime
         IEnumerator HideCamera()
         {
             yield return gameManager.StartBackgroundFade(false);
-
+            
             ItemObject.SetActive(true);
             SetCameraEffects(false);
             Animator.SetTrigger(CameraHide);
@@ -362,6 +362,7 @@ namespace UHFPS.Runtime
 
             yield return new WaitForSeconds(CameraHideFadeOffset);
             StartCoroutine(gameManager.StartBackgroundFade(true));
+            SetNVState(false, true);
             yield return new WaitForAnimatorClip(Animator, CameraHide);
 
             ItemObject.SetActive(false);
@@ -389,7 +390,7 @@ namespace UHFPS.Runtime
         {
             cameraOverlay.SetActive(true);
             SetCameraEffects(true);
-
+            SetNVState(false, true);
             stopwatch.Start();
             ItemObject.SetActive(false);
             isEquipped = true;
@@ -398,6 +399,7 @@ namespace UHFPS.Runtime
 
         public override void OnItemDeactivate()
         {
+            SetNVState(false, true);
             cameraOverlay.SetActive(false);
             SetCameraEffects(false);
 

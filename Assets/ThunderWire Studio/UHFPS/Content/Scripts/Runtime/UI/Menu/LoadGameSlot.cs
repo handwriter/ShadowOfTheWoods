@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.InteropServices;
 
 namespace UHFPS.Runtime
 {
@@ -13,11 +14,14 @@ namespace UHFPS.Runtime
         public TMP_Text TimeSavedText;
         public TMP_Text PlaytimeText;
 
+        [SerializeField] private string _autoSaveKey;
+        [SerializeField] private string _manualSaveKey;
+
         public void Initialize(int index, SavedGameInfo info)
         {
             IndexText.text = index.ToString();
             Thumbnail.texture = info.Thumbnail;
-            SaveTypeText.text = info.IsAutosave ? "Autosave" : "Manual Save";
+            SaveTypeText.text = info.IsAutosave ? LocalizationManager.GetLocaleText(_autoSaveKey) : LocalizationManager.GetLocaleText(_manualSaveKey);
             SceneNameText.text = info.Scene;
             TimeSavedText.text = info.TimeSaved.ToString("dd/MM/yyyy HH:mm:ss");
             PlaytimeText.text = info.TimePlayed.ToString(@"hh\:mm\:ss");

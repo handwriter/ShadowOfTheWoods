@@ -12,6 +12,7 @@ namespace UHFPS.Runtime
         public Transform CameraHolder;
         public Camera MainCamera;
         public CinemachineVirtualCamera MainVirtualCamera;
+        public bool IsInSwamp;
 
         private static PlayerManager _instance;
 
@@ -127,6 +128,11 @@ namespace UHFPS.Runtime
         private void OnDestroy()
         {
             _instance = null;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log(collision.collider.gameObject.tag);
         }
     }
 }

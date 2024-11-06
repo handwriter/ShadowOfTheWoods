@@ -1,0 +1,1029 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb2888f5a8a13b4db2fc1fa5bead655, type: 3}
+  m_Name: (GLoc) Localization EN
+  m_EditorClassIdentifier: 
+  Localizations:
+  - Section: input
+    Localizations:
+    - Key: action.movement.up
+      Text: Move Forward
+    - Key: action.movement.down
+      Text: Move Backward
+    - Key: action.movement.left
+      Text: Move Left
+    - Key: action.movement.right
+      Text: Move Right
+    - Key: action.sprint
+      Text: Sprint
+    - Key: action.jump
+      Text: Jump
+    - Key: action.crouch
+      Text: Crouch
+    - Key: action.use
+      Text: Use
+    - Key: action.examine
+      Text: Examine
+    - Key: action.fire
+      Text: Fire
+    - Key: action.reload
+      Text: Reload
+    - Key: action.ads
+      Text: ADS
+    - Key: action.equip1
+      Text: Equip 1
+    - Key: action.equip2
+      Text: Equip 2
+    - Key: action.equip3
+      Text: Equip 3
+    - Key: action.equip4
+      Text: Equip 4
+    - Key: action.unequip
+      Text: Unequip
+    - Key: action.lean.positive
+      Text: Lean Right
+    - Key: action.lean.negative
+      Text: Lean Left
+    - Key: action.flashlight
+      Text: Flashlight
+  - Section: menu
+    Localizations:
+    - Key: button.resume
+      Text: Resume
+    - Key: button.continue
+      Text: Continue
+    - Key: button.newgame
+      Text: New Game
+    - Key: button.loadgame
+      Text: Load Game
+    - Key: button.savegame
+      Text: Save Game
+    - Key: button.options
+      Text: Options
+    - Key: button.quit
+      Text: Quit
+    - Key: button.restart
+      Text: Restart
+    - Key: button.mainmenu
+      Text: Main Menu
+    - Key: button.back
+      Text: Back
+    - Key: button.apply
+      Text: Apply
+    - Key: tooltip.continue
+      Text: Resume your saved progress
+    - Key: tooltip.resume
+      Text: Continue playing game
+    - Key: tooltip.newgame
+      Text: Start a new game
+    - Key: tooltip.loadgame
+      Text: Load a previously saved games
+    - Key: tooltip.savegame
+      Text: Save your current progress
+    - Key: tooltip.options
+      Text: Adjust game settings and preferences
+    - Key: tooltip.quit
+      Text: Exit the game
+    - Key: tooltip.restart
+      Text: Start the game from your most recent saved data
+    - Key: tooltip.mainmenu
+      Text: Exit the game and go to the main menu
+    - Key: input.rebind
+      Text: Press Button
+    - Key: input.none
+      Text: None
+    - Key: panel.loadgame
+      Text: Load Game
+    - Key: panel.keybindings
+      Text: Key Bindings
+    - Key: panel.emptysaves
+      Text: There are currently no saved games available.
+    - Key: text.pause
+      Text: Pause Menu
+    - Key: text.died
+      Text: You have died
+    - Key: button.play
+      Text: Play
+    - Key: button.authors
+      Text: Authors
+    - Key: button.general
+      Text: General
+    - Key: button.controls
+      Text: Controls
+    - Key: button.graphics
+      Text: Graphics
+    - Key: button.audio
+      Text: Audio
+    - Key: tooltip.authors
+      Text: AUTHORS&PACKAGES
+    - Key: button.on
+      Text: On
+    - Key: button.off
+      Text: Off
+    - Key: button.reset
+      Text: reset
+    - Key: save.auto
+      Text: Autosave
+    - Key: save.manual
+      Text: Manual Save
+    - Key: button.load
+      Text: Load
+  - Section: loading
+    Localizations:
+    - Key: description.demoscene
+      Text: In this demo scene, you will be able to witness and explore all the impressive
+        features that come with the kit. This scene has been specially designed to
+        showcase the full potential of the asset, so you can fully test its capabilities.
+    - Key: description.demoscene2
+      Text: In this interactive demo scene, you will have the opportunity to engage
+        firsthand with the elevator system, showcasing its seamless operation and
+        integration along with the other great features of the kit.
+    - Key: description.demoscene3
+      Text: It's raining outside, you can test how the raindrop effect works when
+        you're sheltered under a roof or not.
+  - Section: titles
+    Localizations:
+    - Key: putaway
+      Text: Put Away
+    - Key: take
+      Text: Take
+    - Key: rotate
+      Text: Rotate
+    - Key: loot
+      Text: Looted
+    - Key: inserttape
+      Text: Insert Tape
+    - Key: poweron
+      Text: Power On
+    - Key: poweroff
+      Text: Power Off
+    - Key: ejecttape
+      Text: Eject Tape
+    - Key: play
+      Text: Play
+    - Key: pause
+      Text: Pause
+    - Key: rewind
+      Text: Rewind
+    - Key: fastforward
+      Text: Fast Forward
+    - Key: lockpicks
+      Text: 'Lockpicks: [count]'
+    - Key: loading
+      Text: LOADING...
+  - Section: interactions
+    Localizations:
+    - Key: use
+      Text: Use
+    - Key: use.hold
+      Text: Use (Hold)
+    - Key: grab
+      Text: Grab
+    - Key: examine
+      Text: Examine
+    - Key: travel
+      Text: Travel
+    - Key: configure
+      Text: Configure
+    - Key: insertfuse
+      Text: Insert Fuse
+    - Key: code
+      Text: Enter Code
+    - Key: card
+      Text: Use Keycard
+    - Key: switch
+      Text: Switch
+    - Key: switchon
+      Text: Switch On
+    - Key: switchoff
+      Text: Switch Off
+    - Key: poweron
+      Text: Power On
+    - Key: poweroff
+      Text: Power Off
+    - Key: rotate
+      Text: Rotate
+    - Key: open
+      Text: Open
+    - Key: close
+      Text: Close
+    - Key: extinguish
+      Text: Extinguish
+    - Key: kindle
+      Text: Kindle (Hold)
+    - Key: refuel.hold
+      Text: Refuel (Hold)
+    - Key: hide
+      Text: Hide
+    - Key: unhide
+      Text: Get Out
+  - Section: objects
+    Localizations:
+    - Key: circuit
+      Text: Electric Circuit
+    - Key: fusebox
+      Text: Fusebox
+    - Key: keypad
+      Text: Keypad
+    - Key: keycard
+      Text: Keycard
+    - Key: padlock
+      Text: Padlock
+    - Key: lever
+      Text: Lever
+    - Key: paneldoor
+      Text: Panel Door
+    - Key: door
+      Text: Door
+    - Key: valve
+      Text: Valve
+    - Key: drawer
+      Text: Drawer
+    - Key: trunk
+      Text: Storage Trunk
+    - Key: backpack
+      Text: Backpack
+    - Key: crate
+      Text: Crate
+    - Key: barrel
+      Text: Barrel
+    - Key: brick
+      Text: Brick
+    - Key: pushable
+      Text: Pushable
+    - Key: ladder
+      Text: Ladder
+    - Key: zipline
+      Text: Zipline
+    - Key: paper
+      Text: Paper
+    - Key: chest
+      Text: Chest
+    - Key: lamp
+      Text: Lamp
+    - Key: generator
+      Text: Electric generator
+    - Key: radio
+      Text: Radio
+    - Key: locker
+      Text: Locker
+    - Key: bed
+      Text: Bed
+    - Key: floodlight
+      Text: Switch
+  - Section: controls
+    Localizations:
+    - Key: name.exit
+      Text: Exit
+    - Key: name.close
+      Text: Close
+    - Key: name.move
+      Text: Move
+    - Key: name.rotate
+      Text: Rotate
+    - Key: name.select
+      Text: Select
+    - Key: name.zoom
+      Text: Zoom
+    - Key: name.drop
+      Text: Drop
+    - Key: name.throw
+      Text: Throw
+    - Key: name.take
+      Text: Take
+    - Key: name.read
+      Text: Read
+    - Key: name.putback
+      Text: Put Back
+    - Key: name.back
+      Text: Back
+  - Section: messages
+    Localizations:
+    - Key: backpack
+      Text: Your inventory slots have been expanded.
+    - Key: nofit
+      Text: This item does not fit there.
+    - Key: objective.added
+      Text: New objective
+    - Key: objective.completed
+      Text: Objective completed
+    - Key: kindle.lighter
+      Text: A lighter is needed to light the candle
+    - Key: no.canisters
+      Text: No fuel containers
+    - Key: notreq.canisters
+      Text: No refuelling required
+    - Key: death.tooltip1
+      Text: Darkness has fallen. Hope is lost.
+    - Key: death.tooltip2
+      Text: Your will is broken. The forest has won.
+    - Key: death.tooltip3
+      Text: The child will not return. You have lost.
+    - Key: death.tooltip4
+      Text: They took both you and her.
+    - Key: death.tooltip5
+      Text: Even in death, you will find no peace.
+    - Key: death.tooltip6
+      Text: The forest consumed you, as it did your daughter.
+    - Key: death.tooltip7
+      Text: "Silence\u2026 Eternal silence."
+    - Key: death.tooltip8
+      Text: Your story is over.
+    - Key: death.tooltip9
+      Text: There's only emptiness ahead. You have lost.
+  - Section: papers
+    Localizations:
+    - Key: example
+      Text: 'This is an example text for a paper to demonstrate the examination system.
+        You can display the text on the paper using a texture or rewrite the text
+        as paper examination text.
+
+
+        - From Patrick'
+    - Key: crafting.ammo
+      Text: '9MM PISTOL AMMO
+
+        crafting guide
+
+
+        Recipe for making
+        10x 9mm Pistol Ammo. To make a Pistol Ammo you need to combine the following
+        materials:
+
+
+        5x Gunpowder
+
+        1x Scrap'
+    - Key: bloody
+      Text: 'IF YOU ARE READING THIS
+
+        DON''T LOOK BEHIND YOU'
+    - Key: Poem01
+      Text: "\u0421\u044B\u0440\u0430-\u0437\u0435\u043C\u043B\u044F \u043F\u0440\u0438\u0448\u043B\u0430
+        \u0432 \u043D\u0435\u0433\u043E\u0434\u043E\u0432\u0430\u043D\u0438\u0435,\r\n
+        \u0434\u0435\u0432\u0447\u043E\u043D\u043A\u0430 \u043C\u0435\u0441\u0442\u043D\u0430\u044F
+        \u043D\u0430\u0440\u0443\u0448\u0438\u043B\u0430 \u0437\u0430\u043F\u0440\u0435\u0442
+        \u043D\u0430 \u0441\u043E\u0431\u0438\u0440\u0430\u043D\u0438\u0435\r\n \u0441\u043E\u0440\u0432\u0430\u043B\u0430
+        \u043E\u043D\u0430 \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u044B\u0439
+        \u0433\u0440\u0438\u0431,\r\n \u0432 \u043C\u043E\u043C\u0435\u043D\u0442
+        \u0442\u043E\u0442 \u0438\u0437\u0434\u0430\u043B\u0430 \u0437\u0435\u043C\u043B\u044F
+        \u0440\u0430\u0437\u0433\u043D\u0435\u0432\u0430\u043D\u043D\u044B\u0439
+        \u0441\u0432\u043E\u0439 \u043A\u0440\u0438\u043A.\r\n \u041F\u043E\u0441\u043B\u0435
+        \u0430\u043A\u0442\u0430 \u0437\u043B\u043E\u0434\u0435\u044F\u043D\u0438\u044F,\r\n
+        \u0434\u0435\u0432\u0447\u043E\u043D\u043A\u0430 \u0441 \u043A\u0443\u043A\u043B\u043E\u0439
+        \u043F\u0440\u0438\u043D\u044F\u043B\u0430\u0441\u044C \u0438\u0433\u0440\u0430\u0442\u044C.\r\n
+        \u041C\u0430\u0442\u044C-\u0437\u0435\u043C\u043B\u044F \u0432 \u0442\u0443
+        \u043A\u0443\u043A\u043B\u0443 \u0432\u043C\u0438\u0433 \u0432\u0441\u0435\u043B\u0438\u043B\u0430\u0441\u044C,\r\n
+        \u043E\u0431\u043C\u0430\u043D\u043E\u043C \u043F\u043E\u0432\u0435\u043B\u0430
+        \u043E\u043D\u0430 \u0433\u0440\u0435\u0445\u043E\u0432\u043D\u0438\u0446\u0443
+        \u0432 \u0442\u043E\u043F\u0438,\r\n \u0433\u0434\u0435 \u0436\u0438\u0437\u043D\u0438
+        \u0442\u0430 \u043B\u0438\u0448\u0438\u043B\u0430\u0441\u044C, \u043A \u0437\u0435\u043C\u043B\u0435
+        \u043D\u043E\u0433\u0430\u043C\u0438 \u043E\u0442\u043E\u0439\u0434\u044F.\r\n
+        \u041E\u0442\u0435\u0446 \u0437\u043B\u043E\u0434\u0435\u0439\u043A\u0438
+        \u043F\u043E\u043B\u043E\u043D \u0441\u043A\u043E\u0440\u0431\u0438,\r\n
+        \u0431\u0440\u043E\u0441\u0438\u043B \u043E\u043D \u0432\u044B\u0437\u043E\u0432
+        \u041C\u0430\u0442\u044C-\u0437\u0435\u043C\u043B\u0435.\r\n \u041D\u0443\u0436\u043D\u043E
+        \u043D\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0442\u043E\u0433\u043E
+        \u043E\u0442\u0446\u0430,\r\n \u0432\u0435\u0440\u0435\u0432\u043A\u043E\u0439
+        \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u0442\u044C \u043A \u0448\u0435\u0435\u0301.\r\n
+        \u041C\u043E\u0440\u0430\u043B\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438
+        \u043F\u0440\u043E\u0441\u0442\u0430,\r\n \u043A\u0442\u043E \u041C\u0430\u0442\u0435\u0440\u0438-\u0437\u0435\u043C\u043B\u0438
+        \u0437\u0430\u043A\u043E\u043D \u043D\u0430\u0440\u0443\u0448\u0438\u0442,\r\n
+        \u043D\u0435\u0438\u0437\u0431\u0435\u0436\u043D\u043E \u0442\u043E\u0442
+        \u0441\u0432\u043E\u0435 \u043F\u043E\u043B\u0443\u0447\u0438\u0442.\r\n"
+    - Key: Poem02
+      Text: "\u041E\u0442\u0435\u0446 \u0434\u0435\u0432\u0438\u0446\u0435 \u0438\u0433\u0440\u0443\u0448\u043A\u0443
+        \u0441\u0442\u0435\u0441\u0430\u043B,\r\n \u0418\u0433\u0440\u0443\u0448\u043A\u0430
+        \u0434\u0435\u0442\u0441\u043A\u0430\u044F \u0435\u0439 \u0440\u0430\u0434\u043E\u0441\u0442\u044C
+        \u043D\u0435\u0441\u043B\u0430,\r\n \u0421 \u043D\u0435\u044E \u0438\u0433\u0440\u0430\u043B\u0430
+        \u0434\u0435\u0432\u0438\u0446\u0430 \u0431\u0435\u0437 \u0431\u0435\u0434,\r\n
+        \u0421\u0432\u0435\u0442\u043B\u044B\u0445 \u0437\u0430\u0431\u0430\u0432
+        \u043F\u043E\u043B\u043E\u043D \u0431\u044B\u043B \u0434\u043E\u043C \u0438
+        \u0432\u0435\u0441\u044C \u0441\u0432\u0435\u0442.\r\n\u0417\u043B\u044B\u0435
+        \u043B\u044E\u0434\u0438 \u043F\u0440\u0438\u0448\u043B\u0438, \u0432 \u0431\u0435\u0434\u0443
+        \u043F\u0440\u0438\u0432\u0435\u043B\u0438,\r\n \u041C\u0430\u0448\u0438\u043D\u043A\u0443
+        \u0440\u0430\u0437\u043C\u0435\u043D\u044F\u043B\u0438, \u0432 \u0437\u043B\u043E\u0439
+        \u043E\u0431\u0440\u044F\u0434 \u0443\u0432\u0435\u043B\u0438.\r\n \u041A\u0443\u043A\u043B\u0430
+        \u0437\u043B\u043E\u0432\u0435\u0449\u0430\u044F \u0438\u0433\u0440\u0443\u0448\u043A\u0435
+        \u043D\u0430 \u0441\u043C\u0435\u043D\u0443 \u043F\u0440\u0438\u0448\u043B\u0430,\r\n
+        \u0414\u0443\u0448\u0443 \u0434\u0435\u0432\u0438\u0446\u044B \u0432 \u043A\u0443\u043A\u043B\u0443
+        \u0432\u0432\u0435\u0440\u0433\u043B\u0430.\r\n\u041C\u0430\u0441\u043A\u0430
+        \u043A\u043E\u0432\u0430\u0440\u043D\u0430\u044F \u043E\u0442\u0446\u0443
+        \u0432 \u0440\u0443\u043A\u0438 \u043B\u0435\u0433\u043B\u0430,\r\n \u0427\u0442\u043E\u0431
+        \u0441 \u0434\u043E\u0447\u043A\u043E\u0439 \u0432 \u043A\u0443\u043A\u043B\u0435
+        \u0431\u0435\u0441\u0435\u0434\u0443 \u0432\u0435\u043B\u0430.\r\n \u041D\u043E
+        \u043C\u0430\u0441\u043A\u0430 \u0442\u0430, \u0447\u0442\u043E \u0442\u044C\u043C\u043E\u044E
+        \u043E\u043A\u0443\u0442\u0430\u043D\u0430,\r\n \u0414\u0443\u0448\u0443
+        \u043E\u0442\u0446\u0430 \u043F\u043E\u043D\u0435\u043C\u043D\u043E\u0433\u0443
+        \u0431\u0440\u0430\u043B\u0430.\r\n\u041F\u043E\u043A\u0430 \u043D\u0435
+        \u043D\u0430\u0441\u0442\u0430\u043B \u0442\u043E\u0442 \u043D\u0435\u043D\u0430\u0441\u0442\u043D\u044B\u0439
+        \u0447\u0430\u0441,\r\n \u041A\u043E\u0433\u0434\u0430 \u0436\u0438\u0437\u043D\u0438
+        \u043B\u0438\u0448\u0438\u043B\u0441\u044F \u043E\u043D \u0432 \u043C\u0430\u0441\u043A\u0435
+        \u043E\u0442 \u043D\u0430\u0441.\r\n \u041C\u043E\u0440\u0430\u043B\u044C
+        \u0441\u0435\u0439 \u043F\u0435\u0441\u043D\u0438 \u043F\u0440\u043E\u0441\u0442\u0430,
+        \u043A\u0430\u043A \u0437\u0435\u043C\u043B\u044F:\r\n \u0414\u0443\u0448\u0443
+        \u043D\u0430 \u043A\u0443\u043A\u043B\u0443 \u0440\u0430\u0437\u043C\u0435\u043D\u0438\u0432\u0430\u0442\u044C
+        \u043D\u0438\u043A\u0430\u043A \u043D\u0435\u043B\u044C\u0437\u044F."
+    - Key: Poem03
+      Text: "Deep in the woods, where the oaks scrape the skies,\r\nLived a woodsman,
+        his days bound by labor and ties.\r\nIn a humble hut, under branches entwined,\r\nHe
+        kept a doll, to which all his days he consigned.\r\n\r\nThis doll held a
+        sinister, ominous power,\r\nWhispering dark words that grew by the hour.\r\nIt
+        coaxed him to don a treacherous mask,\r\nTo pour forth darkness as its twisted
+        task.\r\n\r\nThe mask was worn, and like a thick mist,\r\nIt bound the woodsman
+        in an evil twist.\r\nThe doll\u2019s whispers gave orders, fierce and wild,\r\nTurning
+        him beast-like, reckless and riled.\r\n\r\nTime after time, it led him in
+        fear,\r\nGranting no peace, only shadows severe.\r\nThen, sensing its power
+        full-grown at last,\r\nIt bade him to end his life in one gasp.\r\n\r\nInto
+        his hands, it placed a rope tight,\r\nTo close his weary life in blighted
+        night.\r\nThe woodsman obeyed, the noose he embraced,\r\nBut the rope gave
+        way, slipping out in haste.\r\n\r\nDown fell the mask from his troubled face,\r\nAnd
+        darkness withdrew, like clouds giving space.\r\nAwake and in terror, he gazed
+        all around,\r\nSeized the doll and cast it to flames unbound.\r\n\r\nThe
+        lesson here, like the forest\u2019s own creed:\r\nTrust not whispers that
+        darken your deed.\r\nThe ominous doll and the mask's dread plan\r\nBring
+        naught but ruin and a frayed life\u2019s span."
+    - Key: Lore01
+      Text: "I'm writing this not just for fun, but because I'm getting more and
+        more worried about Nastenka. I've lived here, on the edge of the forest,
+        for many years, and I've seen all sorts of things, but I still can't get
+        used to the local people. The people here are peculiar, so steeped in old
+        beliefs that sometimes you don't know what to think. Pagans, worshipping
+        their ancient gods, Slavic gods of some kind. In the morning I hear them
+        praising idols in the field. They're strange, closed people. The forest is
+        a holy place for them. They say that in these thickets live Leshy, and in
+        the swamp and Vodyanoy. They are sure that if you don't respect local customs,
+        the forest spirits will punish you. It is hard for me to understand how one
+        can believe in such things nowadays. Not far from the village there is an
+        old Catholic church, almost empty. A monk built it 100 years ago, trying
+        to bring these savages to the \u201Ctrue faith\u201D. But it didn't work
+        out. The locals go there only when a funeral has to be held, they believe
+        in Perun, but they bury the bodies, they don't burn them. But even then,
+        on the way to church, they don't forget to leave bread at the doorstep for
+        the housekeeper. They live like that - between two worlds, and they are not
+        sure about either of them. My daughter Nastenka has begun to take an interest
+        in their paganism. She is growing up, and the world around her begins to
+        attract her more and more, especially what seems alien and incomprehensible.
+        She sees how idols dance, weave amulets, and she is also interested. But
+        I, as a father, try not to fill her head with it. I forbid her to go to them,
+        I take her to church. It's empty there, but it's better to let her go to
+        a holy place than to hide in the forest behind their idols. I'm afraid she'll
+        be attracted to these strange beliefs. "
+    - Key: Lore02
+      Text: 'Today Nastenka turned 7 years old. For two weeks I have been preparing
+        for this day, I cut out a toy for her. I really hope she will like it...
+        It''s not easy for her, living in the middle of nowhere without her mother.
+        No peers. There are not many children of her age in our village, or rather,
+        there are none at all. Everyone who had the opportunity took their children
+        closer to civilization. The few that remained are almost grown up, and the
+        playground on the edge of the village has long been empty. But Nastenka still
+        goes there, playing alone with her doll, the last gift from her mother.
+
+        She
+        is very withdrawn, all to herself... I wish I could see her smile more often.
+        Sometimes I think about her future. I just want her to be happy. I''m writing
+        this note to remind myself that it''s time to bury the axe and move to the
+        city. Soon things will be different. Soon things will be the way they used
+        to be.'
+    - Key: Lore03
+      Text: 'Three days had passed... Three days since Nastenka had gone for mushrooms...
+        And she hadn''t come back. I shouldn''t have let her go, I shouldn''t have!
+        How could I let her go into the damn woods alone? What got into me? I searched
+        the woods, all the trails, all the familiar places. I screamed myself hoarse,
+        calling for her, but there was no answer. What a fool I was! Why didn''t
+        I go with her? Now... now I''m afraid to even think about what might have
+        happened. I asked the villagers, they didn''t see anything, I don''t know
+        whether to believe them. Maybe those sectarians kidnapped her? I don''t know...
+        I don''t know what to think... Where is she? Where is my little Nastenka?
+        Why is she nowhere to be found? How could it have happened, why her? It''s
+        my own fault, it''s all my fault... I gave her to the forest, dark and cold.
+        She''s just a child, and I-- I should have protected her. But I couldn''t.
+        I''ve been shaking for three days, why am I writing this? Why don''t I keep
+        looking? Maybe she''s still waiting for me. She''s screaming: Where are you,
+        Daddy? God, I want to turn back the clock, just to hug her one more time,
+        to tell her she doesn''t have to go, that she has no business being there!
+        But it''s too late. Am I never gonna see her again? How am I supposed to
+        live with this? I don''t know what to do, I don''t know where to go. Everything
+        seems to have collapsed in an instant. Forgive me, Nastenka... I''m sorry...
+        I''m so sorry...'
+    - Key: Lore04
+      Text: "It's been 5 months... I'm completely broken. Every moment, every second
+        is filled with emptiness that has no end. There's only one thought in my
+        head: Where's Nastenka? Where is my girl?\r\n But I can't find an answer.
+        I tried going to church, praying, asking God for comfort, but nothing helps.
+        I kneel in front of the altar, but inside there is only pain and despair.
+        I see her face in front of me, her smile, and I realize that I will never
+        hear her laugh again. How do I live with that? Often I think it would be
+        easier to go after her, just disappear and let it be over. I don't resist
+        the thought of death anymore - it seems like the only way out of this endless
+        agony. All I was left with was hopelessness and a desire to go somewhere
+        where there was no more pain, where I could meet her.I started asking the
+        locals what I should do. At first I was afraid they would be judgmental,
+        but it was easier to talk to someone. I told them what I was thinking, that
+        I couldn't see a way out. All as one say that in the death of Nastenka may
+        be to blame Slavic spirits. I didn't believe it at first, I thought they
+        were just joking or mocking. But they spoke seriously, with a kind of terrible
+        certainty. According to them, the area around the farm has always been the
+        abode of monsters and entities that are older than time itself. I didn't
+        believe it before, I thought it was all just a fairy tale for the naive.
+        But now that Nastenka has disappeared, I'm beginning to doubt it. What if
+        the locals are right? What if the very monsters or spirits the villagers
+        fear are to blame for her disappearance? I'm sitting here now and I don't
+        know what to do. On the one hand, I'd like to end this torment once and for
+        all. But on the other hand. If it's really the work of these monsters, maybe
+        I can get her back. Maybe I should follow in their footsteps. I'm scared
+        to even think about it, but I'd do anything for Nastenka. Maybe she can still
+        be saved. Maybe I haven't lost everything. I don't know what will happen
+        next. My strength is almost gone, but I have to keep going. For her sake.
+        For my Nastenka."
+    - Key: Lore05
+      Text: How long has it really been? A month? A year? Maybe two? Time doesn't
+        heal wounds like everyone says. It just makes them deeper. The locals have
+        all left the village, abandoned their homes, their amulets and idols, as
+        if that's what destroyed them. Now it's as empty as the end of the world.
+        The huts stand abandoned, the wind drives the leaves through the empty streets,
+        and I'm the only one left. But I'm not alone. I know now that monsters are
+        real. They're not just fairy tales for the naive or tales of antiquity. They
+        are real. I feel their presence, hear rustles in the forest, see shadows
+        flickering at the edge of my vision. They are everywhere, haunting me, whispering
+        something I can't understand. They play with me, mocking my search. But I
+        don't give up. I can't. I have no right. I must find her, bring her back,
+        even if it means facing these creatures head-on.Every day I go into the woods,
+        wandering the familiar paths, looking for any trace, any hint of her presence.
+        And at night... At night I have nightmares in which I see her standing on
+        the shore of the lake, near the lighthouse.That lighthouse keeps me awake.
+        It's been standing on the lake for years, abandoned and silent, but now it's
+        like it's calling me. I don't know why, but I feel that there, within those
+        gloomy walls, I'll find what I'm looking for. Perhaps it's just another trick,
+        a ruse by these monsters, a game with my mind. But I can no longer ignore
+        the call. I'm going there, to the lighthouse, even though I know I may never
+        return. Maybe this is the end I've been traveling to for so long. But if
+        there, on top of that lighthouse, I find her, if I hear her voice, see her
+        face... It won't be in vain.I don't know what lies ahead. But I have to do
+        it. For her. For my Nastenka.
+    - Key: Lore06
+      Text: The strangeness in the forest continues to haunt me. After many days
+        of wandering, amidst darkness and hatred, I stumbled upon a forester's house
+        that I don't remember seeing before. The place was abandoned and turned upside
+        down. The floors were covered with some dark substance that reeked of rot
+        and iron. The walls were covered in what looked like bloodstains, as if someone
+        had tried to leave their last signs, desperately fighting for life... Or
+        death.My hands were shaking, but I kept looking around, and then the realization
+        hit me like a thunderclap. This is my house. I am the same forester who moved
+        here years ago with his daughter, who left his home and let himself be forgotten.The
+        curses in my tongue that I say to myself sound like a cry of despair. I curse
+        myself for bringing Nastenka here, to this horrible, gloomy corner that has
+        become a real nightmare. I was blind and stupid not to see that this area
+        was full of evil and fear that had long since settled here.How could I have
+        been so wrong? How could I forget the place where I spent so much time, where
+        even now I feel horror and fear, as if it had just begun? As if playing with
+        me, this horrible house, which I once thought was my own, takes me back to
+        the very beginning, to the day I brought Nastenka here. Inside I feel only
+        anger at myself for blinding myself to this place, for leaving her in this
+        hell where she may still be waiting.I can't go back. I can't change what
+        happened. But I have to find a way to get rid of this nightmare and free
+        my mind. And maybe get back what I've lost.
+    - Key: Lore07
+      Text: The delusion comes over me in waves like a great storm. I can no longer
+        distinguish reality from fiction. The days merge into one endless journey
+        along the same paths, round and round, as if I were trapped in a time loop
+        with no way out. Every time I return to familiar places, everything around
+        me seems even more distorted.Sometimes I think it's all a figment of my distorted
+        mind. These monsters, these voices and shadows... They can't be real, can
+        they? The forest has always been my home, my support, but now it's become
+        a nightmare. I see things that shouldn't be there, hear sounds that make
+        my blood run cold. But what if they're just illusions? What if I'm really
+        going crazy? Every day I wander these places, hoping to find a shred of truth.
+        But all I find are ghosts of the past and horrible images that haunt me.
+        I can feel my sanity slowly slipping away. I begin to question every step,
+        every move, but I can't stop. I just can't.One thing is certain, if these
+        monsters, whether they are real or not, finally capture me, I will lose myself
+        completely. My mind won't hold, it will break like a brittle branch under
+        the weight of a foot. And if that happens, I'll never be able to truly meet
+        Nastenka again.I can't afford to give up. Even if it's crazy, even if everything
+        around me is lies and deceit, I have to keep going. Even if I'm going in
+        circles, even if I'm facing these horrible visions, but I have to keep going.
+        Because if I stop, if I let them defeat me, it's over.I have to be strong.
+        For her. For my Nastenka.
+    - Key: Lore08
+      Text: My recent writings are just the evidence of my shattered mind finally
+        realizing its own insanity. I was lost in my own thoughts, in my own madness,
+        and this realization was the final sharp nail in the lid of my coffin.I began
+        to realize that all this time I hadn't just been wandering through the woods.
+        No, it was something much creepier. I had been leaving notes and memorabilia
+        for months, carefully selecting them and scattering them around the farmstead.
+        And then coming back to find them. I went through this horrible circle over
+        and over again. My own footprints became my prison, my own records my own
+        captivity. I wasn't just wandering, I was creating the illusion of searching,
+        the illusion of fighting not to face what was really going on.Every time
+        I thought I was finding the tracks, I was actually going back to the beginning.
+        These notes I was leaving were part of my delusion, part of this crazy cycle.
+        I was unable to stop. It was like a part of me didn't want to admit that
+        all this time I had been my own enemy, that I had created this trap and locked
+        myself in it.I can't forgive myself for what I did. I can't forgive myself
+        for allowing myself to become part of this horror, for allowing myself to
+        forget who I really am.I realize now that only death can reunite me with
+        my daughter, but I'm still scared, I'm not sure it's the right thing to do.
+        Before I go, I ask only one thing. Lord, if you are reading these words,
+        if there is still a drop of mercy in your heart, please give me the opportunity
+        to see Nastenka one more time. Let it be at her grave, at the cemetery or
+        any other place where her spirit can find rest.Please Lord, let me ask for
+        her forgiveness. I want her to know that I never wanted to lose her, that
+        I always loved her and wanted her back.That's all I want. That's all I have
+        left. I'm sorry.
+    - Key: Tips01
+      Text: "Didn't you hear that the swamps were about to be drained? Well\u2026
+        It seems that the generator has already been installed there and the pump
+        has been installed. They started pouring a canister into the generator, they
+        look, and some kind of mug appeared from the swamps! According to rumors,
+        as soon as they saw this face, they threw the canister and let's get out
+        of there, throwing all the equipment. I think maybe they imagined it after
+        all? It will be necessary to return to the idea of drainage, otherwise the
+        stench from the swamp in the village is unbearable. We just need to get another
+        canister of gasoline, there seemed to be another one left at the boat station..."
+    - Key: Tips02
+      Text: "Anyone who gets lost in the forest must take a look at these writings.
+        The forest does not accept human drawings, which are called maps. The forest
+        of traditions demands knowledge from the guest. And the traditions are such
+        that if you want to go out somewhere in the forest, turn your eyes to the
+        signs that are placed at the intersections. If you follow the order of the
+        signs, you won't get lost in the forest.\r\n Clearing: (order 1)\r\n Big
+        Oak: (order 2)\r\nThe church is not popular: (order 3)"
+    - Key: Tips03
+      Text: "Vasilich, I'm writing this note in case you want to get to the boat
+        station, in short, there's a door with a lock now.\r\n It was in the evening,
+        I was sitting on the pier one day, I took a few glasses to warm up, and then
+        I heard Petrovich yelling like a catechumenist. It turned out that he had
+        lost the key to the door to the boat station, and there we had all the spare
+        gear, gasoline and other important stuff.\r\n Then we decided to put a combination
+        lock so that we wouldn't lose the keys, and so that we wouldn't forget the
+        code, we wrote it down right here. But not just like that, but with a funny
+        story, so that you can even confuse it with a hangover!\r\n So, our code
+        is like this: 5-3-4-2. And we came up with it after Petrovich stepped into
+        the water with his heel while fishing, spat into the water three times, calmed
+        down four times with signs and took a sip of cognac twice \u2013 so remember:
+        5-3-4-2.While Petrovich was swimming out, I wrote down this code on the door.
+        Enter it boldly, but just don't forget to sit before it, skip a glass and
+        tell a joke \u2013 they say it helps to remember better!"
+    - Key: Tips04
+      Text: "Listen, Vasilich, I've heard that people are cooing about power outages.
+        Here's the thing, in short... I was sitting at the station one evening, so
+        I already missed a couple of mugs of moonshine, and suddenly the light goes
+        out, and I hear squeaky laughter from somewhere out of the corner of my ear.
+        Well, I think, kapets, the brownie has taken over again. I remembered with
+        fright the story of how Alyosha then forgot to appease the brownie. That's
+        where it started! The light bulbs in all the houses flashed like fireworks,
+        and a brownie peeks around the corner and laughs.Well, I was scared and immediately
+        poured the whole bottle of moonshine into a jar for him and put it behind
+        the gate. In short\u2026 I've put a lock on the gate now, otherwise there
+        won't be enough water for it. The password to the lock is: 6954"
+    - Key: Enemies01
+      Text: He is the father, lord and guardian of this cursed forest... Anyone treading
+        the paths of his domain must know that every step can have consequences,
+        every rustle disturbing the natural order of these places. He knows this...
+        He sees you... He comes out to hunt. The victim has no escape, he can only
+        cower in a distant bush and wait for nature to be more merciful and hide
+        from the bloodthirsty fangs and teeth of his master. If you are lucky enough
+        to hide from his eyes, then leave as quietly and as soon as possible... And
+        remember... The leshy is always on your trail....
+    - Key: Enemies02
+      Text: "There is a rumor that the swamps behind the village are home to an effeminate
+        underwater creature. The locals believe it is a waterman. He beckons passers-by
+        to his bog and persuades them to take a dip in the silt. If the passerby
+        disrespects the waterman's request, he crawls out of his abode to teach the
+        uninvited guest a lesson. I personally saw how this creature rushed at me,
+        grabbed his slimy hand by the leg and tried to drag me into the drowns, but
+        if you move away, it will not pursue you, the main thing to get away as soon
+        as possible....\r\n For some unknown reason, these murky waters seem to be
+        able to fill the minds of some weak-willed people with their mud. And, if
+        you give in to temptation, the waterman will seem like a beautiful mermaid
+        and the depths of the swamps like an underwater paradise... You must keep
+        your composure and in no case try not to approach this false paradise and
+        do not set foot in it."
+    - Key: Enemies03
+      Text: "Isn't everyone familiar with this little furry dwarf who maintains harmony
+        and fertility in the house? Not everyone knows, however, that the brownie
+        has a dark side. If a person does not monitor his household, does not feed
+        and does not thank the smoke, and also if he defiles his possessions for
+        no reason, then the brownie can get angry very quickly. Angered, this little
+        monster will start to scare and frighten his enemy, and, among other things,
+        will sneak up on him in order to cause physical harm.\r\n Despite his leprosy,
+        the brownie, by nature, is quiet and reclusive and does not tolerate human
+        gaze. If you manage to find a crook and keep an eye on him, he will quickly
+        run away and hide. But... for how long?..."
+    - Key: Enemies04
+      Text: Do you believe in ghosts? The answer doesn't matter if one of them definitely
+        exists. And this is not some kind of village legend. Everyone who has visited
+        these parts will confirm that there is an invisible entity in the local church
+        and its surroundings that does not let strangers get too close. If certain
+        boundaries are violated, she begins to throw objects, push unwanted guests
+        to the ground and even lift them into the air.The locals nicknamed the ghost
+        ovinnik, and although it may not be easy to appease him, it is quite possible
+        to do so. All you need to do is make the right offering to the sacred idols
+        that sit on the field. Locals often cajole them to dispel the fog in their
+        soul, but to ward off the dark essence. After the offering, the ovinnik will
+        no longer consider you an outsider and will allow you to move around its
+        territory.
+    - Key: Enemies05
+      Text: "Did Chernobog himself rise to us from hell in order to curse us for
+        our sins? With my own eyes, I saw a black goat-wolf face looking at me from
+        across the street. At the same moment, a terrible sound rang in my head,
+        as if hundreds of tortured souls were screaming, moaning, begging for help.
+        But what if I told you that the devil came to me more than once and changed
+        his color every time?The second time I met him in the night forest, he changed
+        his clothes from black to brown, but the look remained the same... The screams
+        are still the same... Suddenly my flashlight went out. My chest ached, I
+        couldn't move from fear. The devil, looking directly at me, crossed two fingers
+        and, like Viy, summoned his faithful minions. In the darkness of the night,
+        I could only see bizarre silhouettes, but even they made the hairs on my
+        head stand on end. I don't know what saved me that day, whether it was the
+        will of the pantheon or the first rays of dawn.No matter how much I wished
+        for a third meeting, it did happen.I walked through the fog and mist, my
+        heart beating in time with the fear that filled me from the inside. Everything
+        around me seemed strange, distorted, as if space itself had decided to play
+        a cruel joke on me. Every tree, every stone, every turn in the forest\u2013everything
+        led me back to the same place.And so, among the shadows and nightmares, I
+        saw her. My wife stood there, innocent and serene, as if all this darkness
+        around her did not exist. She looked at me with her trusting eyes. I took
+        a step towards her, hoping that this was just a figment of my imagination,
+        that I could destroy this horror with a simple touch on her hand.But as soon
+        as I got closer, her face twisted into a terrible grimace, and the screams
+        of souls filled my head again. Devilish laughter came from everywhere, and
+        my wife was no longer in front of me. The devil, mocking me, disappeared,
+        leaving behind only the sounds of suffering and his terrible mockery.At that
+        moment, I realized that our nightmare was far from over. The devil can play
+        with us like with dolls. And every time I think I'm close to a solution,
+        he finds a new way to sow fear and despair in my soul."
+  - Section: inventory
+    Localizations:
+    - Key: context.use
+      Text: Use
+    - Key: context.examine
+      Text: Examine
+    - Key: context.combine
+      Text: Combine
+    - Key: context.shortcut
+      Text: Shortcut
+    - Key: context.drop
+      Text: Drop
+    - Key: context.discard
+      Text: Discard
+    - Key: prompt.shortcut
+      Text: Press the shortcut key to set the shortcut  for the selected item
+    - Key: prompt.combine
+      Text: Select the item you want to combine the current item with.
+  - Section: item
+    Localizations:
+    - Key: title.flashlight
+      Text: Flashlight
+    - Key: description.flashlight
+      Text: Powerful beam of light in a durable metal housing, ideal for illuminating
+        areas and detecting hazards
+    - Key: title.camcorder
+      Text: Camcorder
+    - Key: description.camcorder
+      Text: Illuminate the darkness. Equipped with night vision technology, this
+        camcorder is perfect for exploring and documenting in low light conditions.
+    - Key: title.lantern
+      Text: Lantern
+    - Key: description.lantern
+      Text: A reliable source of light for any adventurer. Lantern flame is bright
+        and steady, providing a comforting glow that illuminates your surroundings.
+    - Key: title.lighter
+      Text: Lighter
+    - Key: description.lighter
+      Text: A reliable source of fire for any adventurer. With its compact size and
+        easy-to-use design, the lighter is a must-have item.
+    - Key: title.candle
+      Text: Candle
+    - Key: description.candle
+      Text: Compact, yet valuable for light and warmth in the darkness with its long-lasting
+        burn time.
+    - Key: title.axe
+      Text: Axe
+    - Key: description.axe
+      Text: 'Sturdy wood-handled tool with a sharp metal blade, ideal for chopping
+        and potential self-defense.     '
+    - Key: title.pocketknife
+      Text: Pocket Knife
+    - Key: description.pocketknife
+      Text: Compact folding blade, versatile for cutting tasks and close-quarters
+        defense. Always handy to have.
+    - Key: title.pistol
+      Text: Pistol
+    - Key: description.pistol
+      Text: A trusty sidearm for close-range combat. This powerful weapon packs a
+        punch and can be a lifesaver in dangerous situations.
+    - Key: title.alkalinebattery
+      Text: Alkaline Battery
+    - Key: description.alkalinebattery
+      Text: A compact and reliable source of power that provide long-lasting energy
+        and are perfect for powering flashlights, radios, and other essential items.
+    - Key: title.camerabattery
+      Text: Camera Battery
+    - Key: description.camerabattery
+      Text: Keep your camcorder camera powered up and ready to go with this reliable
+        battery. Designed to provide long-lasting energy.
+    - Key: title.petroloil
+      Text: Petrol Oil
+    - Key: description.petroloil
+      Text: A refined petroleum product commonly used as a fuel for lanterns and
+        lamps. It is a clear, colorless liquid that produces a bright, steady flame
+        when burned.
+    - Key: title.pistolammo
+      Text: Pistol Ammo
+    - Key: description.pistolammo
+      Text: Compatible with a variety of firearms. With its compact size and high
+        stopping power, 9mm ammo is perfect for close-range combat situations.
+    - Key: title.pistolflashlight
+      Text: Pistol Flashlight
+    - Key: description.pistolflashlight
+      Text: Shed some light on any situation with this tactical attachment for your
+        pistol. It illuminates your target and reveals hidden dangers in the darkness.
+    - Key: title.lockpick
+      Text: Lockpicks
+    - Key: description.lockpick
+      Text: A handy tool for any adventurer, the lockpick can open a variety of locks
+        and doors.
+    - Key: title.fuse
+      Text: Fuse
+    - Key: description.fuse
+      Text: An essential item for fixing electrical equipment and powering machinery.
+        With its compact size, it's easy to carry in your inventory.
+    - Key: title.valve
+      Text: Valve
+    - Key: description.valve
+      Text: An essential component for controlling the flow of liquids and gases
+        in pipes and machinery.
+    - Key: title.vhscassette
+      Text: VHS Cassette
+    - Key: description.vhscassette
+      Text: A classic, durable format for video recording and archiving memories
+        or documenting important events.
+    - Key: title.redkeycard
+      Text: Red Keycard
+    - Key: description.redkeycard
+      Text: A high-security access card that grants entry to restricted areas.
+    - Key: title.greenkeycard
+      Text: Green Keycard
+    - Key: description.greenkeycard
+      Text: An access card that allows entry to various secure locations.
+    - Key: title.gunpowder
+      Text: Gunpowder
+    - Key: description.gunpowder
+      Text: A volatile black powder used for ammunition and explosives. Combine with
+        scrap to create a pistol ammo.
+    - Key: title.scrap
+      Text: Scrap
+    - Key: description.scrap
+      Text: A collection of miscellaneous metal pieces. Useful for crafting and repairs.
+    - Key: title.firstaidkit
+      Text: First AID KIT
+    - Key: description.firstaidkit
+      Text: A vital survival tool packed with essential medical supplies. Use to
+        restore health and treat minor injuries. Useful in emergencies.
+    - Key: title.medicaloil
+      Text: Medicinal oil
+    - Key: description.medicaloil
+      Text: Effective, fast-acting drug. It is used to alleviate a variety of illnesses,
+        increase the speed of recovery, and boost health at critical moments.
+    - Key: title.medicalherb
+      Text: Medicinal plant
+    - Key: description.medicalherb
+      Text: Rare and powerful flora with healing properties. It is used to restore
+        a moderate amount of health or to make powerful healing potions and medicines.
+    - Key: title.healingpotion
+      Text: Medicinal mixture
+    - Key: description.healingpotion
+      Text: A powerful concoction made from Medical Oil and Medical Herb. Provides
+        quick and significant health boost.
+    - Key: title.key
+      Text: Key
+    - Key: description.key
+      Text: A generic, yet mysterious key with an unknown use. Keep it on hand, as
+        it may unlock doors, chests, or secrets yet to be discovered.
+    - Key: title.keys
+      Text: Keys
+    - Key: description.keys
+      Text: Assorted metal keys on a ring. Opens various locks. Essential for access
+        and exploration.
+    - Key: title.fuel
+      Text: Gasoline canister
+    - Key: description.fuel
+      Text: 'A durable, metal canister filled with a high-efficiency liquid fuel
+        designed specifically to refuel electric generators.
+
+        Fuel litres:
+        {fuel_litres}'
+  - Section: tips
+    Localizations:
+    - Key: tip1
+      Text: This is the first example of a tip.
+    - Key: tip2
+      Text: This is the second example of a tip.
+    - Key: tip3
+      Text: This is the third example of a tip.
+  - Section: options
+    Localizations:
+    - Key: brightness
+      Text: Brightness
+    - Key: camera.fov
+      Text: Camera FOV
+    - Key: look.sensitivity
+      Text: Look Sensitivity
+    - Key: look.smoothing
+      Text: Look Smoothing
+    - Key: smoothing.speed
+      Text: Smoothing Speed
+    - Key: show.fps
+      Text: Show FPS
+    - Key: display
+      Text: Display
+    - Key: display.mode
+      Text: Display Mode
+    - Key: screen.res
+      Text: Screen Resolution
+    - Key: frame.rate
+      Text: Frame Rate
+    - Key: vsync
+      Text: Vertical Synchronization
+    - Key: render.scale
+      Text: Render Scale
+    - Key: fsr
+      Text: FSR Sharpness
+    - Key: antialiasing
+      Text: Antialiasing
+    - Key: anisotropic
+      Text: Anisotropic Filtering
+    - Key: texture.quality
+      Text: Texture Quality
+    - Key: shadow.distance
+      Text: Shadow Distance
+    - Key: bloom
+      Text: Bloom
+    - Key: vignette
+      Text: Vignette
+    - Key: film.grain
+      Text: Film Grain
+    - Key: chromatic
+      Text: Chromatic Aberration
+    - Key: audio.general
+      Text: General Volume
+    - Key: audio.music
+      Text: Music Volume
+    - Key: show.ui
+      Text: Show UI
+    - Key: input.action
+      Text: Input Action
+    - Key: render.distance
+      Text: Draw distance
+    - Key: render.plants.distance
+      Text: Plant drawing distance
+    - Key: video.settings
+      Text: Video settings
+    - Key: postprocessing
+      Text: Post-processing
+    - Key: display.mode01
+      Text: Windowed
+    - Key: display.mode02
+      Text: Borderless Windowed
+    - Key: framerate.variable
+      Text: Variable
+    - Key: forceenabled
+      Text: Force Enable
+    - Key: quality.1
+      Text: Very Low
+    - Key: quality.2
+      Text: Low
+    - Key: quality.3
+      Text: Medium
+    - Key: quality.4
+      Text: High
+    - Key: shadow.1
+      Text: Very Low (25m)
+    - Key: shadow.2
+      Text: Low (40m)
+    - Key: shadow.3
+      Text: Medium (55m)
+    - Key: shadow.4
+      Text: High (70m)
+    - Key: shadow.5
+      Text: Very High (85m)
+    - Key: shadow.6
+      Text: Max (100m)
+    - Key: language
+      Text: Language
+  - Section: quests
+    Localizations:
+    - Key: lost-daughter
+      Text: My daughter, Nastenka, has disappeared from home. We need to find her
+        before it's too late.

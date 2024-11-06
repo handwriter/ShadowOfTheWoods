@@ -32,7 +32,7 @@ namespace UHFPS.Runtime
         private readonly Dictionary<string, ObjectiveCache> objectivesCache = new();
         private readonly Dictionary<string, ObjectiveData> activeObjectives = new();
         private ObjectiveEvent[] objectiveEvents;
-
+        private List<string> _completedQuests = new List<string>();
         private void Awake()
         {
             foreach (var objective in ObjectivesAsset.Objectives)
@@ -79,6 +79,11 @@ namespace UHFPS.Runtime
 
             // show objective notification
             ObjectiveNotification.ShowNotification(ObjectiveAdded, NotificationDuration);
+
+            if (_completedQuests.Contains(key))
+            {
+                CompleteObjective(key, subKey);
+            }
         }
 
         public void AddSubObjective(string key, string[] subKey)
@@ -110,6 +115,7 @@ namespace UHFPS.Runtime
 
         public void CompleteObjective(string key, params string[] subKey)
         {
+            _completedQuests.Add(key);
             if (activeObjectives.TryGetValue(key, out ObjectiveData data))
             {
                 foreach (var sub in subKey)

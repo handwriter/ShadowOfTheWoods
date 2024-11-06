@@ -25,5 +25,6 @@
   "volume_music": 1.0,
   "show_ui": true,
   "draw_distance": 0.55,
-  "tree_draw_distance": 31.7
+  "tree_draw_distance": 31.7,
+  "language": true
 }

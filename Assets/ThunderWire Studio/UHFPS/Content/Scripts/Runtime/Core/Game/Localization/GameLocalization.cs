@@ -20,6 +20,7 @@ namespace UHFPS.Runtime
         public bool ShowWarnings = true;
 
         public CompositeDisposable Disposables = new();
+        public Dictionary<string, Action<string>> textUpdaters = new Dictionary<string, Action<string>>();
 
         public Lazy<IDictionary<string, string>> GlocDictionary { get; } = new(() =>
         {
@@ -252,6 +253,7 @@ namespace UHFPS.Runtime
 
             if (localization.GlocDictionary.Value.ContainsKey(key))
             {
+                GameLocalization.Instance.textUpdaters.Add(key, onUpdate);
                 disposables.Add(localization.ObserveGloc(key).Subscribe(text =>
                 {
                     onUpdate?.Invoke(text);

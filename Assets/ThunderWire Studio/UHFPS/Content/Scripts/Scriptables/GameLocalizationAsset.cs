@@ -12,7 +12,7 @@ namespace UHFPS.Scriptable
         public struct Localization
         {
             public string Key;
-            [TextArea(1, 6)]
+            [TextArea(1, 100)]
             public string Text;
         }
 

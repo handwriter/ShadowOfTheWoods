@@ -2,6 +2,7 @@ using System;
 using System.Reactive.Subjects;
 using System.Text.RegularExpressions;
 using UHFPS.Input;
+using UHFPS.Tools;
 
 namespace UHFPS.Runtime
 {
@@ -17,25 +18,33 @@ namespace UHFPS.Runtime
         public string NormalText;
 
         private Subject<string> OnTextChange = new();
-
+        public Action<string> OnValueUpdated;
         public GString(string text)
         {
-            OnTextChange = new();
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
             NormalText = text;
         }
 
         public GString(string gloc, string text)
         {
-            OnTextChange = new();
+            //OnTextChange = new();
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
             GlocText = gloc;
             NormalText = text;
         }
 
         public GString(GString copy)
         {
-            OnTextChange = new();
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
             GlocText = copy.GlocText;
             NormalText = copy.NormalText;
+        }
+
+        public void UpdateTextValue()
+        {
+            NormalText = LocalizationManager.GetLocaleText(GlocText);
+            if (NormalText.IsEmpty()) NormalText = GlocText;
+            OnValueUpdated?.Invoke(NormalText);
         }
 
         public string Value
@@ -44,7 +53,6 @@ namespace UHFPS.Runtime
             {
                 if(string.IsNullOrEmpty(NormalText)) 
                     return GlocText;
-
                 return NormalText;
             }
 
@@ -75,27 +83,28 @@ namespace UHFPS.Runtime
         {
             if (string.IsNullOrEmpty(Value))
                 return;
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
+            OnValueUpdated += onUpdate;
+            //#if UHFPS_LOCALIZATION
+            //            if (GlocText.Length > 0 && GlocText[0] == EXCLUDE_CHAR)
+            //            {
+            //                NormalText = GlocText[1..];
+            //                onUpdate?.Invoke(NormalText);
 
-#if UHFPS_LOCALIZATION
-            if (GlocText.Length > 0 && GlocText[0] == EXCLUDE_CHAR)
-            {
-                NormalText = GlocText[1..];
-                onUpdate?.Invoke(NormalText);
+            //                OnTextChange ??= new();
+            //                OnTextChange?.OnNext(NormalText);
+            //                return;
+            //            }
 
-                OnTextChange ??= new();
-                OnTextChange?.OnNext(NormalText);
-                return;
-            }
+            //            GlocText.SubscribeGloc(text =>
+            //            {
+            //                NormalText = text;
+            //                onUpdate?.Invoke(text);
 
-            GlocText.SubscribeGloc(text =>
-            {
-                NormalText = text;
-                onUpdate?.Invoke(text);
-
-                OnTextChange ??= new();
-                OnTextChange?.OnNext(text);
-            });
-#endif
+            //                OnTextChange ??= new();
+            //                OnTextChange?.OnNext(text);
+            //            });
+            //#endif
         }
 
         /// <summary>
@@ -105,27 +114,27 @@ namespace UHFPS.Runtime
         {
             if (string.IsNullOrEmpty(Value))
                 return;
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
+            //#if UHFPS_LOCALIZATION
+            //            if (GlocText.Length > 0 && GlocText[0] == EXCLUDE_CHAR)
+            //            {
+            //                NormalText = GlocText[1..];
+            //                onUpdate?.Invoke(NormalText);
 
-#if UHFPS_LOCALIZATION
-            if (GlocText.Length > 0 && GlocText[0] == EXCLUDE_CHAR)
-            {
-                NormalText = GlocText[1..];
-                onUpdate?.Invoke(NormalText);
+            //                OnTextChange ??= new();
+            //                OnTextChange?.OnNext(NormalText);
+            //                return;
+            //            }
 
-                OnTextChange ??= new();
-                OnTextChange?.OnNext(NormalText);
-                return;
-            }
+            //            GlocText.SubscribeGlocMany(text =>
+            //            {
+            //                NormalText = text;
+            //                onUpdate?.Invoke(text);
 
-            GlocText.SubscribeGlocMany(text =>
-            {
-                NormalText = text;
-                onUpdate?.Invoke(text);
-
-                OnTextChange ??= new();
-                OnTextChange?.OnNext(text);
-            });
-#endif
+            //                OnTextChange ??= new();
+            //                OnTextChange?.OnNext(text);
+            //            });
+            //#endif
         }
 
         /// <summary>
@@ -148,10 +157,10 @@ namespace UHFPS.Runtime
             }
         }
 
-        public IDisposable ObserveText(Action<string> onUpdate = null)
+        public void ObserveText(Action<string> onUpdate)
         {
-            OnTextChange ??= new();
-            return OnTextChange.Subscribe(text => onUpdate?.Invoke(text));
+            LocalizationManager.OnLanguageUpdated += UpdateTextValue;
+            OnValueUpdated += onUpdate;
         }
 
         public override string ToString() => Value;

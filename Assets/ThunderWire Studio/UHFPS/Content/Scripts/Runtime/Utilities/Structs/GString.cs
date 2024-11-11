@@ -1,8 +1,10 @@
 using System;
+using System.Diagnostics;
 using System.Reactive.Subjects;
 using System.Text.RegularExpressions;
 using UHFPS.Input;
 using UHFPS.Tools;
+using Unity.VisualScripting;
 
 namespace UHFPS.Runtime
 {
@@ -17,12 +19,13 @@ namespace UHFPS.Runtime
         public string GlocText;
         public string NormalText;
 
-        private Subject<string> OnTextChange = new();
         public Action<string> OnValueUpdated;
+
         public GString(string text)
         {
             LocalizationManager.OnLanguageUpdated += UpdateTextValue;
-            NormalText = text;
+            GlocText = text;
+            UpdateTextValue();
         }
 
         public GString(string gloc, string text)
@@ -30,14 +33,14 @@ namespace UHFPS.Runtime
             //OnTextChange = new();
             LocalizationManager.OnLanguageUpdated += UpdateTextValue;
             GlocText = gloc;
-            NormalText = text;
+            UpdateTextValue();
         }
 
         public GString(GString copy)
         {
             LocalizationManager.OnLanguageUpdated += UpdateTextValue;
             GlocText = copy.GlocText;
-            NormalText = copy.NormalText;
+            UpdateTextValue();
         }
 
         public void UpdateTextValue()
@@ -51,8 +54,10 @@ namespace UHFPS.Runtime
         {
             get
             {
-                if(string.IsNullOrEmpty(NormalText)) 
+                if (string.IsNullOrEmpty(NormalText))
+                {
                     return GlocText;
+                }
                 return NormalText;
             }
 
@@ -164,5 +169,7 @@ namespace UHFPS.Runtime
         }
 
         public override string ToString() => Value;
+
+        
     }
 }

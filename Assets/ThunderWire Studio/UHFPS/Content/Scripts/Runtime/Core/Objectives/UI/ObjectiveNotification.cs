@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using ThunderWire.Attributes;
 using TMPro;
+using UHFPS.Tools;
 
 namespace UHFPS.Runtime
 {
@@ -17,13 +18,14 @@ namespace UHFPS.Runtime
         public string HideState = "Hide";
 
         private bool isShowed;
+        private string _titleKey;
 
         public void ShowNotification(string title, float duration)
         {
             if (isShowed)
                 return;
 
-            Title.text = title;
+            _titleKey = title;
             Animator.SetTrigger(ShowTrigger);
             StartCoroutine(OnShowNotification(duration));
             isShowed = true;
@@ -35,6 +37,12 @@ namespace UHFPS.Runtime
             Animator.SetTrigger(HideTrigger);
             yield return new WaitForAnimatorStateExit(Animator, HideState);
             isShowed = false;
+        }
+
+        private void Update()
+        {
+            Title.text = LocalizationManager.GetLocaleText(_titleKey);
+            if (Title.text.IsEmpty()) Title.text = _titleKey;
         }
     }
 }

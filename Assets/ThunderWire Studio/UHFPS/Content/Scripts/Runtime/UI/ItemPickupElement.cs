@@ -2,13 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static System.Net.Mime.MediaTypeNames;
+using static UHFPS.Runtime.Inventory;
+using UHFPS.Tools;
 
 namespace UHFPS.Runtime
 {
     public class ItemPickupElement : MonoBehaviour
     {
         public TMP_Text PickupText;
-        public Image PickupIcon;
+        public UnityEngine.UI.Image PickupIcon;
+        public string LootText;
 
         [Header("Fit Settings")]
         public bool FitIcon = true;
@@ -19,9 +23,17 @@ namespace UHFPS.Runtime
         public string ShowAnimation = "Show";
         public string HideAnimation = "Hide";
 
-        public void ShowItemPickup(string text, Sprite icon, float time)
+        private string _itemName;
+        private int _shortcutId;
+
+        private void Start()
         {
-            PickupText.text = text;
+        }
+
+        public void ShowItemPickup(string text, Sprite icon, float time, int shortcutId = -1)
+        {
+            _itemName = text;
+            _shortcutId = shortcutId;
             PickupIcon.sprite = icon;
 
             Vector2 slotSize = Vector2.one * FitSize;
@@ -46,6 +58,15 @@ namespace UHFPS.Runtime
 
             yield return new WaitForEndOfFrame();
             Destroy(gameObject);
+        }
+
+        private void Update()
+        {
+            string itemName = LocalizationManager.GetLocaleText(_itemName);
+            if (itemName.IsEmpty()) itemName = _itemName;
+            string pickupText = LocalizationManager.GetLocaleText(LootText) + " " + itemName;
+            if (_shortcutId >= 0) pickupText += $"\nPress {_shortcutId + 1} to Equip";
+            PickupText.text = pickupText;
         }
     }
 }

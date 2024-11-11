@@ -23,6 +23,7 @@ namespace UHFPS.Runtime
 
         private void Start()
         {
+            LocalizationManager.OnLanguageUpdated += UpdateTextValues;
             if (IsCustomData)
                 return;
 
@@ -31,9 +32,6 @@ namespace UHFPS.Runtime
             {
                 Options[i].SubscribeGloc(text =>
                 {
-                    if (!listenToChange)
-                        return;
-
                     int index = i;
                     if (index == Current)
                         RadioText.text = text;
@@ -42,6 +40,16 @@ namespace UHFPS.Runtime
 
             SetOption((int)Current);
             listenToChange = true;
+            UpdateTextValues();
+        }
+
+        public void UpdateTextValues()
+        {
+            for (int i = 0;i < Options.Length;i++)
+            {
+                Options[i].UpdateTextValue();
+            }
+            SetOption((int)Current);
         }
 
         public void ChangeOption(int change)
@@ -53,8 +61,6 @@ namespace UHFPS.Runtime
         public void SetOption(int index)
         {
             Current = (uint)index;
-            Debug.Log(Options[Current].GlocText);
-            Debug.Log(Options[Current].NormalText);
             RadioText.text = Options[Current];
             OnChange?.Invoke((int)Current);
             IsChanged = true;

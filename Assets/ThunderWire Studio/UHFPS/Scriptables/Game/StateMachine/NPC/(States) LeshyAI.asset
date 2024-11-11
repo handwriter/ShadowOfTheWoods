@@ -18,7 +18,6 @@ MonoBehaviour:
   WalkSpeed: 4
   PatrolStoppingDistance: 1
   VeryClosePlayerDetection: 3
-  ChaseType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +74,7 @@ MonoBehaviour:
   m_Name: Chase
   m_EditorClassIdentifier: 
   RunSpeed: 6
-  ChaseStoppingDistance: 1
+  ChaseStoppingDistance: 2
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 0.5
   VeryClosePlayerDetection: 2

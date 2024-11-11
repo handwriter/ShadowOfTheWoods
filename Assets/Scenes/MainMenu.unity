@@ -4917,9 +4917,6 @@ MonoBehaviour:
     NormalText: 
   - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -5030,19 +5027,14 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*Disabled'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*2x'
+  - GlocText: 2x
     NormalText: 
-  - GlocText: '*4x'
+  - GlocText: 4x
     NormalText: 
-  - GlocText: '*8x'
+  - GlocText: 8x
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - 2x
-  - 4x
-  - 8x
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -5746,13 +5738,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -7329,14 +7318,6 @@ MonoBehaviour:
     NormalText: 
   - GlocText: options.shadow.6
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - options.shadow.1
-  - options.shadow.2
-  - options.shadow.3
-  - options.shadow.4
-  - options.shadow.5
-  - options.shadow.6
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -10070,13 +10051,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -10523,13 +10501,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -13678,6 +13653,7 @@ GameObject:
   - component: {fileID: 586898226}
   - component: {fileID: 586898228}
   - component: {fileID: 586898227}
+  - component: {fileID: 586898229}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -13801,6 +13777,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586898225}
   m_CullTransparentMesh: 1
+--- !u!114 &586898229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586898225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422c6e2a084421445909efe724d8ffcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlocKey:
+    GlocText: menu.button.back
+    NormalText: 
+  ObserveMany: 0
+  OnUpdateText:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 586898227}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &589905802
 GameObject:
   m_ObjectHideFlags: 0
@@ -14804,9 +14811,6 @@ MonoBehaviour:
     NormalText: 
   - GlocText: options.display.mode02
     NormalText: 
-  OptionsKeys:
-  - options.display.mode01
-  - options.display.mode02
   OnChange:
     m_PersistentCalls:
       m_Calls: []
@@ -17971,13 +17975,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -21650,19 +21651,14 @@ MonoBehaviour:
   Current: 3
   IsCustomData: 0
   Options:
-  - GlocText: '*30FPS'
+  - GlocText: 30FPS
     NormalText: 
-  - GlocText: '*60FPS'
+  - GlocText: 60FPS
     NormalText: 
-  - GlocText: '*120FPS'
+  - GlocText: 120FPS
     NormalText: 
-  - GlocText: '*Variable'
+  - GlocText: options.framerate.variable
     NormalText: 
-  OptionsKeys:
-  - 30FPS
-  - 60FPS
-  - 120FPS
-  - options.framerate.variable
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -23133,13 +23129,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: English
     NormalText: 
-  OptionsKeys:
-  - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
-  - English
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -24070,11 +24063,6 @@ MonoBehaviour:
     NormalText: 
   - GlocText: options.quality.4
     NormalText: 
-  OptionsKeys:
-  - options.quality.1
-  - options.quality.2
-  - options.quality.3
-  - options.quality.4
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -26324,7 +26312,6 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 1
   Options: []
-  OptionsKeys: []
   OnChange:
     m_PersistentCalls:
       m_Calls: []
@@ -28553,16 +28540,12 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*Disable'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*Enable'
+  - GlocText: menu.button.on
     NormalText: 
-  - GlocText: '*Force Enable'
+  - GlocText: options.forceenabled
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
-  - options.forceenabled
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -29445,13 +29428,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -30410,7 +30390,6 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 1
   Options: []
-  OptionsKeys: []
   OnChange:
     m_PersistentCalls:
       m_Calls: []
@@ -38265,13 +38244,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:
@@ -42825,13 +42801,10 @@ MonoBehaviour:
   Current: 0
   IsCustomData: 0
   Options:
-  - GlocText: '*OFF'
+  - GlocText: menu.button.off
     NormalText: 
-  - GlocText: '*ON'
+  - GlocText: menu.button.on
     NormalText: 
-  OptionsKeys:
-  - menu.button.off
-  - menu.button.on
   OnChange:
     m_PersistentCalls:
       m_Calls:

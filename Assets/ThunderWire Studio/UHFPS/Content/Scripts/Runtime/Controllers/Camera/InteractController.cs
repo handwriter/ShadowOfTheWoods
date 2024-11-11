@@ -323,7 +323,8 @@ namespace UHFPS.Runtime
                     if (interactable.UseInventoryTitle)
                     {
                         Item item = interactable.PickupItem.GetItem();
-                        titleText ??= item.Title;
+                        titleText ??= LocalizationManager.GetLocaleText(item.Title);
+                        if (titleText.IsEmpty()) titleText = item.Title;
                     }
                     else
                     {
@@ -412,12 +413,12 @@ namespace UHFPS.Runtime
 
                         if (ShowDefaultPickupIcon)
                         {
-                            gameManager.ShowItemPickupMessage(pickupText, DefaultPickupIcon, interactable.MessageTime);
+                            gameManager.ShowItemPickupMessage(interactable.ItemName, DefaultPickupIcon, interactable.MessageTime, shortcutId);
                         }
                         else
                         {
                             var pickupIcon = interactable.PickupItem.GetItem().Icon;
-                            gameManager.ShowItemPickupMessage(pickupText, pickupIcon, interactable.MessageTime);
+                            gameManager.ShowItemPickupMessage(interactable.ItemName, pickupIcon, interactable.MessageTime, shortcutId);
                         }
                     }
                     else if (interactable.MessageType == MessageTypeEnum.Hint)

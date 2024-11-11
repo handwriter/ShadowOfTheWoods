@@ -1306,5 +1306,5 @@ MonoBehaviour:
         maxStack: 0
       CombineSettings: []
       LocalizationSettings:
-        titleKey: 
-        descriptionKey: 
+        titleKey: item.title.sickle
+        descriptionKey: item.description.sickle

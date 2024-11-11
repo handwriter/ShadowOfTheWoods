@@ -71,7 +71,6 @@ namespace UHFPS.Runtime.States
             {
                 var closestWaypointsGroup = FindClosestWaypointsGroup();
                 waypointsGroup = closestWaypointsGroup.Key;
-                Debug.Log($"For: {agent.gameObject.name} Group: {waypointsGroup.name}");
 
                 agent.speed = State.WalkSpeed;
                 agent.stoppingDistance = State.PatrolStoppingDistance;

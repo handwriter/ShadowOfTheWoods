@@ -76,7 +76,7 @@ namespace UHFPS.Runtime
             CompositeDisposable _disposables = new();
             subDisposables.Add(data.SubObjective.SubObjectiveKey, _disposables);
 
-            string subObjectiveText = data.SubObjective.ObjectiveText;
+            string subObjectiveText = LocalizationManager.GetLocaleText(data.SubObjective.ObjectiveText.GlocText);
             objectiveTitle.text = FormatObjectiveText(subObjectiveText, data.CompleteCount.Value);
 
             // subscribe listening to localization changes
@@ -88,18 +88,17 @@ namespace UHFPS.Runtime
             {
                 if (completed)
                 {
-                    _disposables.Dispose();
                     Destroy(subObjective);
                 }
             })
             .AddTo(_disposables);
 
             // event when sub objective complete count will be changed
-            data.CompleteCount.Subscribe(count =>
-            {
-                objectiveTitle.text = FormatObjectiveText(subObjectiveText, count);
-            })
-            .AddTo(_disposables);
+            //data.CompleteCount.Subscribe(count =>
+            //{
+            //    objectiveTitle.text = FormatObjectiveText(subObjectiveText, count);
+            //})
+            //.AddTo(_disposables);
 
             // add sub objective to sub objectives dictionary
             subObjectives.Add(data.SubObjective.SubObjectiveKey, subObjective);

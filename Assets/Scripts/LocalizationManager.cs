@@ -37,7 +37,7 @@ public class LocalizationManager : MonoBehaviour
         {
             _processedLocales[data.Key] = ProcessLanguageData(data.LocaleAsset);
         }
-        _currentLanguage = DefaultLanguage;
+        SetLanguage(DefaultLanguage);
     }
 
     public static void SetLanguage(string key)
@@ -49,7 +49,6 @@ public class LocalizationManager : MonoBehaviour
     public static string GetLocaleText(string key)
     {
         if (key == null) return "";
-        if (key == "menu.button.on") Debug.Log("KSKKSD");
         if (Instance._processedLocales[Instance._currentLanguage].ContainsKey(key)) return Instance._processedLocales[Instance._currentLanguage][key];
         return "";
     }

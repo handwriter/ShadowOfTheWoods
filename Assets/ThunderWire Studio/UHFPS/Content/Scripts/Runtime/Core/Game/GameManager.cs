@@ -690,7 +690,9 @@ namespace UHFPS.Runtime
                     GamePanel.alpha = 0;
                     PausePanel.alpha = 0;
                     DeadPanel.alpha = 1;
-                    DeathTitle.text = DeathPanelTitles[UnityEngine.Random.Range(0, DeathPanelTitles.Length)];
+                    string key = DeathPanelTitles[UnityEngine.Random.Range(0, DeathPanelTitles.Length)];
+                    DeathTitle.text = LocalizationManager.GetLocaleText(key);
+                    if (DeathTitle.text.IsEmpty()) DeathTitle.text = key;
                     break;
                 case PanelType.MainPanel:
                     SetPanelInteractable(PanelType.GamePanel);
@@ -841,11 +843,11 @@ namespace UHFPS.Runtime
         /// <summary>
         /// Show a message when you pickup something.
         /// </summary>
-        public void ShowItemPickupMessage(string text, Sprite icon, float time)
+        public void ShowItemPickupMessage(string text, Sprite icon, float time, int shortcutId = -1)
         {
             GameObject pickupElement = Instantiate(ItemPickup, ItemPickupLayout);
             ItemPickupElement element = pickupElement.GetComponent<ItemPickupElement>();
-            element.ShowItemPickup(text, icon, time);
+            element.ShowItemPickup(text, icon, time, shortcutId);
         }
 
         /// <summary>

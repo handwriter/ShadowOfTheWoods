@@ -100,7 +100,7 @@ namespace UHFPS.Runtime
                 {
                     title = PickupItem.GetItem().Title;
                 }
-
+                Debug.Log(title);
                 return title;
             }
         }

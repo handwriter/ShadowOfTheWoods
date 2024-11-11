@@ -1001,9 +1001,12 @@ namespace UHFPS.Runtime
 
         public void ShowItemInfo(Item item, ItemCustomData customData)
         {
-            itemInfo.itemTitle.text = item.Title;
+            string title = LocalizationManager.GetLocaleText(item.Title);
+            if (title.IsEmpty()) title = item.Title;
+            itemInfo.itemTitle.text = title;
 
-            string description = item.Description;
+            string description = LocalizationManager.GetLocaleText(item.Description);
+            if (description.IsEmpty()) description = item.Description;
             if (description.RegexGetMany('{', '}', out string[] paths))
             {
                 var json = customData.GetJson();

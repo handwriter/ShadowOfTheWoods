@@ -159,7 +159,7 @@ MonoBehaviour:
     - Key: rotate
       Text: Rotate
     - Key: loot
-      Text: Looted
+      Text: 'Looted:'
     - Key: inserttape
       Text: Insert Tape
     - Key: poweron
@@ -180,6 +180,8 @@ MonoBehaviour:
       Text: 'Lockpicks: [count]'
     - Key: loading
       Text: LOADING...
+    - Key: inventory
+      Text: Inventory
   - Section: interactions
     Localizations:
     - Key: use
@@ -241,7 +243,7 @@ MonoBehaviour:
     - Key: lever
       Text: Lever
     - Key: paneldoor
-      Text: Panel Door
+      Text: Electric box
     - Key: door
       Text: Door
     - Key: valve
@@ -924,6 +926,10 @@ MonoBehaviour:
 
         Fuel litres:
         {fuel_litres}'
+    - Key: title.sickle
+      Text: Sickle
+    - Key: description.sickle
+      Text: Sickle
   - Section: tips
     Localizations:
     - Key: tip1
@@ -1025,5 +1031,58 @@ MonoBehaviour:
   - Section: quests
     Localizations:
     - Key: lost-daughter
-      Text: My daughter, Nastenka, has disappeared from home. We need to find her
-        before it's too late.
+      Text: Missing Daughter
+    - Key: swamp
+      Text: Damn these swamps
+    - Key: swamp.valve
+      Text: Somewhere in the swamps a valve was lost
+    - Key: swamp.fuel
+      Text: To start the generator, I need fuel. There is no point in searching in
+        the swamps.
+    - Key: swamp.water
+      Text: Now I have everything I need, it's time to pump out the water.
+    - Key: swamp.start
+      Text: Barrier to the swamps
+    - Key: swamp.sickle
+      Text: The passage to the swamps is overgrown with reeds... We need to find
+        something with which to clear the passage. I think a sickle will do.
+    - Key: swamp.enter
+      Text: Now that I have a sickle, I can overcome the obstacle and get into the
+        swamp territory.
+    - Key: village.closed-houses
+      Text: What's hidden in houses?
+    - Key: village.lockpicks
+      Text: 'To break into closed doors, I will need master keys. Opened houses:
+        [count]/3'
+    - Key: boatstation
+      Text: Sesame, open up
+    - Key: boatstation.energy
+      Text: There is an electronic lock on the boathouse; you can power it using
+        a power station near the field.
+    - Key: boatstation.combination
+      Text: The gate to the power plant is locked with a combination lock, maybe
+        I can find the right combination in the surrounding area.
+    - Key: boatstation.puzzles
+      Text: To conduct electricity to the boat station, you will have to work as
+        an electrician.
+    - Key: boatstation.nums
+      Text: The door is locked with an electronic lock, maybe one of the locals left
+        a note somewhere with the correct combination.
+    - Key: lighthouse
+      Text: The lighthouse is calling
+    - Key: lighthouse.boat
+      Text: I can find a boat on the shore of the boat station.
+    - Key: lighthouse.fuel
+      Text: You need to find a can of gasoline.
+    - Key: lighthouse.keys
+      Text: Where did the keys go... I can't start my motorboat without them.
+    - Key: lighthouse.final
+      Text: The time has come, I hope I find what I'm looking for there.
+    - Key: lost-daughter.start
+      Text: Find Nastenka
+    - Key: lost-daughter.end
+      Text: Accept your fate
+    - Key: idols
+      Text: What's hidden behind the fog?
+    - Key: idols.items
+      Text: I think the fog will clear if I offer the right objects to the idols

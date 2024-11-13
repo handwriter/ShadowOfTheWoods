@@ -1282,7 +1282,7 @@ MonoBehaviour:
       Height: 1
       Orientation: 0
       FlipDirection: 0
-      Icon: {fileID: 21300000, guid: 3b933de9da22bc2449ab7e7c08eea81e, type: 3}
+      Icon: {fileID: 21300000, guid: e2aeb4f88ac7d834db2ff041d526eab5, type: 3}
       ItemObject:
         GUID: 
         Object: {fileID: 0}
@@ -1308,3 +1308,105 @@ MonoBehaviour:
       LocalizationSettings:
         titleKey: item.title.sickle
         descriptionKey: item.description.sickle
+  - guid: 4088efce4c3c4e82a92cb3239d47937c
+    item:
+      Title: Ritual mask
+      Description: 
+      Width: 1
+      Height: 1
+      Orientation: 0
+      FlipDirection: 0
+      Icon: {fileID: 21300000, guid: 4260666a366c5214c8a7fdabb08292ee, type: 3}
+      ItemObject:
+        GUID: 
+        Object: {fileID: 0}
+      Settings:
+        isUsable: 0
+        isStackable: 0
+        isExaminable: 1
+        isCombinable: 0
+        isDroppable: 0
+        isDiscardable: 0
+        canBindShortcut: 0
+        alwaysShowQuantity: 0
+      UsableSettings:
+        usableType: 0
+        playerItemIndex: -1
+        healthPoints: 0
+        removeOnUse: 0
+        customData:
+          JsonData: 
+      Properties:
+        maxStack: 0
+      CombineSettings: []
+      LocalizationSettings:
+        titleKey: 
+        descriptionKey: 
+  - guid: 744298f4027249278e160aff4cd31063
+    item:
+      Title: A coil of rope
+      Description: 
+      Width: 1
+      Height: 1
+      Orientation: 0
+      FlipDirection: 0
+      Icon: {fileID: 21300000, guid: db5b4c70b71ff85459b719ef8777186e, type: 3}
+      ItemObject:
+        GUID: 
+        Object: {fileID: 0}
+      Settings:
+        isUsable: 0
+        isStackable: 0
+        isExaminable: 1
+        isCombinable: 0
+        isDroppable: 0
+        isDiscardable: 0
+        canBindShortcut: 0
+        alwaysShowQuantity: 0
+      UsableSettings:
+        usableType: 0
+        playerItemIndex: -1
+        healthPoints: 0
+        removeOnUse: 0
+        customData:
+          JsonData: 
+      Properties:
+        maxStack: 0
+      CombineSettings: []
+      LocalizationSettings:
+        titleKey: 
+        descriptionKey: 
+  - guid: 88ef511901514adaa42a71ce995fb0f8
+    item:
+      Title: Ominous doll
+      Description: 
+      Width: 1
+      Height: 1
+      Orientation: 0
+      FlipDirection: 0
+      Icon: {fileID: 21300000, guid: 06efbcfe479b7c947addcab06f055d24, type: 3}
+      ItemObject:
+        GUID: 
+        Object: {fileID: 0}
+      Settings:
+        isUsable: 0
+        isStackable: 0
+        isExaminable: 1
+        isCombinable: 0
+        isDroppable: 0
+        isDiscardable: 0
+        canBindShortcut: 0
+        alwaysShowQuantity: 0
+      UsableSettings:
+        usableType: 0
+        playerItemIndex: -1
+        healthPoints: 0
+        removeOnUse: 0
+        customData:
+          JsonData: 
+      Properties:
+        maxStack: 0
+      CombineSettings: []
+      LocalizationSettings:
+        titleKey: 
+        descriptionKey: 

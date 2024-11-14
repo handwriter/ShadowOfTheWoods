@@ -1,16 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AutoLOD;
 using UnityEngine;
 
 public class EnemiesSpawnManager : MonoBehaviour
 {
+    
+
+
     [Serializable]
     public class EnemySpawnData
     {
+        public enum SpawnTypeEnum { AtStart, RegularInstance }
         public GameObject EnemyPrefab;
         public Transform SpawnPoint;
         public float SpawnTimeFromStart;
+        public SpawnTypeEnum SpawnType;
+        [HideInInspector]
+        public float TimeFromSpawn;
+        public GameObject Instance;
     }
 
     public EnemySpawnData[] SpawnData;
@@ -29,12 +38,35 @@ public class EnemiesSpawnManager : MonoBehaviour
         
         foreach (EnemySpawnData data in _dataParsed)
         {
-            if (_timeFromStart >= data.SpawnTimeFromStart)
+            switch (data.SpawnType)
             {
-                GameObject newEnemy = Instantiate(data.EnemyPrefab);
-                newEnemy.transform.position = data.SpawnPoint.position;
-                dataToDelete.Add(data);
+                case EnemySpawnData.SpawnTypeEnum.AtStart:
+                    if (_timeFromStart >= data.SpawnTimeFromStart)
+                    {
+                        GameObject newEnemy = Instantiate(data.EnemyPrefab);
+                        newEnemy.transform.position = data.SpawnPoint.position;
+                        dataToDelete.Add(data);
+                    }
+                    break;
+                case EnemySpawnData.SpawnTypeEnum.RegularInstance:
+                    if (!data.Instance)
+                    {
+                        data.Instance = Instantiate(data.EnemyPrefab);
+                        data.Instance.transform.position = data.SpawnPoint.position;
+                        data.Instance.gameObject.SetActive(false);
+                        data.TimeFromSpawn = 0;
+                    }
+                    else
+                    {
+                        if (!data.Instance.activeSelf && data.TimeFromSpawn >= data.SpawnTimeFromStart)
+                        {
+                            data.Instance.SetActive(true);
+                        }
+                    }
+                    data.TimeFromSpawn += Time.deltaTime;
+                    break;
             }
+            
         }
 
         foreach (EnemySpawnData data in dataToDelete) _dataParsed.Remove(data);

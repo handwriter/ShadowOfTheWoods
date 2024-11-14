@@ -2,6 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using Newtonsoft.Json.Linq;
 using ThunderWire.Attributes;
+using System;
 
 namespace UHFPS.Runtime
 {
@@ -12,7 +13,11 @@ namespace UHFPS.Runtime
         public Transform CameraHolder;
         public Camera MainCamera;
         public CinemachineVirtualCamera MainVirtualCamera;
-        public bool IsInSwamp;
+        public bool IsInSwamp => SwampBlockManager.IsInSwamp;
+        public SwampBlockManager SwampBlockManager;
+        public string[] ObjectivesFromStart;
+        public ItemProperty[] ItemsFromStart;
+        [HideInInspector] public float TimeInSwamp;
 
         private static PlayerManager _instance;
 
@@ -28,6 +33,21 @@ namespace UHFPS.Runtime
         private void Awake()
         {
             _instance = this;
+        }
+
+        private void Start()
+        {
+            foreach (string key in ObjectivesFromStart)
+            {
+                ObjectiveManager.Instance.AddObjective(key.Split(";")[0], new string[] { key.Split(";")[1] });
+            }
+
+
+            foreach (ItemProperty item in ItemsFromStart)
+            {
+                Inventory.Instance.AddItem(item.GUID, 1, null);
+            }
+            //inventory.AddItem(interactable.PickupItem.GUID, interactable.Quantity, interactable.ItemCustomData, out var addedItem)
         }
 
         private PlayerHealth m_PlayerHealth;
@@ -130,9 +150,9 @@ namespace UHFPS.Runtime
             _instance = null;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void Update()
         {
-            Debug.Log(collision.collider.gameObject.tag);
+            if (IsInSwamp) TimeInSwamp += Time.deltaTime;
         }
     }
 }

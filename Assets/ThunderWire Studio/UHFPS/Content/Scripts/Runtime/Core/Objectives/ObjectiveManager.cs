@@ -7,6 +7,7 @@ using UnityEngine;
 using UHFPS.Scriptable;
 using ThunderWire.Attributes;
 using Newtonsoft.Json.Linq;
+using TMPro;
 
 namespace UHFPS.Runtime
 {
@@ -32,7 +33,20 @@ namespace UHFPS.Runtime
         private readonly Dictionary<string, ObjectiveCache> objectivesCache = new();
         private readonly Dictionary<string, ObjectiveData> activeObjectives = new();
         private ObjectiveEvent[] objectiveEvents;
-        private List<string> _completedQuests = new List<string>();
+        private List<QuestInfo> _completedQuests = new List<QuestInfo>();
+
+        public class QuestInfo
+        {
+            public string key;
+            public string[] subKey;
+
+            public QuestInfo(string key, string[] subKey)
+            {
+                this.key = key;
+                this.subKey = subKey;
+            }
+        }
+
         private void Awake()
         {
             foreach (var objective in ObjectivesAsset.Objectives)
@@ -79,17 +93,21 @@ namespace UHFPS.Runtime
 
             // show objective notification
             ObjectiveNotification.ShowNotification(ObjectiveAdded, NotificationDuration);
-
-            if (_completedQuests.Contains(key))
+            foreach (QuestInfo inf in _completedQuests)
             {
-                CompleteObjective(key, subKey);
+                if (inf.subKey.Length > 0)
+                {
+                    if (inf.key == key && subKey.Contains(inf.subKey[0]))
+                    {
+                        CompleteObjective(key, inf.subKey);
+                    }
+                }
             }
         }
 
         public void AddSubObjective(string key, string[] subKey)
         {
             if (subKey.Length <= 0) return;
-
             if (activeObjectives.TryGetValue(key, out ObjectiveData data))
             {
                 ObjectiveEvent[] events = GetObjectiveEvents(key);
@@ -106,6 +124,18 @@ namespace UHFPS.Runtime
                         data.SubObjectives.Add(sub.SubObjectiveKey, subObjectiveData);
                         data.AddSubObjective.OnNext(subObjectiveData);
                     }
+
+                    foreach (QuestInfo inf in _completedQuests)
+                    {
+                        if (inf.subKey.Length > 0)
+                        {
+                            if (inf.key == key && inf.subKey.Contains(sub.SubObjectiveKey))
+                            {
+                                CompleteObjective(key, new string[] { sub.SubObjectiveKey });
+                                break;
+                            }
+                        }
+                    }
                 }
 
                 // show objective notification
@@ -115,7 +145,7 @@ namespace UHFPS.Runtime
 
         public void CompleteObjective(string key, params string[] subKey)
         {
-            _completedQuests.Add(key);
+            _completedQuests.Add(new QuestInfo(key, subKey));
             if (activeObjectives.TryGetValue(key, out ObjectiveData data))
             {
                 foreach (var sub in subKey)

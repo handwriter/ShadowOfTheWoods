@@ -241,7 +241,7 @@ MonoBehaviour:
     - Key: fusebox
       Text: Fusebox
     - Key: keypad
-      Text: Keypad
+      Text: "\u041F\u0430\u043D\u0435\u043B\u044C"
     - Key: keycard
       Text: Keycard
     - Key: padlock

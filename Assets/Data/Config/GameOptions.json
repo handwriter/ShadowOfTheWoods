@@ -15,7 +15,7 @@
   "fsr_sharpness": 0.900000036,
   "antialiasing": 0,
   "anisotropic": 1,
-  "texture_quality": 0,
+  "texture_quality": 3,
   "shadow_distance": 4,
   "pp_bloom": false,
   "pp_vignette": true,

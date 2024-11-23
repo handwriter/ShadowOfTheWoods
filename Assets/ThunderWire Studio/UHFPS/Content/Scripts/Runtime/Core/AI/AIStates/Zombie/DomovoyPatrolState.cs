@@ -52,8 +52,8 @@ namespace UHFPS.Runtime.States
 
             public override Transition[] OnGetTransitions()
             {
-                return new Transition[] { Transition.To<DomovoyRunAwayState>(() => PlayerManager.Instance.CheckObjectInViewField(machine.gameObject)),
-                    Transition.To<DomovoyChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE) && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition)) && !IsPlayerDead)
+                return new Transition[] { Transition.To<DomovoyRunAwayState>(() => PlayerManager.Instance.CheckObjectInViewField(machine.gameObject) && SeesPlayer() && !InDistance(State.VeryClosePlayerDetection, PlayerPosition)),
+                    Transition.To<DomovoyChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE) && SeesPlayer() && InDistance(State.VeryClosePlayerDetection, PlayerPosition) && !IsPlayerDead)
                         };
             }
 

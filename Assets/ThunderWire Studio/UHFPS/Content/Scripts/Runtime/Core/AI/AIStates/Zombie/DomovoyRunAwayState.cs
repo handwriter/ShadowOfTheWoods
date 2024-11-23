@@ -7,6 +7,7 @@ namespace UHFPS.Runtime.States
     public class DomovoyRunAwayState : AIStateAsset
     {
         public float[] RestTime;
+        public float RestFromStart;
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
             return new ChaseState(machine, group, this);
@@ -22,6 +23,11 @@ namespace UHFPS.Runtime.States
             private readonly DomovoyRunAwayState State;
             private float _restTimeout;
             private float _targetRestTime;
+            
+            private float _startRest;
+            public enum ChaseStatus { Wait, FromStart };
+            private ChaseStatus _status;
+
 
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
@@ -44,6 +50,12 @@ namespace UHFPS.Runtime.States
             {
                 animator.ResetTrigger(Group.AttackTrigger);
                 Group.ResetAnimatorPrameters(animator);
+                _status = ChaseStatus.FromStart;
+                if (machine.GetComponent<DomovoyController>().WaitForRun)
+                {
+                    machine.GetComponent<DomovoyController>().WaitForRun = false;
+                    _status = ChaseStatus.Wait;
+                }
             }
 
             public override void OnStateExit()
@@ -58,24 +70,36 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
-                if (PlayerManager.Instance.CheckObjectInViewField(machine.gameObject))
+                switch (_status)
                 {
-                    _restTimeout = 0;
-                    animator.SetBool(Group.RunParameter, true);
-                    Vector3 direction = playerMachine.MainCamera.transform.right;
-                    if (PlayerManager.Instance.GetObjectPositionInViewField(machine.gameObject).x >= 0.5)
-                    {
-                        direction = Quaternion.AngleAxis(-90, playerMachine.MainCamera.transform.up) * playerMachine.MainCamera.transform.forward;
-                    }
-                    agent.SetDestination(agent.transform.position - direction * 30);
-                    agent.isStopped = false;
-                }
-                else
-                {
-                    _restTimeout += Time.deltaTime;
-                    animator.SetBool(Group.RunParameter, false);
-                    animator.SetBool(Group.IdleParameter, true);
-                    agent.isStopped = true;
+                    case ChaseStatus.Wait:
+                        _startRest += Time.deltaTime;
+                        agent.isStopped = true;
+                        animator.SetBool(Group.RunParameter, false);
+                        animator.SetBool(Group.IdleParameter, true);
+                        if (_startRest >= State.RestFromStart) _status = ChaseStatus.FromStart;
+                        break;
+                    case ChaseStatus.FromStart:
+                        if (PlayerManager.Instance.CheckObjectInViewField(machine.gameObject))
+                        {
+                            _restTimeout = 0;
+                            animator.SetBool(Group.RunParameter, true);
+                            Vector3 direction = playerMachine.MainCamera.transform.right;
+                            if (PlayerManager.Instance.GetObjectPositionInViewField(machine.gameObject).x >= 0.5)
+                            {
+                                direction = Quaternion.AngleAxis(-90, playerMachine.MainCamera.transform.up) * playerMachine.MainCamera.transform.forward;
+                            }
+                            agent.SetDestination(agent.transform.position - direction * 30);
+                            agent.isStopped = false;
+                        }
+                        else
+                        {
+                            _restTimeout += Time.deltaTime;
+                            animator.SetBool(Group.RunParameter, false);
+                            animator.SetBool(Group.IdleParameter, true);
+                            agent.isStopped = true;
+                        }
+                        break;
                 }
             }
         }

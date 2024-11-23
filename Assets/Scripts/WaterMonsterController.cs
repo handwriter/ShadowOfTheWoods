@@ -12,6 +12,39 @@ public class WaterMonsterController : MonoBehaviour
         public Material TransparentMaterial;
     }
     public TransparentMeshMaterial[] MeshMaterials;
+    public bool IsInSwamp;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Swamp"))
+        {
+            IsInSwamp = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Swamp"))
+        {
+            IsInSwamp = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Swamp"))
+        {
+            IsInSwamp = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Swamp"))
+        {
+            IsInSwamp = false;
+        }
+    }
 
     public void SetupMaterials()
     {

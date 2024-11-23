@@ -44,11 +44,12 @@ namespace UHFPS.Runtime.States
             private bool playerDied;
             private bool _HideFromPlayer;
             private float _timeFromAttack;
+            public bool isAttacked = false;
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
                 Group = (ZombieStateGroup)group;
                 State = (DomovoyChaseState)state;
-
+                isAttacked = false;
                 machine.CatchMessage("Attack", () => AttackPlayer());
             }
 
@@ -57,9 +58,16 @@ namespace UHFPS.Runtime.States
                 return new Transition[]
                 {
                     Transition.To<DomovoyPatrolState>(() => waitTime > State.LostPlayerPatrolTime || playerDied),
-                    Transition.To<DomovoyRunAwayState>(() => PlayerManager.Instance.CheckObjectInViewField(machine.gameObject)),
+                    Transition.To<DomovoyRunAwayState>(() => CheckRunAwayState()),
                     Transition.To<ZombiePlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
                 };
+            }
+
+            public bool CheckRunAwayState()
+            {
+                bool isInView = PlayerManager.Instance.CheckObjectInViewField(machine.gameObject);
+                machine.GetComponent<DomovoyController>().WaitForRun = isInView && ModelController.IsUsingFlashlight;
+                return (isInView && (!InDistance(State.VeryClosePlayerDetection, PlayerPosition) || ModelController.IsUsingFlashlight)) || isAttacked;
             }
 
             public override void OnStateEnter()
@@ -184,6 +192,7 @@ namespace UHFPS.Runtime.States
                 int damage = Group.DamageRange.Random();
                 playerHealth.OnApplyDamage(damage, machine.transform);
                 _timeFromAttack = 0;
+                isAttacked = true;
             }
         }
     }

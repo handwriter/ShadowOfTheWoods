@@ -15,6 +15,7 @@ MonoBehaviour:
   RestTime:
   - 60
   - 300
+  RestFromStart: 2
 --- !u!114 &-1364037977710805689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,7 +32,7 @@ MonoBehaviour:
   ChaseStoppingDistance: 1.24
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 0.5
-  VeryClosePlayerDetection: 2
+  VeryClosePlayerDetection: 20
   AttackFOV: 78.63
   AttackDistance: 2
   AttackRestTime: 15
@@ -97,4 +98,4 @@ MonoBehaviour:
   PatrolTime: 3
   WalkSpeed: 4
   PatrolStoppingDistance: 1
-  VeryClosePlayerDetection: 3
+  VeryClosePlayerDetection: 20

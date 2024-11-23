@@ -95,4 +95,4 @@ MonoBehaviour:
   LostPlayerPredictTime: 1
   VeryClosePlayerDetection: 0.001
   AttackFOV: 30
-  AttackDistance: 3
+  AttackDistance: 6

@@ -84,6 +84,7 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
+                animator.SetBool("IsOnGround", !machine.GetComponent<WaterMonsterController>().IsInSwamp);
                 if (!resetParameters)
                 {
                     Group.ResetAnimatorPrameters(animator);
@@ -119,7 +120,6 @@ namespace UHFPS.Runtime.States
                 bool isAttacking = IsAnimation(1, Group.AttackState);
                 if (InPlayerDistance(State.AttackDistance) && IsObjectInSights(State.AttackFOV, PlayerPosition) && !isAttacking && !playerHealth.IsDead)
                 {
-                    Debug.Log("Attack PL");
                     animator.SetTrigger(Group.AttackTrigger);
                 }
             }
@@ -139,9 +139,10 @@ namespace UHFPS.Runtime.States
             {
                 Debug.Log("Attack player");
                 if (!InPlayerDistance(State.AttackDistance))
+                {
                     Debug.Log("Player not in Distance");
-                return;
-
+                    return;
+                }
                 int damage = Group.DamageRange.Random();
                 playerHealth.OnApplyDamage(damage, machine.transform);
             }

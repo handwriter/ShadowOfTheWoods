@@ -113,6 +113,7 @@ namespace UHFPS.Runtime
 
         public void SetLightState(bool state)
         {
+            ModelController.IsUsingFlashlight = state;
             FlashlightLight.enabled = state;
             if(!state) audioSource.PlayOneShotSoundClip(FlashlightClickOff);
             else audioSource.PlayOneShotSoundClip(FlashlightClickOn);
@@ -147,7 +148,7 @@ namespace UHFPS.Runtime
         {
             CanvasGroupFader.StartFadeInstance(flashlightPanel, false, 5f,
                 () => flashlightPanel.gameObject.SetActive(false));
-
+            ModelController.IsUsingFlashlight = false;
             StopAllCoroutines();
             StartCoroutine(HideFlashlight());
             Animator.SetTrigger(FlashlightHideTrigger);
@@ -163,6 +164,7 @@ namespace UHFPS.Runtime
 
             isEquipped = false;
             isBusy = false;
+            ModelController.IsUsingFlashlight = false;
         }
 
         public override void OnItemActivate()

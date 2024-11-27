@@ -4,7 +4,7 @@
   "sensitivity": 1.0,
   "smoothing": false,
   "smoothing_speed": 1.0,
-  "show_fps": true,
+  "show_fps": false,
   "display": 0,
   "screen_fullscreen": false,
   "screen_width": 1920,
@@ -26,5 +26,5 @@
   "show_ui": true,
   "draw_distance": 1.0,
   "tree_draw_distance": 35.8500023,
-  "language": false
+  "language": true
 }

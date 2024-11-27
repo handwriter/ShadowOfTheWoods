@@ -461,7 +461,7 @@ namespace UHFPS.Runtime
             yield return new WaitForEndOfFrame();
 
             SaveGameManager.SetLoadGameState(sceneName, folderName);
-            SceneManager.LoadScene(SaveGameManager.LMS);
+            SceneManager.LoadScene(1);
         }
 
         /// <summary>
@@ -861,6 +861,8 @@ namespace UHFPS.Runtime
             StopAllCoroutines();
             StartCoroutine(ShowHintMessage(time));
         }
+
+        public bool GetPlayerLockedState() => isInputLocked;
 
         IEnumerator ShowHintMessage(float time)
         {

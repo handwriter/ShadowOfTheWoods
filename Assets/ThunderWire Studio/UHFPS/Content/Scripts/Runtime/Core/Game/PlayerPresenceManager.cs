@@ -272,12 +272,12 @@ namespace UHFPS.Runtime
             activeCamera = cameraObj;
 
             onBackgroundFade?.Invoke();
-
+            RenderSettings.ambientIntensity = cameraObj != null ? 4 : 1.2f;
             yield return new WaitForEndOfFrame();
             yield return gameManager.StartBackgroundFade(true, fadeSpeed: fadeSpeed);
 
             IsCameraSwitched = cameraObj != null; // check if camera switched to player camera
-
+            
             yield return new WaitForSeconds(0.1f);
             onFadeComplete?.Invoke();
         }

@@ -76,6 +76,12 @@ namespace UHFPS.Runtime
             if (!isEquipped || isBusy || InfiniteBattery) 
                 return;
 
+            if (GameManager.Instance.GetPlayerLockedState())
+            {
+                Debug.Log("Is Player Locked");
+                PlayerManager.Instance.PlayerItems.DeselectCurrent();
+            }
+
             // battery life
             currentBattery = currentBattery > 0 ? currentBattery -= Time.deltaTime : 0;
             UpdateBattery();

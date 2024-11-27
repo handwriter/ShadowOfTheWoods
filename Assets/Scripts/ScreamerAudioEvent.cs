@@ -1,28 +1,60 @@
 using UnityEngine;
 
-public class ScreamerAudioEvent : MonoBehaviour
+public class AnimationEventManager : MonoBehaviour
 {
-    public AudioClip SoundClip; // AudioClip в инспекторе
-    public AudioSource audioSource;
+    public AudioClip[] soundClips; // Массив звуков, доступных для использования
 
-    private void Start()
+    private AudioSource audioSource;
+
+    void Start()
     {
-        // Важно: назначить AudioSource в инспекторе.
-        if (audioSource == null) audioSource = GetComponent<AudioSource>();
-    }
-    // Например, для события OnStateEnter
-    void OnAnimationEvent(AnimationEvent e)
-    {
-        if (e.stringParameter == "PlaySound") // Убедитесь что имя события в анимации совпадает
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
         {
-            if (SoundClip != null)
-            {
-                audioSource.PlayOneShot(SoundClip);
-            }
-            else
-            {
-                Debug.LogWarning("Аудиоклип не задан!");
-            }
+            Debug.LogError("AudioSource не найден! Добавьте AudioSource к объекту.");
         }
+    }
+
+    /// <summary>
+    /// Воспроизводит звук по индексу из массива soundClips.
+    /// </summary>
+    /// <param name="soundIndex">Индекс звука в массиве soundClips.</param>
+    public void PlaySoundByIndex(int soundIndex)
+    {
+        if (soundIndex >= 0 && soundIndex < soundClips.Length)
+        {
+            audioSource.PlayOneShot(soundClips[soundIndex]);
+        }
+        else
+        {
+            Debug.LogWarning($"Индекс звука {soundIndex} вне диапазона массива soundClips.");
+        }
+    }
+
+    /// <summary>
+    /// Вызывает указанную функцию с параметром.
+    /// </summary>
+    /// <param name="functionName">Название функции, которую нужно вызвать.</param>
+    /// <param name="parameter">Строковый параметр, передаваемый в функцию.</param>
+    public void InvokeFunction(string functionName, string parameter)
+    {
+        var method = GetType().GetMethod(functionName);
+        if (method != null)
+        {
+            method.Invoke(this, new object[] { parameter });
+        }
+        else
+        {
+            Debug.LogWarning($"Функция с именем {functionName} не найдена.");
+        }
+    }
+
+    /// <summary>
+    /// Пример пользовательской функции, которая может быть вызвана из анимации.
+    /// </summary>
+    /// <param name="message">Сообщение, передаваемое в функцию.</param>
+    public void CustomMessage(string message)
+    {
+        Debug.Log($"CustomMessage вызвана с параметром: {message}");
     }
 }

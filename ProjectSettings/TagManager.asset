@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flesh
   - Swamp
+  - Keys
   layers:
   - Default
   - TransparentFX

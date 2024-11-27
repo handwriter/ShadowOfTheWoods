@@ -1181,12 +1181,12 @@ MonoBehaviour:
         GUID: 
         Object: {fileID: 0}
       Settings:
-        isUsable: 0
+        isUsable: 1
         isStackable: 0
-        isExaminable: 0
+        isExaminable: 1
         isCombinable: 0
         isDroppable: 0
-        isDiscardable: 1
+        isDiscardable: 0
         canBindShortcut: 0
         alwaysShowQuantity: 0
       UsableSettings:
@@ -1316,7 +1316,7 @@ MonoBehaviour:
       Height: 1
       Orientation: 0
       FlipDirection: 0
-      Icon: {fileID: 21300000, guid: 4260666a366c5214c8a7fdabb08292ee, type: 3}
+      Icon: {fileID: 21300000, guid: e8f27990022e24c4c9dda00c2df91235, type: 3}
       ItemObject:
         GUID: 
         Object: {fileID: 0}
@@ -1350,7 +1350,7 @@ MonoBehaviour:
       Height: 1
       Orientation: 0
       FlipDirection: 0
-      Icon: {fileID: 21300000, guid: db5b4c70b71ff85459b719ef8777186e, type: 3}
+      Icon: {fileID: 21300000, guid: 081382730832b0d44b9cab6280211e76, type: 3}
       ItemObject:
         GUID: 
         Object: {fileID: 0}
@@ -1384,7 +1384,7 @@ MonoBehaviour:
       Height: 1
       Orientation: 0
       FlipDirection: 0
-      Icon: {fileID: 21300000, guid: 06efbcfe479b7c947addcab06f055d24, type: 3}
+      Icon: {fileID: 21300000, guid: 8bc1605ec616d5241895b57b9102cdbe, type: 3}
       ItemObject:
         GUID: 
         Object: {fileID: 0}

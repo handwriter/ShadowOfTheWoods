@@ -149,7 +149,6 @@ namespace UHFPS.Runtime.States
                 bool isAttacking = IsAnimation(1, Group.AttackState);
                 if(InPlayerDistance(State.AttackDistance) && IsObjectInSights(State.AttackFOV, PlayerPosition) && !isAttacking && !playerHealth.IsDead)
                 {
-                    Debug.Log("Attack PL");
                     animator.SetTrigger(Group.AttackTrigger);
                 }
             }

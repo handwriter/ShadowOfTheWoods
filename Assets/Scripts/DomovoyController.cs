@@ -4,6 +4,31 @@ using UnityEngine;
 
 public class DomovoyController : MonoBehaviour
 {
-    public int RestIndex = 0;
-    public bool WaitForRun = false;
+    public int MaxAttackCount;
+    public int AttackCount;
+    public bool IsInLightZone = false;
+    public TransparentMaterialsManager TransparentMaterialsManager;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("FlashlightZone"))
+        {
+            IsInLightZone = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("FlashlightZone"))
+        {
+            IsInLightZone = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("FlashlightZone"))
+        {
+            IsInLightZone = true;
+        }
+    }
 }

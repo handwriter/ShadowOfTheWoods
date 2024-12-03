@@ -1,17 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UHFPS.Runtime;
 using UnityEngine;
 
-public class EnemiesSpawnManager : MonoBehaviour
+public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
 {
-    
-
-
     [Serializable]
     public class EnemySpawnData
     {
-        public enum SpawnTypeEnum { AtStart, RegularInstance }
+        public enum SpawnTypeEnum { AtStart, RegularInstance, TriggeredInstance }
         public GameObject EnemyPrefab;
         public Transform SpawnPoint;
         public float SpawnTimeFromStart;
@@ -21,14 +19,34 @@ public class EnemiesSpawnManager : MonoBehaviour
         public GameObject Instance;
     }
 
+    public enum EnemyType { Domovoy }
+
     public EnemySpawnData[] SpawnData;
     private float _timeFromStart;
     private List<EnemySpawnData> _dataParsed = new List<EnemySpawnData>();
     private List<EnemySpawnData> dataToDelete = new List<EnemySpawnData>();
+    public int DomovoyDataIndex;
 
     private void Awake()
     {
         foreach (EnemySpawnData data in SpawnData) _dataParsed.Add(data);
+    }
+
+    public void SpawnDomovoy()
+    {
+        if (!SpawnData[DomovoyDataIndex].Instance)
+        {
+            GameObject newDomovoy = SpawnEnemyObj(SpawnData[DomovoyDataIndex]);
+            SpawnData[DomovoyDataIndex].Instance = newDomovoy;
+            newDomovoy.SetActive(true);
+        }
+    }
+
+    public GameObject SpawnEnemyObj(EnemySpawnData data)
+    {
+        GameObject newEnemy = Instantiate(data.EnemyPrefab);
+        newEnemy.transform.position = PlayerManager.Instance.CalculateRayStartPoint() + new Vector3(0, 5, 0);
+        return newEnemy;
     }
 
     void Update()

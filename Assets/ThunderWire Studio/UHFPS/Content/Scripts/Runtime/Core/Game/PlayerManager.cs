@@ -19,6 +19,12 @@ namespace UHFPS.Runtime
         public ItemProperty[] ItemsFromStart;
         [HideInInspector] public float TimeInSwamp;
 
+        [SerializeField] private Transform RayHelpPoint;
+        [SerializeField] private Transform RayStartPoint;
+        [SerializeField] private Transform RayHit;
+        [SerializeField] private float RayDistance;
+        [SerializeField] private Layer Layer;
+
         private static PlayerManager _instance;
 
         public static PlayerManager Instance
@@ -150,9 +156,43 @@ namespace UHFPS.Runtime
             _instance = null;
         }
 
+        public float CalculateDistanceToObj(Transform obj)
+        {
+            Vector2 playerPosition = new Vector2(transform.position.x, transform.position.z);
+            Vector2 helpPointPosition = new Vector2(obj.position.x, obj.position.z);
+            return Vector2.Distance(playerPosition, helpPointPosition);
+        }
+
+        public Vector2 CalculateDelta(float distance, Transform obj)
+        {
+            Vector3 delta = transform.position - obj.position;
+            return (new Vector2(delta.x, delta.z)) / CalculateDistanceToObj(obj) * distance;
+        }
+
+        public Vector3 CalculateBackPoint(float distance, float yPos)
+        {
+            Vector2 targetDelta = CalculateDelta(distance, RayHelpPoint);
+            return new Vector3(transform.position.x - targetDelta.x, yPos, transform.position.z - targetDelta.y);
+        }
+
+        public Vector3 CalculateRayStartPoint()
+        {
+            Vector3 startPosition = CalculateBackPoint(RayDistance, RayStartPoint.position.y);
+            RaycastHit[] hits = Physics.RaycastAll(startPosition, Vector3.down, 100);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.gameObject.layer == Layer)
+                {
+                    RayHit.position = hit.point;
+                    return hit.point;
+                }
+            }
+            return Vector3.zero;
+        }
+
         private void Update()
         {
-            if (IsInSwamp) TimeInSwamp += Time.deltaTime;
+            if (IsInSwamp) TimeInSwamp += Time.deltaTime;       
         }
     }
 }

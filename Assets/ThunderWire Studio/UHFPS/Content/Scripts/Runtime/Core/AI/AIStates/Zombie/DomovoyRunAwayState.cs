@@ -6,8 +6,8 @@ namespace UHFPS.Runtime.States
 {
     public class DomovoyRunAwayState : AIStateAsset
     {
-        public float[] RestTime;
-        public float RestFromStart;
+        public float PlayerLostDistance;
+        public float StartTransparentDistance;
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
             return new ChaseState(machine, group, this);
@@ -21,41 +21,41 @@ namespace UHFPS.Runtime.States
         {
             private readonly ZombieStateGroup Group;
             private readonly DomovoyRunAwayState State;
-            private float _restTimeout;
-            private float _targetRestTime;
-            
-            private float _startRest;
-            public enum ChaseStatus { Wait, FromStart };
-            private ChaseStatus _status;
-
+            private DomovoyController _controller;
+            private bool _isLost = false;
+            private bool _isChangeToTransparent = false;
 
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
                 Group = (ZombieStateGroup)group;
                 State = (DomovoyRunAwayState)state;
-                _targetRestTime = State.RestTime[machine.GetComponent<DomovoyController>().RestIndex];
-                machine.GetComponent<DomovoyController>().RestIndex += 1;
-                if (machine.GetComponent<DomovoyController>().RestIndex == State.RestTime.Length) machine.GetComponent<DomovoyController>().RestIndex = 0;
             }
 
             public override Transition[] OnGetTransitions()
             {
                 return new Transition[]
                 {
-                    Transition.To<DomovoyPatrolState>(() => !PlayerManager.Instance.CheckObjectInViewField(machine.gameObject) && _restTimeout >= _targetRestTime)
+                    Transition.To<DomovoyChaseState>(() => CheckIsLost())
                 };
+            }
+
+            private bool CheckIsLost()
+            {
+                if (_isLost && _controller.AttackCount >= _controller.MaxAttackCount)
+                {
+                    Debug.Log("DESTR");
+                    Destroy(machine.gameObject);
+                }
+                return _isLost;
             }
 
             public override void OnStateEnter()
             {
                 animator.ResetTrigger(Group.AttackTrigger);
                 Group.ResetAnimatorPrameters(animator);
-                _status = ChaseStatus.FromStart;
-                if (machine.GetComponent<DomovoyController>().WaitForRun)
-                {
-                    machine.GetComponent<DomovoyController>().WaitForRun = false;
-                    _status = ChaseStatus.Wait;
-                }
+                _controller = machine.GetComponent<DomovoyController>();
+                _isLost = false;
+                _isChangeToTransparent = false;
             }
 
             public override void OnStateExit()
@@ -70,36 +70,23 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
-                switch (_status)
+                animator.SetBool(Group.RunParameter, true);
+                float distance = PlayerManager.Instance.CalculateDistanceToObj(machine.transform);
+                Vector2 targetDelta = PlayerManager.Instance.CalculateDelta(distance + 2, machine.transform);
+                Vector3 targetPoint = new Vector3(PlayerPosition.x - targetDelta.x, machine.transform.position.y, PlayerPosition.z - targetDelta.y);
+                agent.SetDestination(targetPoint);
+                agent.isStopped = false;
+                
+                if (distance >= State.StartTransparentDistance)
                 {
-                    case ChaseStatus.Wait:
-                        _startRest += Time.deltaTime;
-                        agent.isStopped = true;
-                        animator.SetBool(Group.RunParameter, false);
-                        animator.SetBool(Group.IdleParameter, true);
-                        if (_startRest >= State.RestFromStart) _status = ChaseStatus.FromStart;
-                        break;
-                    case ChaseStatus.FromStart:
-                        if (PlayerManager.Instance.CheckObjectInViewField(machine.gameObject))
-                        {
-                            _restTimeout = 0;
-                            animator.SetBool(Group.RunParameter, true);
-                            Vector3 direction = playerMachine.MainCamera.transform.right;
-                            if (PlayerManager.Instance.GetObjectPositionInViewField(machine.gameObject).x >= 0.5)
-                            {
-                                direction = Quaternion.AngleAxis(-90, playerMachine.MainCamera.transform.up) * playerMachine.MainCamera.transform.forward;
-                            }
-                            agent.SetDestination(agent.transform.position - direction * 30);
-                            agent.isStopped = false;
-                        }
-                        else
-                        {
-                            _restTimeout += Time.deltaTime;
-                            animator.SetBool(Group.RunParameter, false);
-                            animator.SetBool(Group.IdleParameter, true);
-                            agent.isStopped = true;
-                        }
-                        break;
+                    if (!_isChangeToTransparent)
+                    {
+                        _controller.TransparentMaterialsManager.SetTransparentState(true);
+                        _isChangeToTransparent = true;
+                    }
+                    float alpha = Mathf.Clamp01(1 - ((distance - State.StartTransparentDistance) / (State.PlayerLostDistance - State.StartTransparentDistance)));
+                    _controller.TransparentMaterialsManager.SetAlpha(alpha);
+                    _isLost = alpha == 0;
                 }
             }
         }

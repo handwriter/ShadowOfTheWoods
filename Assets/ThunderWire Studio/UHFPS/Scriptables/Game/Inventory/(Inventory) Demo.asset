@@ -1282,7 +1282,7 @@ MonoBehaviour:
       Height: 1
       Orientation: 0
       FlipDirection: 0
-      Icon: {fileID: 21300000, guid: e2aeb4f88ac7d834db2ff041d526eab5, type: 3}
+      Icon: {fileID: 21300000, guid: ad4e20843066038459d5f7fd7b529cb9, type: 3}
       ItemObject:
         GUID: 
         Object: {fileID: 0}

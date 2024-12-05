@@ -13,26 +13,19 @@ MonoBehaviour:
   m_Name: (VoiceOver) Where am I
   m_EditorClassIdentifier: 
   Dialogues:
-  - DialogueAudio: {fileID: 8300000, guid: 782faa4571fcb7d45add7e2407887902, type: 3}
-    SubtitleType: 1
+  - DialogueAudio: {fileID: 8300000, guid: 2bf9747412473bf4bafbff3279da6039, type: 3}
+    SubtitleType: 0
     SingleSubtitle:
       Time: 0
-      Narrator: 
+      Narrator: "\u042F"
       NarratorColor: {r: 1, g: 1, b: 1, a: 1}
       Text:
-        GlocText: 
+        GlocText: "\u041D\u0430\u0441\u0442\u0435\u043D\u044C\u043A\u0430... \u041C\u043E\u044F
+          \u0434\u043E\u0447\u044C... \u0427\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C...
+          \u042F \u0434\u043E\u043B\u0436\u0435\u043D \u043D\u0430\u0439\u0442\u0438
+          \u0435\u0451 \u043F\u043E\u043A\u0430 \u043D\u0435 \u0441\u0442\u0430\u043B\u043E
+          \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u043F\u043E\u0437\u0434\u043D\u043E...
+          \u042F \u0441\u043F\u0430\u0441\u0443 \u0442\u0435\u0431\u044F, \u041D\u0430\u0441\u0442\u0435\u043D\u044C\u043A\u0430,
+          \u0434\u0435\u0440\u0436\u0438\u0441\u044C!"
         NormalText: 
-    Subtitles:
-    - Time: 0
-      Narrator: Me
-      NarratorColor: {r: 0.69803923, g: 0.13960783, b: 0.13960783, a: 1}
-      Text:
-        GlocText: "*Where am I? This place...it\u2019s unlike anything I\u2019ve
-          ever seen."
-        NormalText: 
-    - Time: 5
-      Narrator: Me
-      NarratorColor: {r: 0.69803923, g: 0.14117648, b: 0.14117648, a: 1}
-      Text:
-        GlocText: "*But I can\u2019t stay...I have to find a way out."
-        NormalText: 
+    Subtitles: []

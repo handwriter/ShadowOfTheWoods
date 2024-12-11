@@ -8,6 +8,7 @@ namespace UHFPS.Scriptable
     {
         public string IdleParameter = "Idle";
         public string WalkParameter = "Walk";
+        public string RageParameter = "Rage";
         public string RunParameter = "Run";
         public string PatrolParameter = "Patrol";
         public string AttackTrigger = "Attack";

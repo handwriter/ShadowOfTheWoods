@@ -9,9 +9,10 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     [Serializable]
     public class EnemySpawnData
     {
-        public enum SpawnTypeEnum { AtStart, RegularInstance, TriggeredInstance }
+        public enum SpawnTypeEnum { AtStart, RegularInstance, TriggeredInstance, AtStartByDistance }
         public GameObject EnemyPrefab;
-        public Transform SpawnPoint;
+        public Transform[] SpawnPoints;
+        public float CloseDistance;
         public float SpawnTimeFromStart;
         public SpawnTypeEnum SpawnType;
         [HideInInspector]
@@ -61,7 +62,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
                     if (_timeFromStart >= data.SpawnTimeFromStart)
                     {
                         GameObject newEnemy = Instantiate(data.EnemyPrefab);
-                        newEnemy.transform.position = data.SpawnPoint.position;
+                        newEnemy.transform.position = data.SpawnPoints[0].position;
                         dataToDelete.Add(data);
                     }
                     break;
@@ -69,7 +70,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
                     if (!data.Instance)
                     {
                         data.Instance = Instantiate(data.EnemyPrefab);
-                        data.Instance.transform.position = data.SpawnPoint.position;
+                        data.Instance.transform.position = data.SpawnPoints[0].position;
                         data.Instance.gameObject.SetActive(false);
                         data.TimeFromSpawn = 0;
                     }
@@ -81,6 +82,22 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
                         }
                     }
                     data.TimeFromSpawn += Time.deltaTime;
+                    break;
+                case EnemySpawnData.SpawnTypeEnum.AtStartByDistance:
+                    if (_timeFromStart >= (data.SpawnTimeFromStart * 60) && !data.Instance)
+                    {
+                        Transform maxDistancePoint = data.SpawnPoints[0];
+                        if (Vector3.Distance(data.SpawnPoints[0].position, PlayerManager.Instance.transform.position) < data.CloseDistance)
+                        {
+                            maxDistancePoint = data.SpawnPoints[1];
+                        }
+
+                        GameObject newEnemy = Instantiate(data.EnemyPrefab);
+                        newEnemy.transform.position = maxDistancePoint.position;
+                        data.Instance = newEnemy;
+                        newEnemy.SetActive(true);
+                        dataToDelete.Add(data);
+                    }
                     break;
             }
             

@@ -4,12 +4,13 @@ using UnityEngine;
 using UHFPS.Tools;
 using UHFPS.Scriptable;
 using Newtonsoft.Json;
+using System.Collections;
 
 namespace UHFPS.Runtime.States
 {
     public class ZombiePatrolState : AIStateAsset
     {
-        public enum WaypointPatrolEnum { InOrder, Random }
+        public enum WaypointPatrolEnum { InOrder, Random, RandomInSafeZone }
         public enum PatrolTypeEnum { None, WaitTime }
 
 
@@ -21,6 +22,7 @@ namespace UHFPS.Runtime.States
         public float WalkSpeed = 0.5f;
         public float PatrolStoppingDistance = 1f;
         public float VeryClosePlayerDetection = 1f;
+        public float FindAnimTime;
 
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
@@ -43,6 +45,8 @@ namespace UHFPS.Runtime.States
             private float waitTime;
             private bool isWaypointSet;
             private bool isPatrolPending;
+            private bool WaitForMove = false;
+            private float _waitForMoveTime;
 
             public PatrolState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine) 
             {
@@ -53,7 +57,7 @@ namespace UHFPS.Runtime.States
             public override Transition[] OnGetTransitions()
             {
                 return new Transition[] { Transition.To<ZombieChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)
-                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition)) && !IsPlayerDead)
+                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition) || machine.GetComponent<LeshyController>().IsInLightZone) && !IsPlayerDead)
                         };
             }
 
@@ -72,16 +76,42 @@ namespace UHFPS.Runtime.States
                 waitTime = 0f;
                 isWaypointSet = false;
                 isPatrolPending = false;
-
+                animator.SetBool(Group.RageParameter, false);
                 if (currWaypoint != null)
                     currWaypoint.ReservedBy = null;
             }
 
             public override void OnStateUpdate()
             {
+                
+                if (State.Patrol == WaypointPatrolEnum.RandomInSafeZone)
+                {
+                    if (_waitForMoveTime >= State.FindAnimTime) WaitForMove = false;
+                    if (WaitForMove)
+                    {
+                        agent.isStopped = true;
+                        animator.SetBool(Group.WalkParameter, false);
+                        _waitForMoveTime += Time.deltaTime;
+                        return;
+                    }
+                    animator.SetBool(Group.RageParameter, false);
+                    Vector3 waypointPos = machine.GetComponent<LeshyController>().GetTargetPoint().transform.position;
+                    agent.isStopped = false;
+                    agent.SetDestination(waypointPos);
+                    animator.SetBool(Group.WalkParameter, true);
+                    animator.SetBool(Group.RageParameter, false);
+                    if (machine.GetComponent<LeshyController>().IsLostSafeZone)
+                    {
+                        machine.GetComponent<LeshyController>().IsLostSafeZone = false;
+                        WaitForMove = true;
+                        _waitForMoveTime = 0f;
+                        animator.SetBool(Group.RageParameter, true);
+                    }
+                    //currWaypoint.ReservedBy = machine.gameObject;
+                    return;
+                }
                 if (waypointsGroup == null)
                     return;
-
                 if (!isWaypointSet)
                 {
                     SetNextWaypoint();

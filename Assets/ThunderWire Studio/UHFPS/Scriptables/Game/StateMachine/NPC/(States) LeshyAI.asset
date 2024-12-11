@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477928472f4e28244b9c7556828f5bf5, type: 3}
   m_Name: Patrol
   m_EditorClassIdentifier: 
-  Patrol: 0
+  Patrol: 2
   PatrolType: 1
   PatrolTime: 3
   WalkSpeed: 4
   PatrolStoppingDistance: 1
   VeryClosePlayerDetection: 3
+  FindAnimTime: 3
+--- !u!114 &-482181552153988319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33847b31859140344afc8e7f9bdc192b, type: 3}
+  m_Name: Stuck
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,8 +50,11 @@ MonoBehaviour:
     IsEnabled: 1
   - StateAsset: {fileID: 939958431482384129}
     IsEnabled: 1
+  - StateAsset: {fileID: -482181552153988319}
+    IsEnabled: 1
   IdleParameter: Idle
   WalkParameter: Walk
+  RageParameter: Rage
   RunParameter: Run
   PatrolParameter: Patrol
   AttackTrigger: Attack

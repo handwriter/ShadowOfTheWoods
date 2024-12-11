@@ -162,7 +162,7 @@ namespace UHFPS.Runtime
             {
                 if (interactableItem.ExamineType == ExamineTypeEnum.None)
                     return;
-
+                ExamineLight.gameObject.SetActive(true);
                 ExamineObject(interactableItem);
                 gameManager.SetBlur(true, true);
                 gameManager.FreezePlayer(true);
@@ -513,6 +513,7 @@ namespace UHFPS.Runtime
 
         private void ResetExamine(ExaminedObject examine, bool examineTake = false)
         {
+            ExamineLight.gameObject.SetActive(false);
             gameManager.SetBlur(false, true);
             gameManager.FreezePlayer(false);
             gameManager.ShowPanel(GameManager.PanelType.MainPanel);

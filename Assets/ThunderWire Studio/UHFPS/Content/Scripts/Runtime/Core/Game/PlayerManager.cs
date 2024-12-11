@@ -3,6 +3,7 @@ using Cinemachine;
 using Newtonsoft.Json.Linq;
 using ThunderWire.Attributes;
 using System;
+using Unity.Mathematics;
 
 namespace UHFPS.Runtime
 {
@@ -23,6 +24,8 @@ namespace UHFPS.Runtime
         [SerializeField] private Transform RayStartPoint;
         [SerializeField] private Transform RayHit;
         [SerializeField] private float RayDistance;
+        [SerializeField] private float MaxViewDistance;
+        [SerializeField] private float CloseDistance;
         [SerializeField] private Layer Layer;
 
         private static PlayerManager _instance;
@@ -175,10 +178,9 @@ namespace UHFPS.Runtime
             return new Vector3(transform.position.x - targetDelta.x, yPos, transform.position.z - targetDelta.y);
         }
 
-        public Vector3 CalculateRayStartPoint()
+        public Vector3 CalculateRayPoint(Vector3 startPosition, Vector3 direction, float distance = 100)
         {
-            Vector3 startPosition = CalculateBackPoint(RayDistance, RayStartPoint.position.y);
-            RaycastHit[] hits = Physics.RaycastAll(startPosition, Vector3.down, 100);
+            RaycastHit[] hits = Physics.RaycastAll(startPosition, direction, distance);
             foreach (RaycastHit hit in hits)
             {
                 if (hit.collider.gameObject.layer == Layer)
@@ -188,6 +190,31 @@ namespace UHFPS.Runtime
                 }
             }
             return Vector3.zero;
+        }
+
+        public Vector3 CalculateRayStartPoint()
+        {
+            Vector3 startPosition = CalculateBackPoint(RayDistance, RayStartPoint.position.y);
+            return CalculateRayPoint(startPosition, Vector3.down);
+        }
+
+        public Vector3 CalculateRandomPointInArea(float minDistance, float maxDistance)
+        {
+            float distance = UnityEngine.Random.Range(minDistance, maxDistance);
+            float angle = UnityEngine.Random.Range(0, 360) * Mathf.Deg2Rad;
+            Vector2 planePosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+            return CalculateRayPoint(new Vector3(transform.position.x + planePosition.x, RayStartPoint.position.y, transform.position.z + planePosition.y), Vector3.down);
+        }
+
+        public Vector3 CalculateRandomPointInSafeArea()
+        {
+            return CalculateRandomPointInArea(CloseDistance, MaxViewDistance);
+        }
+
+        public bool IsPointInSafeZone(Transform obj)
+        {
+            float distance = CalculateDistanceToObj(obj);
+            return distance >= CloseDistance && distance <= MaxViewDistance;
         }
 
         private void Update()

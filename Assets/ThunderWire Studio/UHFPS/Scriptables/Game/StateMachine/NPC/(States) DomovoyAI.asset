@@ -28,7 +28,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunSpeed: 8.14
   ChaseStoppingDistance: 1.24
-  UnderFlashlightMaxTime: 2
+  UnderFlashlightMaxTime: 1
   PlayerLostDistance: 50
   StartTransparentDistance: 10
   LostPlayerPatrolTime: 5

@@ -2,6 +2,7 @@ using UnityEngine;
 using UHFPS.Scriptable;
 using UHFPS.Tools;
 using Unity.VisualScripting;
+using UnityEngine.AI;
 
 namespace UHFPS.Runtime.States
 {
@@ -72,11 +73,15 @@ namespace UHFPS.Runtime.States
 
             private bool CheckRunAwayState()
             {
-                bool changeState = _timeInFlashLight >= State.UnderFlashlightMaxTime || isAttacked;
+                
+                bool isPlayerAvailable = !(float.IsInfinity(agent.remainingDistance) || agent.remainingDistance == 0);
+                Debug.Log(isPlayerAvailable);
+                bool changeState = _timeInFlashLight >= State.UnderFlashlightMaxTime || isAttacked || !isPlayerAvailable;
                 if (changeState)
                 {
                     _controller.AttackCount += 1;
                 }
+                if (!isPlayerAvailable) _controller.PlayerIsUnavalilable = true;
                 return changeState;
             }
 
@@ -118,7 +123,7 @@ namespace UHFPS.Runtime.States
             public override void OnStateUpdate()
             {
                 _timeFromAttack += Time.deltaTime;
-
+                Debug.Log(agent.remainingDistance);
                 if (!resetParameters)
                 {
                     Group.ResetAnimatorPrameters(animator);

@@ -8,6 +8,7 @@ namespace UHFPS.Runtime.States
     {
         public float RunSpeed = 3f;
         public float ChaseStoppingDistance = 1.5f;
+        public float MaxTimeAtOnePlace = 2f;
 
         [Header("Chase")]
         public float LostPlayerPatrolTime = 5f;
@@ -34,11 +35,16 @@ namespace UHFPS.Runtime.States
 
             private bool isChaseStarted;
             private bool isPatrolPending;
+            private bool isRagePending;
             private bool resetParameters;
 
             private float waitTime;
             private float predictTime;
             private bool playerDied;
+            private float _timeAtOnePlace;
+            private Vector3 _previousPosition;
+            private float _timeForLastAnim = 0;
+            private const float _timeForPatrolAnim = 2f;
 
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
@@ -53,7 +59,8 @@ namespace UHFPS.Runtime.States
                 return new Transition[]
                 {
                     Transition.To<ZombiePatrolState>(() => waitTime > State.LostPlayerPatrolTime || playerDied),
-                    Transition.To<ZombiePlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
+                    Transition.To<ZombiePlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)),
+                    Transition.To<StuckState>(() => _timeAtOnePlace >= State.MaxTimeAtOnePlace && !IsAnimation(1, Group.AttackState) && PlayerInSights())
                 };
             }
 
@@ -62,6 +69,7 @@ namespace UHFPS.Runtime.States
                 Group.ResetAnimatorPrameters(animator);
                 agent.speed = State.RunSpeed;
                 agent.stoppingDistance = State.ChaseStoppingDistance;
+                agent.destination = PlayerPosition;
                 machine.RotateAgentManually = true;
                 isChaseStarted = true;
             }
@@ -72,6 +80,8 @@ namespace UHFPS.Runtime.States
                 isChaseStarted = false;
                 isPatrolPending = false;
                 resetParameters = false;
+                isRagePending = false;
+                animator.SetBool(Group.RageParameter, false);
                 waitTime = 0f;
                 predictTime = 0f;
             }
@@ -84,6 +94,16 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
+                bool isPlayerAvailable = !(float.IsInfinity(agent.remainingDistance) || agent.remainingDistance == 0);
+                if (machine.transform.position == _previousPosition)
+                {
+                    _timeAtOnePlace += Time.deltaTime;
+                }
+                else
+                {
+                    _timeAtOnePlace = 0f;
+                    _previousPosition = machine.transform.position;
+                }
                 if (PlayerInSights())
                 {
                     if (!resetParameters)
@@ -123,6 +143,7 @@ namespace UHFPS.Runtime.States
                 }
                 else
                 {
+                    if (isPatrolPending) _timeForLastAnim += Time.deltaTime;
                     if (!PathCompleted())
                         return;
 
@@ -135,6 +156,18 @@ namespace UHFPS.Runtime.States
 
                         resetParameters = false;
                         isPatrolPending = true;
+                        isChaseStarted = false;
+                        _timeForLastAnim = 0f;
+                    }
+                    else if (!isRagePending && _timeForLastAnim >= _timeForPatrolAnim)
+                    {
+                        Group.ResetAnimatorPrameters(animator);
+                        animator.SetBool(Group.RageParameter, true);
+                        agent.velocity = Vector3.zero;
+                        agent.isStopped = true;
+
+                        resetParameters = false;
+                        isRagePending = true;
                         isChaseStarted = false;
                     }
                     else

@@ -41,12 +41,18 @@ namespace UHFPS.Runtime.States
 
             private bool CheckIsLost()
             {
-                if (_isLost && _controller.AttackCount >= _controller.MaxAttackCount)
+                if (_isLost)
                 {
-                    Debug.Log("DESTR");
-                    Destroy(machine.gameObject);
+                    if (_controller.AttackCount >= _controller.MaxAttackCount)
+                    {
+                        Destroy(machine.gameObject);
+                    }
+                    else
+                    {
+                        machine.transform.position = PlayerManager.Instance.CalculateRayStartPoint() + new Vector3(0, 5, 0);
+                    }
                 }
-                return _isLost;
+                return _isLost && !_controller.PlayerIsUnavalilable;
             }
 
             public override void OnStateEnter()
@@ -76,7 +82,11 @@ namespace UHFPS.Runtime.States
                 Vector3 targetPoint = new Vector3(PlayerPosition.x - targetDelta.x, machine.transform.position.y, PlayerPosition.z - targetDelta.y);
                 agent.SetDestination(targetPoint);
                 agent.isStopped = false;
-                
+                if (distance >= State.PlayerLostDistance && _controller.PlayerIsUnavalilable)
+                {
+                    Debug.Log("GG");
+                    Destroy(machine.gameObject);
+                }
                 if (distance >= State.StartTransparentDistance)
                 {
                     if (!_isChangeToTransparent)

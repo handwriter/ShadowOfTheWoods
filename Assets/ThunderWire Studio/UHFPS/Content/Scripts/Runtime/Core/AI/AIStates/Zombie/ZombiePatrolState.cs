@@ -57,8 +57,9 @@ namespace UHFPS.Runtime.States
             public override Transition[] OnGetTransitions()
             {
                 return new Transition[] { Transition.To<ZombieChaseState>(() => !playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)
-                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition) || machine.GetComponent<LeshyController>().IsInLightZone) && !IsPlayerDead)
+                        && (SeesPlayer() || InDistance(State.VeryClosePlayerDetection, PlayerPosition) || (machine.GetComponent<LeshyController>().IsInLightZone && ModelController.IsUsingFlashlight)) && !IsPlayerDead)
                         };
+
             }
 
             public override void OnStateEnter()
@@ -83,7 +84,6 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
-                
                 if (State.Patrol == WaypointPatrolEnum.RandomInSafeZone)
                 {
                     if (_waitForMoveTime >= State.FindAnimTime) WaitForMove = false;

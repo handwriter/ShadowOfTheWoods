@@ -13,6 +13,7 @@ public class WaterMonsterController : MonoBehaviour
     }
     public TransparentMeshMaterial[] MeshMaterials;
     public bool IsInSwamp;
+    public Vector3 StartPosition;
 
     private void OnTriggerEnter(Collider other)
     {

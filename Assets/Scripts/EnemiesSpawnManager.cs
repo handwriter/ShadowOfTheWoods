@@ -20,13 +20,14 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
         public GameObject Instance;
     }
 
-    public enum EnemyType { Domovoy }
+    public enum EnemyType { Domovoy, WaterMonster }
 
     public EnemySpawnData[] SpawnData;
     private float _timeFromStart;
     private List<EnemySpawnData> _dataParsed = new List<EnemySpawnData>();
     private List<EnemySpawnData> dataToDelete = new List<EnemySpawnData>();
     public int DomovoyDataIndex;
+    public int WaterMonsterDataIndex;
 
     private void Awake()
     {
@@ -35,15 +36,27 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
 
     public void SpawnDomovoy()
     {
-        if (!SpawnData[DomovoyDataIndex].Instance)
+        SpawnAndSetupEnemy(DomovoyDataIndex);
+        SpawnData[DomovoyDataIndex].Instance.SetActive(true);
+    }
+    public void SpawnWaterMonster(Vector3 spawnPos)
+    {
+        SpawnAndSetupEnemy(WaterMonsterDataIndex);
+        SpawnData[WaterMonsterDataIndex].Instance.transform.position = spawnPos;
+        SpawnData[WaterMonsterDataIndex].Instance.GetComponent<WaterMonsterController>().StartPosition = spawnPos;
+        SpawnData[WaterMonsterDataIndex].Instance.SetActive(true);
+    }
+
+    public void SpawnAndSetupEnemy(int enemyIndex)
+    {
+        if (!SpawnData[enemyIndex].Instance)
         {
-            GameObject newDomovoy = SpawnEnemyObj(SpawnData[DomovoyDataIndex]);
-            SpawnData[DomovoyDataIndex].Instance = newDomovoy;
-            newDomovoy.SetActive(true);
+            GameObject newDomovoy = CreateEnemyObj(SpawnData[enemyIndex]);
+            SpawnData[enemyIndex].Instance = newDomovoy;
         }
     }
 
-    public GameObject SpawnEnemyObj(EnemySpawnData data)
+    public GameObject CreateEnemyObj(EnemySpawnData data)
     {
         GameObject newEnemy = Instantiate(data.EnemyPrefab);
         newEnemy.transform.position = PlayerManager.Instance.CalculateRayStartPoint() + new Vector3(0, 5, 0);

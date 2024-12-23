@@ -15,25 +15,6 @@ MonoBehaviour:
   SeePlayerDamage: 0
   HidingCloseDistance: 2
   PatrolTime: 3
---- !u!114 &-3567619472816828164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7b0c6946c0afd41a0443cdda7df45f, type: 3}
-  m_Name: Water Monster Patrol
-  m_EditorClassIdentifier: 
-  Patrol: 0
-  PatrolType: 0
-  PatrolTime: 3
-  WalkSpeed: 3.7
-  PatrolStoppingDistance: 1
-  VeryClosePlayerDetection: 0.001
-  TimeToWaitPlayerInSwamp: 0
 --- !u!114 &-2015369315943179177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +41,6 @@ MonoBehaviour:
   m_Name: (States) WaterMonsterAI
   m_EditorClassIdentifier: 
   AIStates:
-  - StateAsset: {fileID: -3567619472816828164}
-    IsEnabled: 1
   - StateAsset: {fileID: 278781608446248194}
     IsEnabled: 1
   - StateAsset: {fileID: -8052197981989305476}
@@ -70,6 +49,7 @@ MonoBehaviour:
     IsEnabled: 1
   IdleParameter: Idle
   WalkParameter: Walk
+  RageParameter: Rage
   RunParameter: Run
   PatrolParameter: Patrol
   AttackTrigger: Attack
@@ -91,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunSpeed: 5
   ChaseStoppingDistance: 3
+  PlayerMaxDistance: 40
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 1
   VeryClosePlayerDetection: 0.001

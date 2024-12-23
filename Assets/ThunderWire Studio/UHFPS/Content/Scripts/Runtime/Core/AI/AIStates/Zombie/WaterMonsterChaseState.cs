@@ -8,7 +8,7 @@ namespace UHFPS.Runtime.States
     {
         public float RunSpeed = 3f;
         public float ChaseStoppingDistance = 1.5f;
-
+        public float PlayerMaxDistance = 30f;
         [Header("Chase")]
         public float LostPlayerPatrolTime = 5f;
         public float LostPlayerPredictTime = 1f;
@@ -52,8 +52,8 @@ namespace UHFPS.Runtime.States
             {
                 return new Transition[]
                 {
-                    Transition.To<WaterMonsterHideState>(() => !PlayerManager.Instance.IsInSwamp || playerDied),
-                    Transition.To<WaterMonsterPlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
+                    Transition.To<WaterMonsterHideState>(() => !InPlayerDistance(State.PlayerMaxDistance)),
+                    //Transition.To<WaterMonsterPlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
                 };
             }
 
@@ -84,6 +84,14 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
+                if (playerDied)
+                {
+                    SetDestination(machine.GetComponent<WaterMonsterController>().StartPosition);
+                    animator.SetBool(Group.RunParameter, true);
+                    animator.SetBool(Group.IdleParameter, false);
+                    agent.isStopped = false;
+                    return;
+                }
                 animator.SetBool("IsOnGround", !machine.GetComponent<WaterMonsterController>().IsInSwamp);
                 if (!resetParameters)
                 {

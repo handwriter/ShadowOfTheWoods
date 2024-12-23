@@ -48,6 +48,7 @@ public class WaterMonsterHideState : AIStateAsset
         public override void OnStateEnter()
         {
             _controller.SetupMaterials();
+            Debug.Log(DistanceOf(PlayerPosition));
         }
 
         public override void OnStateExit()

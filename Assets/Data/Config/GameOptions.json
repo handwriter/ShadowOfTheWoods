@@ -21,7 +21,7 @@
   "pp_vignette": true,
   "pp_grain": true,
   "pp_chromatic_aberration": false,
-  "volume_general": 0.8,
+  "volume_general": 1.0,
   "volume_music": 1.0,
   "show_ui": true,
   "draw_distance": 1.0,

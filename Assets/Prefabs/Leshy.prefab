@@ -3357,7 +3357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2090739122102191268
 Transform:
   m_ObjectHideFlags: 0
@@ -3426,7 +3426,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.05
-  m_WalkableMask: 13
+  m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &4588284391744779297
 CapsuleCollider:
@@ -3613,7 +3613,7 @@ MonoBehaviour:
     m_Bits: 5
   NPCType: 0
   SightsFOV: 110
-  SightsDistance: 30
+  SightsDistance: 20
   SteeringSpeed: 6
   ShowDestination: 1
   ShowSights: 1
@@ -3700,6 +3700,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3fe344f4f265ef540be0f8f345d26e4e, type: 3}
   - {fileID: 8300000, guid: b7b4a90bc4684f84bbc1e12dbab9c03f, type: 3}
   - {fileID: 8300000, guid: 366203d675539a84cae9f184053b3e88, type: 3}
+  - {fileID: 8300000, guid: aa2fb21a989be4e0dbdcca4f63ca8806, type: 3}
 --- !u!114 &7671563229789271044
 MonoBehaviour:
   m_ObjectHideFlags: 0

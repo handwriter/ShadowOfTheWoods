@@ -1812,6 +1812,18 @@ MonoBehaviour:
       Text: "\u0421\u0435\u0440\u043F"
     - Key: description.sickle
       Text: "\u0421\u0435\u0440\u043F"
+    - Key: title.ritualMask
+      Text: "\u0420\u0438\u0442\u0443\u0430\u043B\u044C\u043D\u0430\u044F \u043C\u0430\u0441\u043A\u0430"
+    - Key: description.ritualMask
+      Text: "\u0420\u0438\u0442\u0443\u0430\u043B\u044C\u043D\u0430\u044F \u043C\u0430\u0441\u043A\u0430"
+    - Key: title.coilOfRope
+      Text: "\u041C\u043E\u0442\u043E\u043A \u0432\u0435\u0440\u0435\u0432\u043A\u0438"
+    - Key: description.coilOfRope
+      Text: "\u041C\u043E\u0442\u043E\u043A \u0432\u0435\u0440\u0435\u0432\u043A\u0438"
+    - Key: title.ominousDoll
+      Text: "\u0417\u043B\u043E\u0432\u0435\u0449\u0430\u044F \u043A\u0443\u043A\u043B\u0430"
+    - Key: description.ominousDoll
+      Text: "\u0417\u043B\u043E\u0432\u0435\u0449\u0430\u044F \u043A\u0443\u043A\u043B\u0430"
   - Section: tips
     Localizations:
     - Key: tip1

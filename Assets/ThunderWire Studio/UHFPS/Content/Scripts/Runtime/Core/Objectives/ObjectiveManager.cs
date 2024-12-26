@@ -65,6 +65,7 @@ namespace UHFPS.Runtime
 
         public void AddObjective(string key, params string[] subKey)
         {
+            Debug.Log($"{key} Sub: {subKey}");
             if (string.IsNullOrEmpty(key) || subKey.Length <= 0)
             {
                 Debug.LogError("You need to enter a key of objective and sub-objectives you want to add!");

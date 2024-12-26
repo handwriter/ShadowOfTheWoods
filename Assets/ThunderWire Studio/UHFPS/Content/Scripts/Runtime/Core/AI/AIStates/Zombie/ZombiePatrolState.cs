@@ -5,6 +5,7 @@ using UHFPS.Tools;
 using UHFPS.Scriptable;
 using Newtonsoft.Json;
 using System.Collections;
+using UnityEngine.Rendering.HighDefinition;
 
 namespace UHFPS.Runtime.States
 {
@@ -23,6 +24,7 @@ namespace UHFPS.Runtime.States
         public float PatrolStoppingDistance = 1f;
         public float VeryClosePlayerDetection = 1f;
         public float FindAnimTime;
+        public float RageChance;
 
         public override FSMAIState InitState(NPCStateMachine machine, AIStatesGroup group)
         {
@@ -103,9 +105,13 @@ namespace UHFPS.Runtime.States
                     if (machine.GetComponent<LeshyController>().IsLostSafeZone)
                     {
                         machine.GetComponent<LeshyController>().IsLostSafeZone = false;
-                        WaitForMove = true;
-                        _waitForMoveTime = 0f;
-                        animator.SetBool(Group.RageParameter, true);
+                        bool isNeedRage = UnityEngine.Random.value <= State.RageChance;
+                        if (isNeedRage)
+                        {
+                            WaitForMove = true;
+                            _waitForMoveTime = 0f;
+                            animator.SetBool(Group.RageParameter, true);
+                        }
                     }
                     //currWaypoint.ReservedBy = machine.gameObject;
                     return;

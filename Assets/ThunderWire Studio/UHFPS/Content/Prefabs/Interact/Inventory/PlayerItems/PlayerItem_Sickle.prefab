@@ -105,9 +105,9 @@ MonoBehaviour:
   AutoEquip: 0
   UseExamineZooming: 1
   ExamineZoomLimits:
-    min: 1
-    max: 1.5
-  ExamineDistance: 1
+    min: 0.9
+    max: 0.9
+  ExamineDistance: 0.9
   UseFaceRotation: 0
   FaceRotation: {x: 0, y: 0, z: 0}
   UseControlPoint: 0

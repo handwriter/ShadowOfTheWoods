@@ -612,9 +612,13 @@ namespace UHFPS.Runtime
         /// </summary>
         public void ShowPaperInfo(bool show, bool noFade, string paperText = "")
         {
+            Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Locked;
+            PaperPanel.interactable = show;
+            PaperPanel.blocksRaycasts = show;
             if (!noFade)
             {
                 PaperText.text = paperText;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(PaperText.transform.parent.GetComponent<RectTransform>());
                 StartCoroutine(CanvasGroupFader.StartFade(PaperPanel, show, PaperFadeSpeed, () =>
                 {
                     if(!show) PaperText.text = string.Empty;
@@ -626,6 +630,7 @@ namespace UHFPS.Runtime
             {
                 PaperPanel.gameObject.SetActive(true);
                 PaperText.text = paperText;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(PaperText.transform.parent.GetComponent<RectTransform>());
                 PaperPanel.alpha = 1;
             }
             else
@@ -645,7 +650,8 @@ namespace UHFPS.Runtime
 
             if (!noFade)
             {
-                ExamineText.text = examineText;
+                ExamineText.text = LocalizationManager.GetLocaleText(examineText);
+                if (ExamineText.text.IsEmpty()) ExamineText.text = examineText;
                 StartCoroutine(CanvasGroupFader.StartFade(ExamineInfoPanel, show, ExamineFadeSpeed, () =>
                 {
                     if (!show) ExamineText.text = string.Empty;
@@ -655,7 +661,8 @@ namespace UHFPS.Runtime
 
             if (show)
             {
-                ExamineText.text = examineText;
+                ExamineText.text = LocalizationManager.GetLocaleText(examineText);
+                if (ExamineText.text.IsEmpty()) ExamineText.text = examineText;
                 ExamineInfoPanel.alpha = 1;
             }
             else

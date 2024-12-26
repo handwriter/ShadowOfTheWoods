@@ -19,6 +19,7 @@ MonoBehaviour:
   PatrolStoppingDistance: 1
   VeryClosePlayerDetection: 3
   FindAnimTime: 3
+  RageChance: 0.15
 --- !u!114 &-482181552153988319
 MonoBehaviour:
   m_ObjectHideFlags: 0

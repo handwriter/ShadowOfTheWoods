@@ -1340,8 +1340,8 @@ MonoBehaviour:
         maxStack: 0
       CombineSettings: []
       LocalizationSettings:
-        titleKey: 
-        descriptionKey: 
+        titleKey: item.title.ritualMask
+        descriptionKey: item.description.ritualMask
   - guid: 744298f4027249278e160aff4cd31063
     item:
       Title: A coil of rope
@@ -1374,8 +1374,8 @@ MonoBehaviour:
         maxStack: 0
       CombineSettings: []
       LocalizationSettings:
-        titleKey: 
-        descriptionKey: 
+        titleKey: item.title.coilOfRope
+        descriptionKey: item.description.coilOfRope
   - guid: 88ef511901514adaa42a71ce995fb0f8
     item:
       Title: Ominous doll
@@ -1408,5 +1408,5 @@ MonoBehaviour:
         maxStack: 0
       CombineSettings: []
       LocalizationSettings:
-        titleKey: 
-        descriptionKey: 
+        titleKey: item.title.ominousDoll
+        descriptionKey: item.description.ominousDoll

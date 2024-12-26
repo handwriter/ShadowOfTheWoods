@@ -930,6 +930,18 @@ MonoBehaviour:
       Text: Sickle
     - Key: description.sickle
       Text: Sickle
+    - Key: title.ritualMask
+      Text: Ritual mask
+    - Key: description.ritualMask
+      Text: Ritual mask
+    - Key: title.coilOfRope
+      Text: A coil of rope
+    - Key: description.coilOfRope
+      Text: A coil of rope
+    - Key: title.ominousDoll
+      Text: Ominous doll
+    - Key: description.ominousDoll
+      Text: Ominous doll
   - Section: tips
     Localizations:
     - Key: tip1

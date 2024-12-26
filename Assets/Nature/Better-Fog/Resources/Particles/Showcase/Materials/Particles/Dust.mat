@@ -21,12 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dust
-  m_Shader: {fileID: -6465566751694194690, guid: ade0b32f7c0346e41885c2cf8f01efe0, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2de871e264d58f247b04acbaa4f88b9f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _FLIP_BOOK_WITH_BLENDING
   - _SOFT_PARTICLES
+  - _USE_DISTANCE_LERP
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -133,6 +134,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Distance: 1000
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
@@ -145,6 +147,8 @@ Material:
     - _FLIP_BOOK_WITH_BLENDING: 1
     - _FlipbookBlending: 0
     - _FlipbookMode: 1
+    - _Fog_Offset_Far: -16.7
+    - _Fog_Offset_Near: 5.58
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -153,6 +157,7 @@ Material:
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -161,6 +166,8 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
+    - _Smoothstep_Max: 1
+    - _Smoothstep_Min: 0
     - _SoftParticlesEnabled: 1
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
@@ -169,6 +176,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Surface_Depth_Fade: 1.9
+    - _USE_DISTANCE_LERP: 1
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -176,7 +184,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.59607846}
     - _EmissionColor: {r: 0.3679245, g: 0.311658, b: 0.23429155, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

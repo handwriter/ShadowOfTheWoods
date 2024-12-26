@@ -10,10 +10,16 @@ public class AuthorsPanel : MonoBehaviour
     public float AutoScrollSpeed;
     public float DelayToAutoScroll;
     private float _timeFromActive = 0;
+    [SerializeField] private string _authorsUrl;
 
     private void OnEnable()
     {
         _timeFromActive = 0;
+    }
+
+    public void OnAuthorsBtnClick()
+    {
+        Application.OpenURL(_authorsUrl);
     }
 
     void Update()

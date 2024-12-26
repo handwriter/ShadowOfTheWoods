@@ -881,9 +881,10 @@ namespace UHFPS.Runtime
         /// </summary>
         public void RestartGame()
         {
-            string sceneName = SaveGameManager.LoadSceneName;
-            string saveName = SaveGameManager.LoadFolderName;
-            LoadGameState(sceneName, saveName);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //string sceneName = SaveGameManager.LoadSceneName;
+            //string saveName = SaveGameManager.LoadFolderName;
+            //LoadGameState(sceneName, saveName);
         }
 
         public void ResumeGame()

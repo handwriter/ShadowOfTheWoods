@@ -94,7 +94,6 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
-                bool isPlayerAvailable = !(float.IsInfinity(agent.remainingDistance) || agent.remainingDistance == 0);
                 if (machine.transform.position == _previousPosition)
                 {
                     _timeAtOnePlace += Time.deltaTime;
@@ -182,6 +181,7 @@ namespace UHFPS.Runtime.States
                 bool isAttacking = IsAnimation(1, Group.AttackState);
                 if(InPlayerDistance(State.AttackDistance) && IsObjectInSights(State.AttackFOV, PlayerPosition) && !isAttacking && !playerHealth.IsDead)
                 {
+                    _timeAtOnePlace = 0;
                     animator.SetTrigger(Group.AttackTrigger);
                 }
             }
@@ -201,7 +201,6 @@ namespace UHFPS.Runtime.States
             {
                 Debug.Log("Attack player");
                 if (!InPlayerDistance(State.AttackDistance))
-                    Debug.Log("Player not in Distance");
                     return;
 
                 int damage = Group.DamageRange.Random();

@@ -18,6 +18,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
         [HideInInspector]
         public float TimeFromSpawn;
         public GameObject Instance;
+        public Transform DefaultPoint;
     }
 
     public enum EnemyType { Domovoy, WaterMonster }
@@ -28,11 +29,14 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     private List<EnemySpawnData> dataToDelete = new List<EnemySpawnData>();
     public int DomovoyDataIndex;
     public int WaterMonsterDataIndex;
+    public int LeshyDataIndex;
 
     private void Awake()
     {
         foreach (EnemySpawnData data in SpawnData) _dataParsed.Add(data);
     }
+
+    public Vector3 GetDefaultEnemyPosition(int enemyIndex) => SpawnData[enemyIndex].DefaultPoint.position;
 
     public void SpawnDomovoy()
     {

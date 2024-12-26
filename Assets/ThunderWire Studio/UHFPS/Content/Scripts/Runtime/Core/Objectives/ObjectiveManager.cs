@@ -145,7 +145,19 @@ namespace UHFPS.Runtime
 
         public void CompleteObjective(string key, params string[] subKey)
         {
-            _completedQuests.Add(new QuestInfo(key, subKey));
+            bool isQuestExist = false;
+            foreach (var quest in _completedQuests)
+            {
+                if (quest.key == key && quest.subKey == subKey)
+                {
+                    isQuestExist = true;
+                }
+            }
+            if (!isQuestExist)
+            {
+                _completedQuests.Add(new QuestInfo(key, subKey));
+            }
+            
             if (activeObjectives.TryGetValue(key, out ObjectiveData data))
             {
                 foreach (var sub in subKey)

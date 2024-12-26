@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee751481990022498d1a2a65160e587, type: 3}
   m_Name: BloodDisortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   BlendColor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0, b: 0, a: 1}
@@ -42,6 +42,28 @@ MonoBehaviour:
   Distortion:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &-6289790360591482868
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 0.93684775, z: 0.9343752, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.8867222, z: 0.8751693, w: 0}
+  gain:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 0.784517, z: 0.76719713, w: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,6 +79,7 @@ MonoBehaviour:
   components:
   - {fileID: -8511001005541552458}
   - {fileID: 1313613158619034760}
+  - {fileID: -6289790360591482868}
 --- !u!114 &1313613158619034760
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -69,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac04d2c95f7a6aa4681d48e2bbe16eed, type: 3}
   m_Name: EyeBlink
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   Blink:
     m_OverrideState: 1
     m_Value: 0

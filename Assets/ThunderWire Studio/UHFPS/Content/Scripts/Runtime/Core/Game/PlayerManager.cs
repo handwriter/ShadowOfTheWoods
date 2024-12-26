@@ -27,6 +27,7 @@ namespace UHFPS.Runtime
         [SerializeField] private float MaxViewDistance;
         [SerializeField] private float CloseDistance;
         [SerializeField] private Layer Layer;
+        [SerializeField] private bool UseFirstStartItem = true;
 
         private static PlayerManager _instance;
 
@@ -51,10 +52,16 @@ namespace UHFPS.Runtime
                 ObjectiveManager.Instance.AddObjective(key.Split(";")[0], new string[] { key.Split(";")[1] });
             }
 
-
+            InventoryItem newItem;
             foreach (ItemProperty item in ItemsFromStart)
             {
-                Inventory.Instance.AddItem(item.GUID, 1, null);
+                
+                Inventory.Instance.AddItem(item.GUID, 1, null, out newItem);
+                if (UseFirstStartItem)
+                {
+                    Inventory.Instance.UseItem(newItem);
+                    UseFirstStartItem = false;
+                }
             }
             //inventory.AddItem(interactable.PickupItem.GUID, interactable.Quantity, interactable.ItemCustomData, out var addedItem)
         }

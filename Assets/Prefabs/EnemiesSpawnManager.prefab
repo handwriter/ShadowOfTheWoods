@@ -78,5 +78,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnData:
   - EnemyPrefab: {fileID: 3549581233377975949, guid: b5dddda78439d854ea10381f7354c447, type: 3}
-    SpawnPoint: {fileID: 1910866445086347528}
-    SpawnTimeFromStart: 15
+    SpawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    CloseDistance: 100
+    SpawnTimeFromStart: 0
+    SpawnType: 3
+    TimeFromSpawn: 0
+    Instance: {fileID: 0}
+    DefaultPoint: {fileID: 0}
+  - EnemyPrefab: {fileID: 984907719571923597, guid: b5823ea3c1745a746962da3419d4df4c, type: 3}
+    SpawnPoints: []
+    CloseDistance: 100
+    SpawnTimeFromStart: 1
+    SpawnType: 2
+    TimeFromSpawn: 0
+    Instance: {fileID: 0}
+    DefaultPoint: {fileID: 0}
+  - EnemyPrefab: {fileID: 7783585412816329058, guid: 4ff2616c38dc9044ca4143dd86ae6ade, type: 3}
+    SpawnPoints: []
+    CloseDistance: 50
+    SpawnTimeFromStart: 1
+    SpawnType: 2
+    TimeFromSpawn: 0
+    Instance: {fileID: 0}
+    DefaultPoint: {fileID: 0}
+  DomovoyDataIndex: 2
+  WaterMonsterDataIndex: 1
+  LeshyDataIndex: 0

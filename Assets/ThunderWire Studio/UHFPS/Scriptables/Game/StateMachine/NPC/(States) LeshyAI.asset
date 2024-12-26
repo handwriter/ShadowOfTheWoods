@@ -31,6 +31,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33847b31859140344afc8e7f9bdc192b, type: 3}
   m_Name: Stuck
   m_EditorClassIdentifier: 
+  EnemyDataIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +61,8 @@ MonoBehaviour:
   AttackTrigger: Attack
   AttackState: Attack 01
   DamageRange:
-    min: 50
-    max: 70
+    min: 20
+    max: 20
 --- !u!114 &939958431482384129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a29b764a967434d8716e578793a178, type: 3}
   m_Name: Player Hide
   m_EditorClassIdentifier: 
-  SeePlayerDamage: 10
+  SeePlayerDamage: 0
   HidingCloseDistance: 2
   PatrolTime: 5
 --- !u!114 &8407762149507097960
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunSpeed: 6
   ChaseStoppingDistance: 2
+  MaxTimeAtOnePlace: 2
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 0.5
   VeryClosePlayerDetection: 2

@@ -20,6 +20,6 @@ public class ReedsItem : MonoBehaviour, IDamagable
     public void OnDamage()
     {
         hitCounter += 1;
-        if (hitCounter >= 3) Destroy(gameObject);
+        if (hitCounter == 1) Destroy(gameObject);
     }
 }

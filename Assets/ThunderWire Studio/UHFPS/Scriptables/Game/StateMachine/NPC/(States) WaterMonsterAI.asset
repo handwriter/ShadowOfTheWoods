@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc09404605094ff48acf5a791ec78e54, type: 3}
   m_Name: Water Monster Chase
   m_EditorClassIdentifier: 
-  RunSpeed: 5
+  RunSpeed: 2.5
   ChaseStoppingDistance: 3
-  PlayerMaxDistance: 40
+  PlayerMaxDistance: 50
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 1
   VeryClosePlayerDetection: 0.001

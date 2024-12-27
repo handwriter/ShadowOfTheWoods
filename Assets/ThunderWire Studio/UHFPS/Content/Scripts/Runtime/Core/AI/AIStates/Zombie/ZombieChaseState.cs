@@ -9,6 +9,7 @@ namespace UHFPS.Runtime.States
         public float RunSpeed = 3f;
         public float ChaseStoppingDistance = 1.5f;
         public float MaxTimeAtOnePlace = 2f;
+        public float ExtremeTimeAtOnePlace = 10f;
 
         [Header("Chase")]
         public float LostPlayerPatrolTime = 5f;
@@ -60,7 +61,7 @@ namespace UHFPS.Runtime.States
                 {
                     Transition.To<ZombiePatrolState>(() => waitTime > State.LostPlayerPatrolTime || playerDied),
                     Transition.To<ZombiePlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE)),
-                    Transition.To<StuckState>(() => _timeAtOnePlace >= State.MaxTimeAtOnePlace && !IsAnimation(1, Group.AttackState) && PlayerInSights())
+                    Transition.To<StuckState>(() => (_timeAtOnePlace >= State.MaxTimeAtOnePlace && !IsAnimation(1, Group.AttackState) && PlayerInSights()) || _timeAtOnePlace >= State.ExtremeTimeAtOnePlace)
                 };
             }
 

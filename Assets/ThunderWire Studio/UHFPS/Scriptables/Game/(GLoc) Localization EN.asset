@@ -182,6 +182,8 @@ MonoBehaviour:
       Text: LOADING...
     - Key: inventory
       Text: Inventory
+    - Key: endgame
+      Text: End the game
   - Section: interactions
     Localizations:
     - Key: use

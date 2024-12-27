@@ -49,6 +49,7 @@ public class WaterMonsterHideState : AIStateAsset
         {
             _controller.SetupMaterials();
             Debug.Log(DistanceOf(PlayerPosition));
+            SetDestination(machine.GetComponent<WaterMonsterController>().StartPosition);
         }
 
         public override void OnStateExit()
@@ -57,13 +58,25 @@ public class WaterMonsterHideState : AIStateAsset
 
         public override void OnStateUpdate()
         {
-            _time += Time.deltaTime;
-            float value = Mathf.Clamp01(_time / State.HideTime);
-            _controller.SetAlphaValue(Mathf.Lerp(1, 0, value));
-            if (value == 1)
+            if (!PathDistanceCompleted())
             {
-                Destroy(machine.gameObject);
+                SetDestination(machine.GetComponent<WaterMonsterController>().StartPosition);
+                animator.SetBool(Group.RunParameter, true);
+                animator.SetBool(Group.IdleParameter, false);
+                agent.isStopped = false;
+
             }
+            else
+            {
+                _time += Time.deltaTime;
+                float value = Mathf.Clamp01(_time / State.HideTime);
+                _controller.SetAlphaValue(Mathf.Lerp(1, 0, value));
+                if (value == 1)
+                {
+                    Destroy(machine.gameObject);
+                }
+            }
+            
         }
     }
 }

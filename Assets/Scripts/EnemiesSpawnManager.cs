@@ -30,7 +30,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     public int DomovoyDataIndex;
     public int WaterMonsterDataIndex;
     public int LeshyDataIndex;
-
+    private bool _isWaterMonsterSpawned;
     private void Awake()
     {
         foreach (EnemySpawnData data in SpawnData) _dataParsed.Add(data);
@@ -45,10 +45,12 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     }
     public void SpawnWaterMonster(Vector3 spawnPos)
     {
+        if (_isWaterMonsterSpawned) return;
         SpawnAndSetupEnemy(WaterMonsterDataIndex);
         SpawnData[WaterMonsterDataIndex].Instance.transform.position = spawnPos;
         SpawnData[WaterMonsterDataIndex].Instance.GetComponent<WaterMonsterController>().StartPosition = spawnPos;
         SpawnData[WaterMonsterDataIndex].Instance.SetActive(true);
+        _isWaterMonsterSpawned = true;
     }
 
     public void SpawnAndSetupEnemy(int enemyIndex)

@@ -9,6 +9,7 @@ namespace UHFPS.Runtime.States
         public float RunSpeed = 3f;
         public float ChaseStoppingDistance = 1.5f;
         public float PlayerMaxDistance = 30f;
+        public float TimeToLeave;
         [Header("Chase")]
         public float LostPlayerPatrolTime = 5f;
         public float LostPlayerPredictTime = 1f;
@@ -39,6 +40,7 @@ namespace UHFPS.Runtime.States
             private float waitTime;
             private float predictTime;
             private bool playerDied;
+            private float _time;
 
             public ChaseState(NPCStateMachine machine, AIStatesGroup group, AIStateAsset state) : base(machine)
             {
@@ -52,7 +54,8 @@ namespace UHFPS.Runtime.States
             {
                 return new Transition[]
                 {
-                    Transition.To<WaterMonsterHideState>(() => !InPlayerDistance(State.PlayerMaxDistance)),
+                    Transition.To<WaterMonsterHideState>(() => _time >= State.TimeToLeave),
+                    //Transition.To<WaterMonsterHideState>(() => !InPlayerDistance(State.PlayerMaxDistance)),
                     //Transition.To<WaterMonsterPlayerHideState>(() => playerMachine.IsCurrent(PlayerStateMachine.HIDING_STATE))
                 };
             }
@@ -64,6 +67,7 @@ namespace UHFPS.Runtime.States
                 agent.stoppingDistance = State.ChaseStoppingDistance;
                 machine.RotateAgentManually = true;
                 isChaseStarted = true;
+                _time = 0;
             }
 
             public override void OnStateExit()
@@ -84,6 +88,7 @@ namespace UHFPS.Runtime.States
 
             public override void OnStateUpdate()
             {
+                _time += Time.deltaTime;
                 if (playerDied)
                 {
                     SetDestination(machine.GetComponent<WaterMonsterController>().StartPosition);

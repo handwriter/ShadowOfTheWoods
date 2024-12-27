@@ -72,6 +72,7 @@ MonoBehaviour:
   RunSpeed: 2.5
   ChaseStoppingDistance: 3
   PlayerMaxDistance: 50
+  TimeToLeave: 10
   LostPlayerPatrolTime: 5
   LostPlayerPredictTime: 1
   VeryClosePlayerDetection: 0.001

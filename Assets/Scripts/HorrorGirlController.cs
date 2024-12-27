@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UHFPS.Runtime;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Unity.VisualScripting.Member;
 
 public class HorrorGirlController : MonoBehaviour, IInteractStart
 {

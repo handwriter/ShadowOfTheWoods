@@ -10,15 +10,22 @@ public static class ModelController
     public static bool IsUsingFlashlight = false;
     private const string EnemySavePrefix = "Enemy_";
 
+    private static List<EnemyType> _seenTypes = null;
+
+    public static void Init()
+    {
+        _seenTypes = new List<EnemyType>();
+    }
+
     public static bool CheckEnemySeen(EnemyType type)
     {
-        string enemyType = Enum.GetName(typeof(EnemyType), type);
-        return PlayerPrefs.HasKey(EnemySavePrefix + enemyType);
+        if (_seenTypes == null) Init(); 
+        return _seenTypes.Contains(type);
     }
 
     public static void SetEnemySeen(EnemyType type)
     {
-        string enemyType = Enum.GetName(typeof(EnemyType), type);
-        PlayerPrefs.SetInt(EnemySavePrefix + enemyType, 1);
+        if (_seenTypes == null) Init();
+        _seenTypes.Add(type);
     }
 }

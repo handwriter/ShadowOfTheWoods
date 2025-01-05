@@ -24,7 +24,7 @@
   "volume_general": 1.0,
   "volume_music": 1.0,
   "show_ui": true,
-  "draw_distance": 1.0,
+  "draw_distance": 1.5,
   "tree_draw_distance": 35.8500023,
   "language": true
 }

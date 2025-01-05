@@ -48,7 +48,6 @@ public class WaterMonsterHideState : AIStateAsset
         public override void OnStateEnter()
         {
             _controller.SetupMaterials();
-            Debug.Log(DistanceOf(PlayerPosition));
             SetDestination(machine.GetComponent<WaterMonsterController>().StartPosition);
         }
 

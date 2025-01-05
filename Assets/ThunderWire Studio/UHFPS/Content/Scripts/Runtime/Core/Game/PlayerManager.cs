@@ -4,6 +4,10 @@ using Newtonsoft.Json.Linq;
 using ThunderWire.Attributes;
 using System;
 using Unity.Mathematics;
+using System.Collections.Generic;
+using static EnemiesSpawnManager;
+using UHFPS.Scriptable;
+using System.Linq;
 
 namespace UHFPS.Runtime
 {
@@ -29,13 +33,22 @@ namespace UHFPS.Runtime
         [SerializeField] private Layer Layer;
         [SerializeField] private bool UseFirstStartItem = true;
 
+        [Serializable]
+        private class EnemyStartDialogData
+        {
+            public EnemyType Type;
+            public DialogueTrigger Dialogue;
+        }
+        [SerializeField] private EnemyStartDialogData[] _enemyDialogs;
+        
+
         private static PlayerManager _instance;
 
         public static PlayerManager Instance
         {
             get
             {
-                if (_instance == null ) _instance = GameObject.Find("HEROPLAYER").GetComponent<PlayerManager>();
+                if (_instance == null) _instance = GameObject.Find("HEROPLAYER").GetComponent<PlayerManager>();
                 return _instance;
             }
         }
@@ -55,7 +68,7 @@ namespace UHFPS.Runtime
             InventoryItem newItem;
             foreach (ItemProperty item in ItemsFromStart)
             {
-                
+
                 Inventory.Instance.AddItem(item.GUID, 1, null, out newItem);
                 if (UseFirstStartItem)
                 {
@@ -156,6 +169,20 @@ namespace UHFPS.Runtime
             return viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0;
         }
 
+        public bool CheckObjectInCloseViewField(GameObject obj)
+        {
+            return CheckObjectInViewField(obj) && Vector3.Distance(transform.position, obj.transform.position) <= CloseDistance;
+        }
+
+        public GameObject CheckObjectsInViewField(GameObject[] objs)
+        {
+            foreach (var obj in objs)
+            {
+                if (CheckObjectInCloseViewField(obj)) return obj;
+            }
+            return null;
+        }
+
         public Vector3 GetObjectPositionInViewField(GameObject obj)
         {
             return MainCamera.WorldToViewportPoint(obj.transform.position);
@@ -224,9 +251,46 @@ namespace UHFPS.Runtime
             return distance >= CloseDistance && distance <= MaxViewDistance;
         }
 
+        private void PlayFirstEnemyDialog(EnemyType type)
+        {
+            foreach (var dialog in _enemyDialogs)
+            {
+                if (dialog.Type == type)
+                {
+                    ModelController.SetEnemySeen(type);
+                    DialogueSystem.Instance.PlayDialogue(dialog.Dialogue);
+                    return;
+                }
+            }
+        }
+
+        private void CheckEnemiesInViewField()
+        {
+            var activeData = EnemiesSpawnManager.Instance.GetActiveEnemies();
+            List<GameObject> instances = new List<GameObject>();
+            Dictionary<GameObject, EnemyType> enemyKeys = new Dictionary<GameObject, EnemyType>();
+            foreach (var enemy in activeData)
+            {
+                if (enemy.Item2 != null && !ModelController.CheckEnemySeen(enemy.Item1)) instances.Add(enemy.Item2);
+                enemyKeys.Add(enemy.Item2, enemy.Item1);
+            }
+            if (enemyKeys.Values.Contains(EnemyType.Chert))
+            {
+                PlayFirstEnemyDialog(EnemyType.Chert);
+                return;
+            }
+            GameObject inView = CheckObjectsInViewField(instances.ToArray());
+            if (inView != null)
+            {
+                EnemyType type = enemyKeys[inView];
+                PlayFirstEnemyDialog(type);
+            }
+        }
+
         private void Update()
         {
-            if (IsInSwamp) TimeInSwamp += Time.deltaTime;       
+            if (IsInSwamp) TimeInSwamp += Time.deltaTime;
+            CheckEnemiesInViewField();
         }
     }
 }

@@ -19,9 +19,10 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
         public float TimeFromSpawn;
         public GameObject Instance;
         public Transform DefaultPoint;
+        public EnemyType EnemyType;
     }
 
-    public enum EnemyType { Domovoy, WaterMonster }
+    public enum EnemyType { Domovoy, WaterMonster, Leshy, BookHead, Chert }
 
     public EnemySpawnData[] SpawnData;
     private float _timeFromStart;
@@ -31,6 +32,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     public int WaterMonsterDataIndex;
     public int LeshyDataIndex;
     private bool _isWaterMonsterSpawned;
+    private bool _isChertActivated;
     private void Awake()
     {
         foreach (EnemySpawnData data in SpawnData) _dataParsed.Add(data);
@@ -67,6 +69,22 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
         GameObject newEnemy = Instantiate(data.EnemyPrefab);
         newEnemy.transform.position = PlayerManager.Instance.CalculateRayStartPoint() + new Vector3(0, 5, 0);
         return newEnemy;
+    }
+
+    public (EnemyType, GameObject)[] GetActiveEnemies()
+    {
+        List<(EnemyType, GameObject)> activeList = new List<(EnemyType, GameObject)>();
+        foreach (var data in SpawnData)
+        {
+            if (data.Instance) activeList.Add((data.EnemyType, data.Instance));
+        }
+        if (_isChertActivated) activeList.Add((EnemyType.Chert, gameObject));
+        return activeList.ToArray();
+    }
+
+    public void SetChertActivated()
+    {
+        _isChertActivated = true;
     }
 
     void Update()

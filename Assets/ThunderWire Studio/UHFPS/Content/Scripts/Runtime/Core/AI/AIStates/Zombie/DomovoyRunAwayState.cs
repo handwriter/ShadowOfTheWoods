@@ -84,7 +84,6 @@ namespace UHFPS.Runtime.States
                 agent.isStopped = false;
                 if (distance >= State.PlayerLostDistance && _controller.PlayerIsUnavalilable)
                 {
-                    Debug.Log("GG");
                     Destroy(machine.gameObject);
                 }
                 if (distance >= State.StartTransparentDistance)

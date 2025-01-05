@@ -75,7 +75,6 @@ namespace UHFPS.Runtime.States
             {
                 
                 bool isPlayerAvailable = !(float.IsInfinity(agent.remainingDistance) || agent.remainingDistance == 0);
-                Debug.Log(isPlayerAvailable);
                 bool changeState = _timeInFlashLight >= State.UnderFlashlightMaxTime || isAttacked || !isPlayerAvailable;
                 if (changeState)
                 {
@@ -123,7 +122,6 @@ namespace UHFPS.Runtime.States
             public override void OnStateUpdate()
             {
                 _timeFromAttack += Time.deltaTime;
-                Debug.Log(agent.remainingDistance);
                 if (!resetParameters)
                 {
                     Group.ResetAnimatorPrameters(animator);

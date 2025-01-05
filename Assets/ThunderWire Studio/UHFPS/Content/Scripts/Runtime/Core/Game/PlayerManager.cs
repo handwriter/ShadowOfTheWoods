@@ -274,7 +274,7 @@ namespace UHFPS.Runtime
                 if (enemy.Item2 != null && !ModelController.CheckEnemySeen(enemy.Item1)) instances.Add(enemy.Item2);
                 enemyKeys.Add(enemy.Item2, enemy.Item1);
             }
-            if (enemyKeys.Values.Contains(EnemyType.Chert))
+            if (enemyKeys.Values.Contains(EnemyType.Chert) && !ModelController.CheckEnemySeen(EnemyType.Chert))
             {
                 PlayFirstEnemyDialog(EnemyType.Chert);
                 return;

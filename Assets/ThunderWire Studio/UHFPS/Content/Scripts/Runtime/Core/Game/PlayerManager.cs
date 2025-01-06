@@ -271,9 +271,11 @@ namespace UHFPS.Runtime
             Dictionary<GameObject, EnemyType> enemyKeys = new Dictionary<GameObject, EnemyType>();
             foreach (var enemy in activeData)
             {
+                Debug.Log(enemy.Item1);
                 if (enemy.Item2 != null && !ModelController.CheckEnemySeen(enemy.Item1)) instances.Add(enemy.Item2);
                 enemyKeys.Add(enemy.Item2, enemy.Item1);
             }
+            //Debug.Log($"Active enemies count: {activeData.Length}. Enemies: {string.Join(enemyKeys.Values.ToArray())}");
             if (enemyKeys.Values.Contains(EnemyType.Chert) && !ModelController.CheckEnemySeen(EnemyType.Chert))
             {
                 PlayFirstEnemyDialog(EnemyType.Chert);

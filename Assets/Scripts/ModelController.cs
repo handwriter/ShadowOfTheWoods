@@ -5,34 +5,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static EnemiesSpawnManager;
 
-public static class ModelController
+public class ModelController : Singleton<ModelController>
 {
     public static bool IsUsingNightVision = false;
     public static bool IsUsingFlashlight = false;
-    private const string EnemySavePrefix = "Enemy_";
 
-    private static List<EnemyType> _seenTypes = null;
-
-    public static void Init()
-    {
-        _seenTypes = new List<EnemyType>();
-        SceneManager.activeSceneChanged += OnSceneChanged;
-    }
+    private List<EnemyType> _seenTypes = new List<EnemyType>();
 
     public static void OnSceneChanged(Scene first, Scene second)
     {
-        _seenTypes.Clear();
+         Instance._seenTypes.Clear();
     }
 
     public static bool CheckEnemySeen(EnemyType type)
     {
-        if (_seenTypes == null) Init(); 
-        return _seenTypes.Contains(type);
+        return Instance._seenTypes.Contains(type);
     }
 
     public static void SetEnemySeen(EnemyType type)
     {
-        if (_seenTypes == null) Init();
-        _seenTypes.Add(type);
+        Instance._seenTypes.Add(type);
     }
 }

@@ -32,7 +32,7 @@ public class EnemiesSpawnManager : Singleton<EnemiesSpawnManager>
     public int WaterMonsterDataIndex;
     public int LeshyDataIndex;
     private bool _isWaterMonsterSpawned;
-    private bool _isChertActivated;
+    private bool _isChertActivated = false;
     private void Awake()
     {
         foreach (EnemySpawnData data in SpawnData) _dataParsed.Add(data);

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static EnemiesSpawnManager;
 
 public static class ModelController
@@ -15,6 +16,12 @@ public static class ModelController
     public static void Init()
     {
         _seenTypes = new List<EnemyType>();
+        SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+
+    public static void OnSceneChanged(Scene first, Scene second)
+    {
+        _seenTypes.Clear();
     }
 
     public static bool CheckEnemySeen(EnemyType type)
